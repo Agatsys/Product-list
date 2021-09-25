@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap');
+@import './normalize';
+
+a {
+    display: block;
+    border-radius: 5px;
+    text-align: center;
+    height: 100%;
+    padding-top: 5.3%;
+}
+textarea { 
+    font-size: 18px;
+}
+
+
+.app-wrapper {
+    min-height: 300px;
+    font-family: Quicksand;
+    padding: 20px 25px 20px 25px;
+}
+.MainPage {
+    background-color: rgb(255, 255, 255);
+    .Header {
+        display: grid;
+        grid-template-columns: 850px 1fr;
+        grid-template-areas: 'a s';
+        min-width: 1200px;
+        min-height: 50px;
+        .AddNewProductButton {
+            grid-area: a;
+            background-color: rgb(185, 247, 193);
+            border: 1px solid black;
+            border-radius: 7px;
+            width: 200px;
+            height: 50px;
+            font-size: 20px;
+        }
+        .Sort {
+            grid-area: s;
+        }
+    }
+    .Products {
+        min-width: 1200px;
+        .item {
+            display: grid;
+            grid-template: 50px 1fr / 200px 1fr 130px;
+            grid-template-areas: 
+            'ph n del'
+            'ph dis details';
+            min-width: 1200px;
+            min-height: 200px;
+            border-radius: 7px;
+            background-color: rgb(223, 219, 219);
+            margin-top: 20px;
+            .NameOfProduct {
+                font-size: large;
+                font-weight: bold;
+                grid-area: n;
+                padding: 10px 0px 0px 10px;
+            }
+            .DeleteButton {
+                border: 1px solid black;
+                border-radius: 5px;
+                grid-area: del;
+                height: 30px;
+                width: 100px;
+                margin: 20px 0px 0px 15px;
+                text-align: center;
+                
+            }
+            .DetailsButton {
+                border: 1px solid black;
+                border-radius: 5px;
+                grid-area: details;
+                height: 30px;
+                width: 100px;
+                margin: 100px 0px 0px 15px;
+                text-align: center; 
+            }
+            .ProductPhotoBlock {
+                grid-area: ph;
+                padding: 5px;
+                background-color: rgb(100, 98, 98);
+                border-radius: 7px;
+                .ProductPhoto {
+                    display: block;
+                    border-radius: 5px;
+                    height: 190px;
+                    width: 190px;
+                }
+            }
+            .Discription {
+                grid-area: dis;
+                padding: 10px 0px 0px 10px;
+            }
+        }
+    }
+}
+
+
+.DetailPage {
+    min-height: 300px;
+    .BackButton {
+        //display: block;
+        background-color: rgb(185, 247, 193);
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 200px;
+        height: 50px;
+        font-size: 20px;   
+    }
+}
+
+.modal {
+    height: 100%; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    .modalContent {
+        display: grid;
+        grid-template: 50px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
+        grid-template-areas: 
+        't t'
+        'name_t n'
+        'discription_t d'
+        'color_t c'
+        'weight_t wg'
+        'length_t l'
+        'height_t h'
+        'width_t wd'
+        'count_t a'
+        'photo_t p'
+        'cb ab';
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        height: 500px;
+        width: 700px;
+        .modal__title {
+            font-size: larger;
+            font-weight: bolder;
+            grid-area: t;
+            .name_t {
+                grid-area: name_t;
+            }
+            .discription_t {
+                grid-area: discription_t;
+            }
+            .count_t {
+                grid-area: count_t;
+            }
+            .photo_t {
+                grid-area: photo_t;
+            }
+            .color_t {
+                grid-area: color_t;
+            }
+            .weight_t {
+                grid-area: weight_t;
+            }
+            .length_t {
+                grid-area: length_t;
+            }
+            .height_t {
+                grid-area: height_t;
+            }
+            .width_t {
+                grid-area: width_t;
+            }
+        }
+        .EnterName {
+            grid-area: n;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterDiscription {
+            grid-area: d;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterColor {
+            grid-area: c;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterWeight {
+            grid-area: wg;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterLength {
+            grid-area: l;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterHeight {
+            grid-area: h;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterWidth {
+            grid-area: wd;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .EnterCount {
+            grid-area: a;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .AddPhoto {
+            grid-area: p;
+            border: 1px solid black;
+            margin: 0px 0px 10px 10px;
+        }
+        .CancelButton {
+            grid-area: cb;
+            border: 1px solid rgb(117, 3, 3);
+            margin: 10px 0px 0px 0px;
+            border-radius: 5px;
+            height: 30px;
+            width: 120px;
+        }
+        .AddButton {
+            grid-area: ab;
+            border: 1px solid rgb(1, 104, 27);
+            margin: 10px 0px 0px 390px;
+            border-radius: 5px;
+            height: 30px;
+            width: 120px;
+            
+            
+        }
+        
+    }
+}
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}

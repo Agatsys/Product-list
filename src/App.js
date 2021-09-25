@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route } from 'react-router';
+import './media/styles/index.scss';
+import DetailPage from './pages/detailsPage/detailsPage';
+import mainPageContainer from './pages/mainPage/mainPageContainer';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="AppWrapper">
+      <Route exact path='/' component={() => <mainPageContainer /> } /> 
+      <Route exact path='/details/:id' component={() => <DetailPage/> } />
     </div>
   );
 }
