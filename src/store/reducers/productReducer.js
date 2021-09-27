@@ -51,49 +51,42 @@ const newProductReducer = (state = initialState, action) => {
                 height: state.newHeight,
                 width: state.newWidth,
                 count: state.newCount,
-                photo: state.newPhoto
+                photo: state.newPhoto,
             };
-            state.productsData.push(newProduct);
-            state.newName = '';
-            state.newDiscription = '';
-            state.newColor = '';
-            state.newWeight = '';
-            state.newLength = '';
-            state.newHeight = '';
-            state.newWidth = '';
-            state.newCount = '';
-            state.newPhoto = '';
-            return state;
+            return {
+                ...state,
+                productsData: [...state.productsData, newProduct],
+                newName: '',
+                newDiscription: '',
+                newColor: '',
+                newWeight: '',
+                newLength: '',
+                newHeight: '',
+                newWidth: '',
+                newCount: '',
+                newPhoto: ''}
         case CHANGE_NAME:
-            state.newName = action.newText;
-            return state;
+            return {...state, newName: action.newText}
         case CHANGE_DISCRIPTION:
-            state.newDiscription = action.newText;
-            return state;
+            return {...state, newDiscription: action.newText}
         case CHANGE_COLOR:
-            state.newColor = action.newText;
-            return state;
+            return {...state, newColor: action.newText}
         case CHANGE_WEIGHT:
-            state.newWeight = action.newText;
-            return state;
+            return {...state, newWeight: action.newText}
         case CHANGE_LENGTH:
-            state.newLength = action.newText;
-            return state;
+            return {...state, newLength: action.newText}
         case CHANGE_HEIGHT:
-            state.newHeight = action.newText;
-            return state;
+            return {...state, newHeight: action.newText}
         case CHANGE_WIDTH:
-            state.newWidth = action.newText;
-            return state;
+            return {...state, newWidth: action.newText}
         case CHANGE_COUNT:
-            state.newCount = action.newText;
-            return state;
+            return {...state, newCount: action.newText}
         case CHANGE_PHOTO:
-            state.newPhoto = action.newText;
-            return state;
+            return {...state, newPhoto: action.newText}
         default:
             return state;
     }
 }
+
 
 export default newProductReducer;

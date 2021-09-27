@@ -1,14 +1,15 @@
 import React from 'react'
 import { Route } from 'react-router';
 import './media/styles/index.scss';
-import DetailPage from './pages/detailsPage/detailsPage';
-import mainPageContainer from './pages/mainPage/mainPageContainer';
+import detailsPage from './pages/detailsPage/detailsPage';
+import mainPage from './pages/mainPage/mainPage';
 
-const App = (props) => {
+
+const App = () => {
   return (
-    <div className="AppWrapper">
-      <Route exact path='/' component={() => <mainPageContainer /> } /> 
-      <Route exact path='/details/:id' component={() => <DetailPage/> } />
+    <div className="app-wrapper">
+      <Route exact path='/' component={mainPage} /> 
+      <Route exact path='/details/:id' component={detailsPage} />
     </div>
   );
 }

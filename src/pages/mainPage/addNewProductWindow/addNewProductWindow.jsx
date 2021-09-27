@@ -1,22 +1,22 @@
 import React from 'react'
-// import EnterName from './WithinModal/EnterName'
-// import AddButton from './WithinModal/AddButton'
-// import AddPhoto from './WithinModal/AddPhoto'
-// import CancelButton from './WithinModal/CancelButton'
-// import EnterCount from './WithinModal/EnterCount'
-// import EnterColor from './WithinModal/EnterColor'
-// import EnterDiscription from './WithinModal/EnterDiscription'
-// import EnterHeight from './WithinModal/EnterHeight'
-// import EnterLength from './WithinModal/EnterLength'
-// import EnterWeight from './WithinModal/EnterWeight'
-// import EnterWidth from './WithinModal/EnterWidth'
+import AddButton from './addButton/addButton';
+import CancelButton from './cancelButton/cancelButton';
+import EnterColor from './enterColor/enterColor';
+import EnterCount from './enterCount/enterCount';
+import EnterDiscription from './enterDiscription/enterDiscription';
+import EnterHeight from './enterHeight/enterHeight';
+import EnterLength from './enterLength/enterLength';
+import EnterName from './enterName/enterName';
+import EnterPhoto from './enterPhoto/enterPhoto';
+import EnterWeight from './enterWeight/enterWeight';
+import EnterWidth from './enterWidth/enterWidth';
+
 
 const AddNewProductWindow = (props) => {
-    
     return (
         <div className={props.active ? 'addNewProductWindow active' : 'addNewProductWindow'} onClick={() => props.setActive(false)}>
             <div className='modalContent' onClick={e => e.stopPropagation()}>
-                <h3 className='modal__title'>AddProduct</h3>
+                <h3 className='addNewProductWindow__title'>AddProduct</h3>
                 <h4 className='name_t'>Name</h4>
                 <h4 className='discription_t'>Discription</h4>
                 <h4 className='color_t'>Color</h4>
@@ -26,17 +26,17 @@ const AddNewProductWindow = (props) => {
                 <h4 className='width_t'>Width (mm)</h4>
                 <h4 className='count_t'>Count</h4>
                 <h4 className='photo_t'>Photo</h4>
-                {/* <EnterName dispatch={props.dispatch}/>
-                <EnterDiscription dispatch={props.dispatch}/>
-                <EnterColor dispatch={props.dispatch}/>
-                <EnterWeight dispatch={props.dispatch}/>
-                <EnterLength dispatch={props.dispatch}/>
-                <EnterHeight dispatch={props.dispatch}/>
-                <EnterWidth dispatch={props.dispatch}/>
-                <EnterCount dispatch={props.dispatch}/>
-                <AddPhoto dispatch={props.dispatch}/>
-                <AddButton dispatch={props.dispatch} />
-                <CancelButton setActive={props.setActive}/> */}
+                <EnterName/>
+                <EnterDiscription/>
+                <EnterColor/>
+                <EnterWeight/>
+                <EnterLength/>
+                <EnterHeight/>
+                <EnterWidth/>
+                <EnterCount/>
+                <EnterPhoto/>
+                <AddButton/>
+                <CancelButton setActive={props.setActive}/>
             </div>
         </div>
     )

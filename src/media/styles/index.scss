@@ -12,36 +12,36 @@ textarea {
     font-size: 18px;
 }
 
-
 .app-wrapper {
+    background-color: rgb(255, 255, 255);
     min-height: 300px;
     font-family: Quicksand;
     padding: 20px 25px 20px 25px;
 }
 .MainPage {
+    display: grid;
+    grid-template: 100px 1fr / 1fr 1fr;
+    grid-template-areas: 
+    'a s'
+    'pw pw';
     background-color: rgb(255, 255, 255);
-    .Header {
-        display: grid;
-        grid-template-columns: 850px 1fr;
-        grid-template-areas: 'a s';
-        min-width: 1200px;
-        min-height: 50px;
-        .AddNewProductButton {
-            grid-area: a;
-            background-color: rgb(185, 247, 193);
-            border: 1px solid black;
-            border-radius: 7px;
-            width: 200px;
-            height: 50px;
-            font-size: 20px;
-        }
-        .Sort {
-            grid-area: s;
-        }
+    .AddNewProductButton {
+        grid-area: a;
+        background-color: rgb(185, 247, 193);
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 200px;
+        height: 50px;
+        font-size: 20px;
     }
-    .Products {
-        min-width: 1200px;
-        .item {
+    .Sort {
+        grid-area: s;
+    }
+    .Products-wrapper {
+        grid-area: pw;
+        background-color: rgb(255, 255, 255);
+        .Product {
+            min-width: 1200px;
             display: grid;
             grid-template: 50px 1fr / 200px 1fr 130px;
             grid-template-areas: 
@@ -58,6 +58,10 @@ textarea {
                 grid-area: n;
                 padding: 10px 0px 0px 10px;
             }
+            .Discription {
+                grid-area: dis;
+                padding: 10px 0px 0px 10px;
+            } 
             .DeleteButton {
                 border: 1px solid black;
                 border-radius: 5px;
@@ -66,7 +70,6 @@ textarea {
                 width: 100px;
                 margin: 20px 0px 0px 15px;
                 text-align: center;
-                
             }
             .DetailsButton {
                 border: 1px solid black;
@@ -89,29 +92,16 @@ textarea {
                     width: 190px;
                 }
             }
-            .Discription {
-                grid-area: dis;
-                padding: 10px 0px 0px 10px;
-            }
         }
     }
 }
 
 
-.DetailPage {
-    min-height: 300px;
-    .BackButton {
-        //display: block;
-        background-color: rgb(185, 247, 193);
-        border: 1px solid black;
-        border-radius: 7px;
-        width: 200px;
-        height: 50px;
-        font-size: 20px;   
-    }
-}
 
-.modal {
+
+
+
+.addNewProductWindow {
     height: 100%; 
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -144,7 +134,7 @@ textarea {
         background-color: rgb(255, 255, 255);
         height: 500px;
         width: 700px;
-        .modal__title {
+        .addNewProductWindow__title {
             font-size: larger;
             font-weight: bolder;
             grid-area: t;
@@ -216,7 +206,7 @@ textarea {
             border: 1px solid black;
             margin: 0px 0px 10px 10px;
         }
-        .AddPhoto {
+        .EnterPhoto {
             grid-area: p;
             border: 1px solid black;
             margin: 0px 0px 10px 10px;
@@ -242,7 +232,7 @@ textarea {
         
     }
 }
-.modal.active {
+.addNewProductWindow.active {
     opacity: 1;
     pointer-events: all;
 }

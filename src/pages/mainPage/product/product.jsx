@@ -1,12 +1,11 @@
 import React from 'react'
-//import DeleteButton from './DeleteButton';
-//import DetailsButton from './DetailsButton';
-
+import DeleteButton from './deleteButton';
+import DetailsButton from './detailsButton';
 
 
 const Product = (props) => {
     return (
-        <div className='NewProduct item'>
+        <div className='Product'>
             <div className='NameOfProduct'>
                 {props.name}
             </div>
@@ -20,10 +19,8 @@ const Product = (props) => {
                     height='190px'
                     width='190px'/>
             </div>
-            {/* <DetailsButton 
-                id={props.id} */}
-            {/* /> */}
-            {/* <DeleteButton /> */}
+            <DetailsButton id={props.id} />
+            <DeleteButton />
         </div>
     )
 }
