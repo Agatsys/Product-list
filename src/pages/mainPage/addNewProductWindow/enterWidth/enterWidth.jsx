@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateWidthAction } from '../../../../store/reducers/productReducer';
+import './enterWidth.scss'
 
 
 const EnterWidth = (props) => {

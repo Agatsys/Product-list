@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateNameAction } from '../../../../store/reducers/productReducer';
+import './enterName.scss'
 
 
 const EnterName = (props) => {

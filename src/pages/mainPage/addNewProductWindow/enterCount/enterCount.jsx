@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateCountAction } from '../../../../store/reducers/productReducer';
+import './enterCount.scss'
 
 
 const EnterCount = (props) => {

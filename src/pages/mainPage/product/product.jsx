@@ -1,6 +1,7 @@
 import React from 'react'
-import DeleteButton from './deleteButton';
-import DetailsButton from './detailsButton';
+import DeleteButton from './deleteButton/deleteButton'
+import DetailsButton from './detailsButton/detailsButton'
+import './product.scss'
 
 
 const Product = (props) => {

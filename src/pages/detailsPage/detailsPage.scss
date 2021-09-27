@@ -1,11 +1,71 @@
-.DetailPage {
+.DetailPageWrapper {
+    display: grid;
+    grid-template: 60px 60px 400px 500px / 1fr 2fr;
+    grid-template-areas: 
+    'back back'
+    'nm nm'
+    'ph chr'
+    'adcomm comm';
     min-height: 300px;
-    .BackButton {
-        background-color: rgb(185, 247, 193);
+    .name__DetailPageWrapper {
+        grid-area: nm;
         border: 1px solid black;
-        border-radius: 7px;
-        width: 200px;
-        height: 50px;
-        font-size: 20px;   
+        font-weight: bold;
+        font-size: 30px;
     }
+    .photo__DetailPageWrapper {
+        grid-area: ph;
+        border: 1px solid black;
+        height: 400px;
+        width: 400px;
+    }
+    .comments__DetailPageWrapper {
+        grid-area: comm;
+        border: 1px solid black;
+    }
+    .addComment__DetailPageWrapper {
+        grid-area: adcomm;
+        border: 1px solid black;
+    }
+    .characteristics__DetailPageWrapper {
+        grid-area: chr;
+        border: 1px solid black;
+        .discription__DetailPageWrapper {
+            grid-area: dsc;
+            border: 1px solid black;
+        }
+        .color__DetailPageWrapper {
+            grid-area: clr;
+            border: 1px solid black;
+        }
+        .weight__DetailPageWrapper {
+            grid-area: wgt;
+            border: 1px solid black;
+        }
+        .width__DetailPageWrapper {
+            grid-area: wdt;
+            border: 1px solid black;
+        }
+        .length__DetailPageWrapper {
+            grid-area: lng;
+            border: 1px solid black;
+        }
+        .count__DetailPageWrapper {
+            grid-area: cnt;
+            border: 1px solid black;
+        }
+        .height__DetailPageWrapper {
+            grid-area: hgt;
+            border: 1px solid black;
+        }
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
 }

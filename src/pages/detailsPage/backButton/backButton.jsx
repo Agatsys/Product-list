@@ -1,12 +1,15 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import './backButton.scss'
 
 
 const BackButton = (props) => {
     return (
-        <button className='BackButton'>
-            <NavLink className='nav' to='/' activeClassName='active'>Back</NavLink>
-        </button>
+        <NavLink className='backButton' to='/' activeClassName='active'>
+            <div className='back'>
+                Back
+            </div>
+        </NavLink>
     )
 }
 

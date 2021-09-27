@@ -1,0 +1,15 @@
+.MainPage {
+    display: grid;
+    grid-template: 60px 1fr / 1fr 1fr;
+    grid-template-areas: 
+    'a s'
+    'pw pw';
+    background-color: rgb(255, 255, 255);
+    .Sort {
+        grid-area: s;
+    }
+    .Products-wrapper {
+        grid-area: pw;
+        background-color: rgb(255, 255, 255);   
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addProductAction } from '../../../../store/reducers/productReducer'
+import './addButton.scss'
 
 
 const AddButton = (props) => {

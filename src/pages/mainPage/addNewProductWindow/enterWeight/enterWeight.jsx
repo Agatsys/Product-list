@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateWeightAction } from '../../../../store/reducers/productReducer';
+import './enterWeight.scss'
 
 
 const EnterWeight = (props) => {

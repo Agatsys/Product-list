@@ -1,0 +1,13 @@
+.DeleteButton {
+    border: 1px solid black;
+    border-radius: 5px;
+    grid-area: del;
+    height: 30px;
+    width: 100px;
+    margin: 20px 0px 0px 15px;
+    text-align: center;
+}
+.DeleteButton:hover {
+    box-shadow: 0px 0px 10px rgb(36, 35, 35);
+    
+}

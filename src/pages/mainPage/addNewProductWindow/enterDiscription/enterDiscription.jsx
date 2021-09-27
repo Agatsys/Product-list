@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateDiscriptionAction } from '../../../../store/reducers/productReducer';
+import './enterDiscription.scss'
 
 
 const EnterDiscription = (props) => {

@@ -1,0 +1,35 @@
+.Product {
+    min-width: 1200px;
+    display: grid;
+    grid-template: 50px 1fr / 200px 1fr 130px;
+    grid-template-areas: 
+    'ph n del'
+    'ph dis details';
+    min-width: 1200px;
+    min-height: 200px;
+    border-radius: 7px;
+    background-color: rgb(223, 219, 219);
+    margin-top: 20px;
+    .NameOfProduct {
+        font-size: large;
+        font-weight: bold;
+        grid-area: n;
+        padding: 10px 0px 0px 10px;
+    }
+    .Discription {
+        grid-area: dis;
+        padding: 10px 0px 0px 10px;
+    } 
+    .ProductPhotoBlock {
+        grid-area: ph;
+        padding: 5px;
+        background-color: rgb(100, 98, 98);
+        border-radius: 7px;
+        .ProductPhoto {
+            display: block;
+            border-radius: 5px;
+            height: 190px;
+            width: 190px;
+        }
+    }
+}

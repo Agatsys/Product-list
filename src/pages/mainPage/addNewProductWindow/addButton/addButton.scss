@@ -1,0 +1,17 @@
+.AddButton {
+    grid-area: ab;
+    border: 1px solid rgb(1, 104, 27);
+    margin: 10px 0px 0px 390px;
+    border-radius: 5px;
+    height: 30px;
+    width: 120px; 
+    font-weight: bolder;
+}
+.AddButton:hover {
+    box-shadow: 0px 0px 10px rgb(86, 241, 86);
+    transition: 1s
+}
+.AddButton:active {
+    background-color: rgb(34, 107, 34);
+    transition: 0.5s
+}

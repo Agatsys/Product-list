@@ -1,6 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux';
-import { updateColorAction } from '../../../../store/reducers/productReducer';
+import { connect } from 'react-redux'
+import { updateColorAction } from '../../../../store/reducers/productReducer'
+import './enterColor.scss'
 
 
 const EnterColor = (props) => {

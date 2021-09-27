@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import AddNewProductButton from './addNewProductButton/addNewProductButton'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
+import './mainPage.scss'
 
 
 const MainPage = (props) => {

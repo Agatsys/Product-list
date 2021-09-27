@@ -10,6 +10,7 @@ import EnterName from './enterName/enterName';
 import EnterPhoto from './enterPhoto/enterPhoto';
 import EnterWeight from './enterWeight/enterWeight';
 import EnterWidth from './enterWidth/enterWidth';
+import './addNewProductWindow.scss'
 
 
 const AddNewProductWindow = (props) => {

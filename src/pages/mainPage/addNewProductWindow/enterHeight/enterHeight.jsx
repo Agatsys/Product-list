@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateHeightAction } from '../../../../store/reducers/productReducer';
+import './enterHeight.scss'
 
 
 const EnterHeight = (props) => {

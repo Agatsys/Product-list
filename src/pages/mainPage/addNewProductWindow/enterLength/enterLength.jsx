@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { updateLengthAction } from '../../../../store/reducers/productReducer';
+import './enterLength.scss'
 
 
 const EnterLength = (props) => {
