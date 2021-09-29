@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { updateColorAction } from '../../../../store/reducers/productReducer'
+import { updateColorAction } from '../../../../store/reducers/product.reducer'
 import './enterColor.scss'
 
 
@@ -21,9 +21,9 @@ const EnterColor = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-
+        newColor: state.newProduct.newColor
     }
 }
 let mapDispatchToProps = (dispatch) => {

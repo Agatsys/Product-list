@@ -7,7 +7,7 @@ const DetailsButton = (props) => {
     return (
         <NavLink className='DetailsButton' to={`/details/${props.id}`}>
             <div>
-                Details - {props.id}
+                Details
             </div>
         </NavLink>
     )

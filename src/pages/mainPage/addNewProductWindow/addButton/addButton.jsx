@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addProductAction } from '../../../../store/reducers/productReducer'
+import { addProductAction } from '../../../../store/reducers/product.reducer'
 import './addButton.scss'
 
 

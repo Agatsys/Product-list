@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updatePhotoAction } from '../../../../store/reducers/productReducer';
+import { updatePhotoAction } from '../../../../store/reducers/product.reducer';
 import './enterPhoto.scss'
 
 
@@ -22,9 +22,9 @@ const EnterPhoto = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-        
+        newPhoto: state.newProduct.newPhoto
     }
 }
 let mapDispatchToProps = (dispatch) => {

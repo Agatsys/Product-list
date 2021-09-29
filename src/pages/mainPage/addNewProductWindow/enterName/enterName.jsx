@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateNameAction } from '../../../../store/reducers/productReducer';
+import { updateNameAction } from '../../../../store/reducers/product.reducer';
 import './enterName.scss'
 
 
@@ -22,9 +22,9 @@ const EnterName = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-        
+        newName: state.newProduct.newName
     }
 }
 let mapDispatchToProps = (dispatch) => {

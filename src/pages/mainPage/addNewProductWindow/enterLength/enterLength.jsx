@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateLengthAction } from '../../../../store/reducers/productReducer';
+import { updateLengthAction } from '../../../../store/reducers/product.reducer';
 import './enterLength.scss'
 
 
@@ -22,9 +22,9 @@ const EnterLength = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-        
+        newLength: state.newProduct.newLength
     }
 }
 let mapDispatchToProps = (dispatch) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateWidthAction } from '../../../../store/reducers/productReducer';
+import { updateWidthAction } from '../../../../store/reducers/product.reducer';
 import './enterWidth.scss'
 
 
@@ -22,9 +22,9 @@ const EnterWidth = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-
+        newWidth: state.newProduct.newWidth
     }
 }
 let mapDispatchToProps = (dispatch) => {

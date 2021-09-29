@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateDiscriptionAction } from '../../../../store/reducers/productReducer';
+import { updateDiscriptionAction } from '../../../../store/reducers/product.reducer';
 import './enterDiscription.scss'
 
 
@@ -22,9 +22,9 @@ const EnterDiscription = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-        
+        newDiscription: state.newProduct.newDiscription
     }
 }
 let mapDispatchToProps = (dispatch) => {

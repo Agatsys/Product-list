@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateCountAction } from '../../../../store/reducers/productReducer';
+import { updateCountAction } from '../../../../store/reducers/product.reducer';
 import './enterCount.scss'
 
 
@@ -22,9 +22,9 @@ const EnterCount = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-        
+        newCount: state.newProduct.newCount
     }
 }
 let mapDispatchToProps = (dispatch) => {

@@ -9,6 +9,10 @@
     font-weight: bolder;
 }
 .AddNewProductButton:hover {
-    box-shadow: 0px 0px 10px rgb(36, 35, 35);
+    box-shadow: 0px 0px 10px rgb(34, 88, 32);
     transition: 1s
+}
+.AddNewProductButton:active {
+    background-color: rgb(31, 71, 34);
+    transition: 0.5s
 }

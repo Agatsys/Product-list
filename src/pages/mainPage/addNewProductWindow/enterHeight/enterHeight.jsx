@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateHeightAction } from '../../../../store/reducers/productReducer';
+import { updateHeightAction } from '../../../../store/reducers/product.reducer';
 import './enterHeight.scss'
 
 
@@ -22,9 +22,9 @@ const EnterHeight = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-        
+        newHeight: state.newProduct.newHeight
     }
 }
 let mapDispatchToProps = (dispatch) => {

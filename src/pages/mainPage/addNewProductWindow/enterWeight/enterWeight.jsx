@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { updateWeightAction } from '../../../../store/reducers/productReducer';
+import { updateWeightAction } from '../../../../store/reducers/product.reducer';
 import './enterWeight.scss'
 
 
@@ -22,9 +22,9 @@ const EnterWeight = (props) => {
     )
 }
 
-let mapStateToProps = () => {
+let mapStateToProps = (state) => {
     return {
-
+        newWeight: state.newProduct.newWeight
     }
 }
 let mapDispatchToProps = (dispatch) => {

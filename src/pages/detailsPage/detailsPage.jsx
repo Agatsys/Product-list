@@ -2,32 +2,53 @@ import React from 'react'
 import './detailsPage.scss'
 import { connect } from 'react-redux'
 import BackButton from './backButton/backButton'
+import Width from './width/width'
+import Weight from './weight/weight'
+import Photo from './photo/photo'
+import Color from './color/color'
+import Name from './name/name'
+import Discription from './discription/discription'
+import Length from './length/length'
+import Count from './count/count'
+import Height from './height/height'
 
 
 const DetailsPage = (props) => {
+
+    //console.log('!!!!!!!!!!!!!!!!!!!!')
+    //console.log(props)
+
     return (
-        <div className='DetailPageWrapper'>
-            <BackButton />
-            <div className='name__DetailPageWrapper'>name</div>
-            <div className='photo__DetailPageWrapper'>Photo</div>
-            <div className='characteristics__DetailPageWrapper'>
-                <div className='discription__DetailPageWrapper'> Discription</div>
-                <div className='color__DetailPageWrapper'>Color</div>
-                <div className='weight__DetailPageWrapper'>Weight</div>
-                <div className='width__DetailPageWrapper'>Width</div>
-                <div className='length__DetailPageWrapper'>Length</div>
-                <div className='count__DetailPageWrapper'>Count</div>
-                <div className='height__DetailPageWrapper'>Height</div>
+        <>
+            
+            <div className='DetailPageWrapper'>
+
+                <BackButton />
+                <Name name={props.productData.name}/>
+                <Photo photo={props.productData.photo}/>
+                <div className='characteristics__DetailPageWrapper'>
+                    <Discription discription={props.productData.discription}/>
+                    <Weight weight={props.productData.weight}/>
+                    <Color color={props.productData.color}/>
+                    <Width width={props.productData.width}/>
+                    <Length length={props.productData.length}/>
+                    <Count count={props.productData.count}/>
+                    <Height height={props.productData.height}/>
+                </div>
+                <div className='comments__DetailPageWrapper'>comments</div>
+                <div className='addComment__DetailPageWrapper'>add comment</div>
             </div>
-            <div className='comments__DetailPageWrapper'>comments</div>
-            <div className='addComment__DetailPageWrapper'>add comment</div>
-        </div>
+        </>
     )
 }
 
 const mapStateToProps = (state, ownProps) => {
+
+    const allProducts = state.newProduct.productsData
+    const data = (allProducts.find(item => item.id === ownProps.match.params.id) || {})
+
     return {
-        productData: state.newProduct.productsData.filter(item => item === ownProps.match.params.id)
+        productData: data
     }
 }
 const mapDispatchToProps = (dispatch) => {
