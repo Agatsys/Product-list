@@ -6,7 +6,10 @@ import './addComment.scss'
 const AddComment = () => {
     return (
         <div className='addComment__DetailPageWrapper'>
-            <textarea className='enterComment__DetailPageWrapper'/>
+            <div className='writeYourComment'>Write your comment:</div>
+            <textarea 
+                className='enterComment__DetailPageWrapper'
+                />
             <AddCommentButton />
         </div>
     )

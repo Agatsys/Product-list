@@ -1,9 +1,10 @@
 import React from "react";
+import './addCommentButton.scss'
 
 
 const addCommentButton = () => {
     return (
-        <div>addCommentButton</div>
+        <button className='addCommentButton__DetailPageWrapper'>Add comment</button>
     )
 }
 

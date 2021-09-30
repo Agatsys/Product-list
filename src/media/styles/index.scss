@@ -7,13 +7,15 @@ a {
     transition: 1s  
 }
 button {
-    transition: 1s  
+    transition: 1s;  
 }
-
 textarea { 
     font-size: 18px;
+    resize: none;
 }
-
+div {
+    transition: 2s;  
+}
 .app-wrapper {
     background-color: rgb(255, 255, 255);
     min-height: 300px;

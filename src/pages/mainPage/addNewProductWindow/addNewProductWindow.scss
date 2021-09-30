@@ -36,7 +36,7 @@
         height: 500px;
         width: 700px;
         .addNewProductWindow__title {
-            font-size: larger;
+            font-size: 20px;
             font-weight: bolder;
             grid-area: t;
         }
@@ -66,6 +66,10 @@
         }
         .width_t {
             grid-area: width_t;
+        }
+        h4 {
+            font-weight: bolder;
+            padding-top: 8px;
         }
     }
 }
