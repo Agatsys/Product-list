@@ -1,0 +1,17 @@
+.cancelButton__deleteProductWindow {
+    grid-area: cb;
+    border: 1px solid rgb(117, 3, 3);
+    
+    border-radius: 5px;
+    height: 30px;
+    width: 120px;
+    font-weight: bolder;
+}
+.cancelButton__deleteProductWindow:hover {
+    box-shadow: 0px 0px 10px rgb(236, 74, 74);
+    transition: 1s
+}
+.cancelButton__deleteProductWindow:active {
+    background-color: rgb(133, 50, 44);
+    transition: 0.5s
+}

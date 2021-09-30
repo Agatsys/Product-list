@@ -1,0 +1,23 @@
+.EditButton__DetailPageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(219, 216, 215);
+    border: 1px solid black;
+    border-radius: 7px;
+    width: 200px;
+    height: 35px;
+    font-size: 20px;  
+    font-weight: bolder;
+    color: black;
+    grid-area: edit;
+    margin-left: 750px
+}
+.EditButton__DetailPageWrapper:hover {
+    box-shadow: 0px 0px 10px rgb(36, 35, 35);
+    transition: 1s
+}
+.EditButton__DetailPageWrapper:active {
+    background-color: rgb(71, 61, 31);
+    transition: 0.5s
+}

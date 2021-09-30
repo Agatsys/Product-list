@@ -4,8 +4,8 @@ import './count.scss'
 
 const Count = (props) => {
     return (
-        <div className='count__DetailPageWrapper'>
-            {props.count}
+        <div className='count__DetailPageWrapper char__DetailPageWrapper'>
+            <span>Count:</span> {props.count}
         </div>
     )
 }

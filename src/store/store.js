@@ -1,11 +1,13 @@
 import { combineReducers, createStore } from "redux";
 import newProductReducer from "./reducers/product.reducer";
 import editProductReducer from './reducers/editProduct.reducer'
+import deleteProductReducer from "./reducers/deleteProduct.reducer";
 
 
 let reducers = combineReducers({
     newProduct: newProductReducer,
     editProduct: editProductReducer,
+    deleteProduct: deleteProductReducer
 });
 
 let store = createStore(

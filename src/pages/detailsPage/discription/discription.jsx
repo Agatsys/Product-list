@@ -4,7 +4,7 @@ import './discription.scss'
 
 const Discription = (props) => {
     return (
-        <div className='discription__DetailPageWrapper'>
+        <div className='discription__DetailPageWrapper char__DetailPageWrapper'>
             {props.discription}
         </div>
     )

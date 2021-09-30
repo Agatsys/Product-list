@@ -1,0 +1,12 @@
+.addComment__DetailPageWrapper {
+    grid-area: adcomm;
+    margin-top: 40px;
+    .enterComment__DetailPageWrapper {
+        border: 1px solid black;
+        border-radius: 7px;
+        width: 400px;
+        height: 250px;
+    }
+}
+
+

@@ -1,0 +1,17 @@
+.deleteButton__deleteProductWindow {
+    grid-area: db;
+    border: 1px solid rgb(1, 104, 27);
+    border-radius: 5px;
+    height: 30px;
+    width: 120px;
+    font-weight: bolder;
+    margin: 0px 0px 0px 60px;
+}
+.deleteButton__deleteProductWindow:hover {
+    box-shadow: 0px 0px 10px rgb(86, 241, 86);
+    transition: 1s
+}
+.deleteButton__deleteProductWindow:active {
+    background-color: rgb(34, 107, 34);
+    transition: 0.5s
+}

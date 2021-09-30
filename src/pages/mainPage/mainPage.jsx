@@ -4,6 +4,7 @@ import AddNewProductButton from './addNewProductButton/addNewProductButton'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
+import DeleteProductWindow from './deleteProductWindow/deleteProductWindow'
 
 
 const MainPage = (props) => {
@@ -18,6 +19,7 @@ const MainPage = (props) => {
     return (
         <div className='MainPage'>
             <AddNewProductButton setModalActive={setModalActive}/>
+            <DeleteProductWindow/>
             <AddNewProductWindow active={modalActive} setActive={setModalActive} />
             <div className='Products-wrapper'>
                 {productElement}

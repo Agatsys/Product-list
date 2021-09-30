@@ -1,0 +1,34 @@
+.deleteProductWindow.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.deleteProductWindow {
+    height: 100%; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+    .Content__deleteProductWindow {
+        display: grid; 
+        grid-template: 1fr 30px / 1fr 1fr;
+        grid-template-areas: 
+        'txt txt'
+        'cb db';     
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        height: 300px;
+        width: 400px;
+        .text__deleteProductWindow {
+            grid-area: txt;
+            color: blue;
+        }
+    }
+}

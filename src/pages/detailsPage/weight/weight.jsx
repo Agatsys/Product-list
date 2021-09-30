@@ -4,8 +4,8 @@ import './weight.scss'
 
 const Weight = (props) => {
     return (
-        <div className='weight__DetailPageWrapper'>
-            {props.weight}
+        <div className='weight__DetailPageWrapper char__DetailPageWrapper'>
+            <span>Weight:</span> {props.weight}g
         </div>
     )
 }
