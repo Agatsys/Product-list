@@ -78,7 +78,6 @@ const newProductReducer = (state = initialState, action) => {
         case CLOSE_MODAL: {
             return {}
         }
-
         case DELETE_PRODUCT: {
             const uid = action.payload
             return {
@@ -89,27 +88,53 @@ const newProductReducer = (state = initialState, action) => {
             }
         }
         case CHANGE_NAME:
-            return {...state, newName: action.payload}
+            return {
+                ...state, 
+                newName: action.payload
+            }
         case CHANGE_DISCRIPTION:
-            return {...state, newDiscription: action.payload}
+            return {
+                ...state, 
+                newDiscription: action.payload
+            }
         case CHANGE_COLOR:
-            return {...state, newColor: action.payload}
+            return {
+                ...state, 
+                newColor: action.payload
+            }
         case CHANGE_WEIGHT:
-            return {...state, newWeight: action.payload}
+            return {
+                ...state, 
+                newWeight: action.payload
+            }
         case CHANGE_LENGTH:
-            return {...state, newLength: action.payload}
+            return {
+                ...state, 
+                newLength: action.payload
+            }
         case CHANGE_HEIGHT:
-            return {...state, newHeight: action.payload}
+            return {
+                ...state, 
+                newHeight: action.payload
+            }
         case CHANGE_WIDTH:
-            return {...state, newWidth: action.payload}
+            return {
+                ...state, 
+                newWidth: action.payload
+            }
         case CHANGE_COUNT:
-            return {...state, newCount: action.payload}
+            return {
+                ...state, 
+                newCount: action.payload
+            }
         case CHANGE_PHOTO:
-            return {...state, newPhoto: action.payload}
+            return {
+                ...state, 
+                newPhoto: action.payload
+            }
         default:
             return state;
     }
 }
-
 
 export default newProductReducer;

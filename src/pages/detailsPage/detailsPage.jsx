@@ -13,6 +13,7 @@ import Count from './count/count'
 import Height from './height/height'
 import AddComment from './addComment/addComment'
 import EditProductButton from './editProductButton/editProductButton'
+import Comments from './comments/comments'
 
 
 const DetailsPage = (props) => {
@@ -31,7 +32,7 @@ const DetailsPage = (props) => {
                 <Count count={props.productData.count} />
                 <Height height={props.productData.height} />
             </div>
-            <div className='commentsWrapper__DetailPageWrapper'>comments</div>
+            <Comments name={props.productData.name}/>
             <AddComment />
         </div>
     )

@@ -5,6 +5,7 @@ import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
 import DeleteProductWindow from './deleteProductWindow/deleteProductWindow'
+import SortProducts from './sortProducts/sortProducts'
 
 
 const MainPage = (props) => {
@@ -19,6 +20,7 @@ const MainPage = (props) => {
     return (
         <div className='MainPage'>
             <AddNewProductButton setModalActive={setModalActive}/>
+            <SortProducts />
             <DeleteProductWindow/>
             <AddNewProductWindow active={modalActive} setActive={setModalActive} />
             <div className='Products-wrapper'>
@@ -40,5 +42,3 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
-
-

@@ -13,6 +13,10 @@ textarea {
     font-size: 18px;
     resize: none;
 }
+textarea:focus{
+    background-color: rgb(183, 240, 185);
+    transition: 0.5s;
+}
 div {
     transition: 2s;  
 }

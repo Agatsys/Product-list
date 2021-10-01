@@ -17,7 +17,7 @@
     transition: 0.5s;
     .modalContent {
         display: grid;
-        grid-template: 50px 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
+        grid-template: 50px 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
         grid-template-areas: 
         't t'
         'name_t n'
@@ -33,7 +33,7 @@
         padding: 20px;
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
-        height: 500px;
+        height: 600px;
         width: 700px;
         .addNewProductWindow__title {
             font-size: 20px;

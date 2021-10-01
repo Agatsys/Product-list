@@ -17,11 +17,7 @@
         'wdt cnt';
         grid-gap: 10px;
     }
-    .commentsWrapper__DetailPageWrapper {
-        grid-area: comm;
-        border: 1px solid black;
-        margin-top: 20px;
-    }
+    
     .characteristics__DetailPageWrapper {
         grid-area: chr;
         span {
