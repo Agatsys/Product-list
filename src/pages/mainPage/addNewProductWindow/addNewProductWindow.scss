@@ -15,7 +15,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
-    .modalContent {
+    .modalContent__addNewProductWindow {
         display: grid;
         grid-template: 50px 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
         grid-template-areas: 
@@ -35,7 +35,7 @@
         background-color: rgb(255, 255, 255);
         height: 600px;
         width: 700px;
-        .addNewProductWindow__title {
+        .title__addNewProductWindow {
             font-size: 20px;
             font-weight: bolder;
             grid-area: t;

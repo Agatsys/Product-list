@@ -2,9 +2,9 @@ import React from "react";
 import './cancelButtonDW.scss'
 
 
-const CancelButtonDW = () => {
+const CancelButtonDW = (props) => {
     return (
-        <button className='cancelButton__deleteProductWindow'>
+        <button className='cancelButton__deleteProductWindow' onClick={() => props.setActive(false)}>
             Cancel
         </button>
     )

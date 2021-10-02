@@ -7,7 +7,7 @@ import './addCommentButton.scss'
 const addCommentButton = (props) => {
 
     let AddNewComment = () => {
-        props.AddComment()
+        props.AddComment(props.uid)
     }
 
     return (
@@ -17,8 +17,8 @@ const addCommentButton = (props) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        AddComment: () => {
-            dispatch(addCommentAction());
+        AddComment: (uid) => {
+            dispatch(addCommentAction(uid));
         }
     }
 }

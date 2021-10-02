@@ -2,12 +2,12 @@ import React from "react";
 import './comments.scss'
 import Comment from './comment/comment'
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 
 const Comments = (props) => {
-    const commentElement = props.commentsData.map( (c) => <Comment  
-        text={c.text}
-         /> )
+
+    const commentElement = props.commentsNew.map((item, index) => <Comment key={`comment-${index}`} text={item.text}/> )
     return (
         <div className='commentsWrapper__DetailPageWrapper'>
             Comments to {props.name}:
@@ -17,9 +17,11 @@ const Comments = (props) => {
 }
 
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state, ownProps) => {
+    
+    const uid = ownProps.match.params.id
     return {
-        commentsData: state.comments.commentsData
+        commentsNew: state.comments.commentsNew[uid] || []
     }
 }
 let mapDispatchToProps = (dispatch) => {
@@ -28,4 +30,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Comments)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Comments))

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './detailsPage.scss'
 import { connect } from 'react-redux'
 import BackButton from './backButton/backButton'
@@ -14,13 +14,17 @@ import Height from './height/height'
 import AddComment from './addComment/addComment'
 import EditProductButton from './editProductButton/editProductButton'
 import Comments from './comments/comments'
+import EditProductWindow from './editProductWindow/editProductWindow'
 
 
 const DetailsPage = (props) => {
+    const [editModalActive, setEditModalActive] = useState(false)
+
     return (
         <div className='DetailPageWrapper'>
             <BackButton />
-            <EditProductButton />
+            <EditProductButton setModalActive={setEditModalActive}/>
+            <EditProductWindow active={editModalActive} setActive={setEditModalActive} />
             <Name name={props.productData.name} />
             <Photo photo={props.productData.photo} />
             <div className='characteristics__DetailPageWrapper'>

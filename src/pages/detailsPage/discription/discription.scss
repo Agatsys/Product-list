@@ -1,3 +1,5 @@
 .discription__DetailPageWrapper {
     grid-area: dsc;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }

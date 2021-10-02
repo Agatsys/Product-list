@@ -1,20 +1,27 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import newProductReducer from "./reducers/product.reducer";
-import editProductReducer from './reducers/editProduct.reducer'
-import deleteProductReducer from "./reducers/deleteProduct.reducer";
+//import editProductReducer from './reducers/editProduct.reducer'
 import commentsReducer from "./reducers/addComment.reducer";
+import thunk from "redux-thunk";
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 
 
 let reducers = combineReducers({
     newProduct: newProductReducer,
-    editProduct: editProductReducer,
-    deleteProduct: deleteProductReducer,
     comments: commentsReducer
 });
 
+const middlewares = [
+    thunk
+]
+
 let store = createStore(
-    reducers, 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    reducers,
+    composeWithDevTools(
+        applyMiddleware(...middlewares),
+        // other store enhancers if any
+    )
 );
 
 export default store;

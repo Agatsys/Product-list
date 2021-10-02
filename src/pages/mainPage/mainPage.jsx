@@ -4,30 +4,32 @@ import AddNewProductButton from './addNewProductButton/addNewProductButton'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
-import DeleteProductWindow from './deleteProductWindow/deleteProductWindow'
 import SortProducts from './sortProducts/sortProducts'
 
 
 const MainPage = (props) => {
-    const productElement = props.productsData.map( (p) => <Product  
-        name={p.name}
-        discription={p.discription}
-        photo={p.photo}
-        id={p.id}
-        key={p.id} /> )
-    const [modalActive , setModalActive] = useState(false)
+    const [modalActive, setModalActive] = useState(false)
+
+    const productElement = props.productsData.map(p => (
+        <Product
+            name={p.name}
+            discription={p.discription}
+            photo={p.photo}
+            id={p.id}
+            key={p.id} 
+        />
+    ))
     
     return (
         <div className='MainPage'>
-            <AddNewProductButton setModalActive={setModalActive}/>
+            <AddNewProductButton setModalActive={setModalActive} />
             <SortProducts />
-            <DeleteProductWindow/>
             <AddNewProductWindow active={modalActive} setActive={setModalActive} />
             <div className='Products-wrapper'>
                 {productElement}
-            </div> 
-        </div>    
-    ) 
+            </div>
+        </div>
+    )
 }
 
 let mapStateToProps = (state) => {

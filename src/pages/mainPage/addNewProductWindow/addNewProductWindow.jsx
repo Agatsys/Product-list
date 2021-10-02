@@ -16,8 +16,8 @@ import './addNewProductWindow.scss'
 const AddNewProductWindow = (props) => {
     return (
         <div className={props.active ? 'addNewProductWindow active' : 'addNewProductWindow'} onClick={() => props.setActive(false)}>
-            <div className='modalContent' onClick={e => e.stopPropagation()}>
-                <h3 className='addNewProductWindow__title'>Add product</h3>
+            <div className='modalContent__addNewProductWindow' onClick={e => e.stopPropagation()}>
+                <h3 className='title__addNewProductWindow'>Add product</h3>
                 <h4 className='name_t'>Name</h4>
                 <h4 className='discription_t'>Discription</h4>
                 <h4 className='color_t'>Color</h4>

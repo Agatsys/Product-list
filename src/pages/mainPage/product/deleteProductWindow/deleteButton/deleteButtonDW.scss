@@ -6,12 +6,14 @@
     width: 120px;
     font-weight: bolder;
     margin: 0px 0px 0px 60px;
+    justify-self: end;
 }
 .deleteButton__deleteProductWindow:hover {
-    box-shadow: 0px 0px 10px rgb(86, 241, 86);
+    background-color: rgb(30, 184, 63);
+    box-shadow: 0px 0px 15px rgb(0, 0, 0);
     transition: 1s
 }
 .deleteButton__deleteProductWindow:active {
-    background-color: rgb(34, 107, 34);
+    background-color: rgb(31, 71, 31);
     transition: 0.5s
 }

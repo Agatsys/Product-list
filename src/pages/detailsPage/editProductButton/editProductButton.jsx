@@ -2,9 +2,9 @@ import React from "react";
 import './editProductButton.scss'
 
 
-const EditProductButton = () => {
+const EditProductButton = (props) => {
     return (
-        <button className='EditButton__DetailPageWrapper'>
+        <button className='EditButton__DetailPageWrapper' onClick={() => props.setModalActive(true)}>
             Edit product
         </button>
     )

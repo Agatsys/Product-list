@@ -2,8 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 const ADD_PRODUCT = 'ADD-PRODUCT'
-const OPEN_MODAL = 'OPEN-MODAL'
-const CLOSE_MODAL = 'CLOSE-MODAL'
 const DELETE_PRODUCT = 'DELETE-PRODUCT'
 const CHANGE_NAME = 'CHANGE-NAME'
 const CHANGE_DISCRIPTION = 'CHANGE-DISCRIPTION'
@@ -40,7 +38,6 @@ export let initialState = {
     newPhoto: '',   
 }
 
-
 const newProductReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_PRODUCT: {
@@ -71,12 +68,6 @@ const newProductReducer = (state = initialState, action) => {
                     newProduct
                 ]
             }
-        }
-        case OPEN_MODAL: {
-            return {}
-        }
-        case CLOSE_MODAL: {
-            return {}
         }
         case DELETE_PRODUCT: {
             const uid = action.payload

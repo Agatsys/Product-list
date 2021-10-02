@@ -6,10 +6,10 @@ const SortProducts = () => {
     return (
         <button className='sortProducts__MainPage'>Sort products
             <ul>
-                <li className='sortLi'>Name up</li>
-                <li className='sortLi'> Name down</li>
-                <li className='sortLi'>Count up</li>
-                <li className='sortLi'>Count down</li>
+                <li className='sortLi'></li>
+                <li className='sortLi'></li>
+                <li className='sortLi'></li>
+                <li className='sortLi'></li>
             </ul>
         </button>
     )

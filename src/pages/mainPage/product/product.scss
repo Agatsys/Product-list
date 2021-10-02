@@ -14,11 +14,15 @@
         font-weight: bold;
         grid-area: n;
         padding: 10px 0px 0px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis; 
     }
     .Discription {
         grid-area: dis;
         font-size: 20px;
         padding: 10px 0px 0px 10px;
+        overflow: hidden;
+        text-overflow: ellipsis; 
     } 
     .ProductPhotoBlock {
         grid-area: ph;
