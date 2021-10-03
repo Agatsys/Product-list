@@ -15,7 +15,7 @@ const EditPhoto = (props) => {
             className='EditPhoto'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedPhoto}>
+            value={props.photo}>
         </textarea>
     )
 }

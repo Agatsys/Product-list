@@ -15,7 +15,7 @@ const EditColor = (props) => {
             className='EditColor'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedColor}>
+            value={props.color}>
         </textarea>
     )
 }

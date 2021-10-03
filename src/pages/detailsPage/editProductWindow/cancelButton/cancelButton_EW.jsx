@@ -4,11 +4,9 @@ import './cancelButton_EW.scss'
 
 
 const CancelButton = (props) => {
-
-
     return (
-        <button className='CancelButton__EditProductWindow'>
-            Save
+        <button className='CancelButton__EditProductWindow' onClick={() => props.setActive(false)}>
+            Cancel
         </button>
     )
 }

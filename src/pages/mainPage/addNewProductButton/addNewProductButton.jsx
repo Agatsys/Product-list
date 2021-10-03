@@ -1,15 +1,14 @@
 import React from 'react'
 import './addNewProductButton.scss'
-
+import { Button } from 'antd'
 
 const AddNewProductButton = (props) => {
     
     return (
-        <button className='AddNewProductButton' onClick={() => props.setModalActive(true)}>
+        <Button size="large" type="primary" className='AddNewProductButton' onClick={() => props.setModalActive(true)}>
             New product
-        </button>
+        </Button>
     )
-
 }
 
 export default AddNewProductButton;

@@ -15,7 +15,7 @@ const EditLength = (props) => {
             className='EditLength'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedLength}>
+            value={props.length}>
         </textarea>
     )
 }

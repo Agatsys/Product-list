@@ -4,10 +4,6 @@
 
 a {
     text-decoration: none;  
-    transition: 1s  
-}
-button {
-    transition: 1s;  
 }
 textarea { 
     font-size: 18px;
@@ -15,10 +11,6 @@ textarea {
 }
 textarea:focus{
     background-color: rgb(183, 240, 185);
-    transition: 0.5s;
-}
-div {
-    transition: 1.5s; 
 }
 .app-wrapper {
     background-color: rgb(255, 255, 255);

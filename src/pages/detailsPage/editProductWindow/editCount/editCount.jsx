@@ -15,7 +15,7 @@ const EditCount = (props) => {
             className='EditCount'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedCount}>
+            value={props.count}>
         </textarea>
     )
 }

@@ -15,16 +15,34 @@ import AddComment from './addComment/addComment'
 import EditProductButton from './editProductButton/editProductButton'
 import Comments from './comments/comments'
 import EditProductWindow from './editProductWindow/editProductWindow'
+import { Modal } from 'antd'
 
 
 const DetailsPage = (props) => {
-    const [editModalActive, setEditModalActive] = useState(false)
+    const [ModalActive, setModalActive] = useState(false)
 
     return (
         <div className='DetailPageWrapper'>
             <BackButton />
-            <EditProductButton setModalActive={setEditModalActive}/>
-            <EditProductWindow active={editModalActive} setActive={setEditModalActive} />
+            <EditProductButton setModalActive={setModalActive} />
+            {/* {ModalActive && (
+                <EditProductWindow
+                    uid={props.uid}
+                    setActive={setModalActive}
+                />
+            )} */}
+            <Modal 
+                title="Edit product" 
+                visible={ModalActive} 
+                onCancel={() => setModalActive(false)}
+                okText={'Save'}
+                //footer={null}
+                width={900}>
+                <EditProductWindow
+                    uid={props.uid}
+                    setActive={setModalActive}
+                />
+            </Modal>
             <Name name={props.productData.name} />
             <Photo photo={props.productData.photo} />
             <div className='characteristics__DetailPageWrapper'>
@@ -36,7 +54,7 @@ const DetailsPage = (props) => {
                 <Count count={props.productData.count} />
                 <Height height={props.productData.height} />
             </div>
-            <Comments name={props.productData.name}/>
+            <Comments name={props.productData.name} />
             <AddComment />
         </div>
     )
@@ -48,7 +66,8 @@ const mapStateToProps = (state, ownProps) => {
     const data = (allProducts.find(item => item.id === ownProps.match.params.id) || {})
 
     return {
-        productData: data
+        productData: data,
+        uid: ownProps.match.params.id
     }
 }
 const mapDispatchToProps = (dispatch) => {

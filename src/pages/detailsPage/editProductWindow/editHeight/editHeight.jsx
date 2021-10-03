@@ -15,7 +15,7 @@ const EditHeight = (props) => {
             className='EditHeight'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedHeight}>
+            value={props.height}>
         </textarea>
     )
 }

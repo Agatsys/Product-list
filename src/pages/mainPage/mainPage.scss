@@ -1,13 +1,18 @@
 .MainPage {
     display: grid;
-    grid-template: 60px 1fr / 1fr 1fr;
+    grid-template: auto 1fr / 1fr 1fr;
     grid-template-areas: 
-    'a s'
-    'pw pw';
+    'heading heading'
+    'pw      pw';
     background-color: rgb(255, 255, 255);
     
     .Products-wrapper {
         grid-area: pw;
         background-color: rgb(255, 255, 255);   
+    }
+    .MainPage__heading {
+        grid-area: heading;
+        display: flex;
+        justify-content: space-between;
     }
 }

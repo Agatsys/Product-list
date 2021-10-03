@@ -16,7 +16,6 @@ const Comments = (props) => {
     )
 }
 
-
 let mapStateToProps = (state, ownProps) => {
     
     const uid = ownProps.match.params.id

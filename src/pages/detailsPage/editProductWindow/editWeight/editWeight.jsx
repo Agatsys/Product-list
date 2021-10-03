@@ -15,7 +15,7 @@ const EditWeight = (props) => {
             className='EditWeight'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedWeight}>
+            value={props.weight}>
         </textarea>
     )
 }

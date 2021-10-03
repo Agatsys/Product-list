@@ -15,7 +15,7 @@ const EditName = (props) => {
             className='EditName'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedName}>
+            value={props.name}>
         </textarea>
     )
 }
@@ -33,3 +33,7 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditName);
+
+
+
+//newEditedName

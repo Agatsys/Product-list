@@ -1,14 +1,16 @@
 .Product {
     display: grid;
-    grid-template: 50px 1fr / 200px 1fr 130px;
+    grid-template: auto 1fr / 200px 1fr 130px;
     grid-template-areas: 
     'ph n del'
     'ph dis details';
-    min-width: 1200px;
     min-height: 200px;
     border-radius: 7px;
     background-color: rgb(236, 232, 232);
     margin-top: 20px;
+    &:hover {
+        background-color: rgb(210, 255, 220);
+    }
     .NameOfProduct {
         font-size: 30px;
         font-weight: bold;
@@ -36,7 +38,4 @@
             width: 190px;
         }
     }
-}
-.Product:hover {
-    background-color: rgb(119, 207, 138);
 }

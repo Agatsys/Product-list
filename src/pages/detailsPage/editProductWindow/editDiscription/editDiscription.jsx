@@ -15,7 +15,7 @@ const EditDiscription = (props) => {
             className='EditDiscription'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedDiscription}>
+            value={props.discription}>
         </textarea>
     )
 }

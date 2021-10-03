@@ -1,5 +1,7 @@
-import React from "react";
-import CancelButtonEW from "./cancelButton/cancelButton_EW";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { loadProductData } from "../../../store/reducers/editProduct.reducer";
+//import CancelButtonEW from "./cancelButton/cancelButton_EW";
 import EditColor from "./editColor/editColor";
 import EditCount from "./editCount/editCount";
 import EditDiscription from "./editDiscription/editDiscription";
@@ -10,14 +12,20 @@ import EditPhoto from "./editPhoto/editPhoto";
 import './editProductWindow.scss'
 import EditWeight from "./editWeight/editWeight";
 import EditWidth from "./editWidth/editWidth";
-import SaveButtonEW from "./saveButton/saveButton_EW";
+//import SaveButtonEW from "./saveButton/saveButton_EW";
 
 
 const EditProductWindow = (props) => {
+
+    useEffect(() => {
+        props.loadProductData(props.uid)
+        return () => {   
+        }
+    }, [])
+    
     return (
-        <div className={props.active ? 'editProductWindow active' : 'editProductWindow'} onClick={() => props.setActive(false)}>
+        <div className={'editProductWindow'} onClick={() => props.setActive(false)}>
             <div className='modalContent__editProductWindow' onClick={e => e.stopPropagation()}>
-                <h3 className='title__editProductWindow'>Edit product</h3>
                 <h4 className='name_e'>Name</h4>
                 <h4 className='discription_e'>Discription</h4>
                 <h4 className='color_e'>Color</h4>
@@ -27,20 +35,37 @@ const EditProductWindow = (props) => {
                 <h4 className='width_e'>Width (mm)</h4>
                 <h4 className='count_e'>Count</h4>
                 <h4 className='photo_e'>Photo (url)</h4>
-                <EditName />
-                <EditDiscription />
-                <EditColor />
-                <EditWeight />
-                <EditLength />
-                <EditHeight />
-                <EditWidth />
-                <EditCount />
-                <EditPhoto />
-                <CancelButtonEW />
-                <SaveButtonEW />
+                <EditName name={props.modalFields.name}/>
+                <EditDiscription discription={props.modalFields.discription} />
+                <EditColor color={props.modalFields.color}/>
+                <EditWeight weight={props.modalFields.weight}/>
+                <EditLength length={props.modalFields.length}/>
+                <EditHeight height={props.modalFields.height}/>
+                <EditWidth width={props.modalFields.width}/>
+                <EditCount count={props.modalFields.count}/>
+                <EditPhoto photo={props.modalFields.photo}/>
+                
             </div> 
         </div>
     )
 }
 
-export default EditProductWindow
+const mapStateToProps = (state) => {
+
+    return {
+        modalFields: state.editProduct.modalFields
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadProductData: (uid) => {
+            dispatch(loadProductData(uid))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProductWindow) 
+
+
+{/* <CancelButtonEW setActive={props.setActive}/>
+                <SaveButtonEW /> */}

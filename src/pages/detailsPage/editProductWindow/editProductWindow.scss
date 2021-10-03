@@ -1,25 +1,23 @@
-.editProductWindow.active {
-    opacity: 1;
-    pointer-events: all;
-}
+// .editProductWindow.active {
+//     opacity: 1;
+//     pointer-events: all;
+// }
 .editProductWindow {
-    height: 100%; 
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.5s;
+    // height: 100%; 
+    // width: 100%;
+    // background-color: rgba(0, 0, 0, 0.8);
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // opacity: 0;
+    // pointer-events: none;
     .modalContent__editProductWindow {
         display: grid;
-        grid-template: 50px 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr/ 150px 1fr;
+        grid-template: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr/ 150px 1fr;
         grid-template-areas: 
-        't t'
         'name_e edit_n'
         'discription_e edit_d'
         'color_e edit_c'
@@ -28,13 +26,10 @@
         'height_e edit_h'
         'width_e edit_w'
         'count_e edit_cn'
-        'photo_e edit_p'
-        'cancelButton saveButton';
-        padding: 20px;
+        'photo_e edit_p';
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
-        height: 600px;
-        width: 700px;
+        height: 500px;
         .title__editProductWindow {
             font-size: 20px;
             font-weight: bolder;

@@ -15,7 +15,7 @@ const EditWidth = (props) => {
             className='EditWidth'
             onChange={onTextChange}
             ref={newTextElement}
-            value={props.newEditedWidth}>
+            value={props.width}>
         </textarea>
     )
 }

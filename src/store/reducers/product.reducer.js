@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { EDIT_PRODUCT } from './editProduct.reducer'
 
 
 const ADD_PRODUCT = 'ADD-PRODUCT'
@@ -40,6 +41,31 @@ export let initialState = {
 
 const newProductReducer = (state = initialState, action) => {
     switch (action.type) {
+        case EDIT_PRODUCT: {
+
+            const { uid, newData } = action.payload
+
+            const objectiveProduct = state.productsData.find(item => item.id === uid)
+            const restProducts = state.productsData.find(item => item.id !== uid)
+
+            objectiveProduct.name = newData.name
+            objectiveProduct.discription = newData.discription
+            objectiveProduct.color = newData.color
+            objectiveProduct.weight = newData.weight
+            objectiveProduct.length = newData.length
+            objectiveProduct.height = newData.height
+            objectiveProduct.width = newData.width
+            objectiveProduct.count = newData.count
+            objectiveProduct.photo = newData.photo
+
+            return {
+                ...state,
+                productsData: [
+                    ...restProducts,
+                    objectiveProduct
+                ]
+            }
+        }
         case ADD_PRODUCT: {
             let newProduct = {
                 id: uuidv4(),

@@ -4,8 +4,6 @@ import './saveButton_EW.scss'
 
 
 const SaveButton = (props) => {
-
-
     return (
         <button className='SaveButton__EditProductWindow'>
             Save
