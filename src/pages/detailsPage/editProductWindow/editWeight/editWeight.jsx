@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editWeightAction } from '../../../../store/reducers/editProduct.reducer'
 import './editWeight.scss'
 
 
@@ -22,13 +23,14 @@ const EditWeight = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        weight: state.editProduct.modalFields.weight
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditWeight: (text) => {
+            dispatch(editWeightAction(text))
+        }  
     }
 }
 

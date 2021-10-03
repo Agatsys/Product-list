@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editWidthAction } from '../../../../store/reducers/editProduct.reducer'
 import './editWidth.scss'
 
 
@@ -22,13 +23,14 @@ const EditWidth = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        width: state.editProduct.modalFields.width
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditWidth: (text) => {
+            dispatch(editWidthAction(text))
+        }  
     }
 }
 

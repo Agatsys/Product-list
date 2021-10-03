@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editHeightAction } from '../../../../store/reducers/editProduct.reducer'
 import './editHeight.scss'
 
 
@@ -22,13 +23,14 @@ const EditHeight = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        height: state.editProduct.modalFields.height
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditHeight: (text) => {
+            dispatch(editHeightAction(text))
+        }  
     }
 }
 

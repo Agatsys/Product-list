@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editCountAction } from '../../../../store/reducers/editProduct.reducer'
 import './editCount.scss'
 
 
@@ -22,13 +23,14 @@ const EditCount = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        count: state.editProduct.modalFields.count
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditCount: (text) => {
+            dispatch(editCountAction(text))
+        }   
     }
 }
 

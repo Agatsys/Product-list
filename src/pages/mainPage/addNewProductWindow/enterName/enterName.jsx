@@ -36,7 +36,3 @@ let mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EnterName);
-
-
-
-//Event.current.target.value

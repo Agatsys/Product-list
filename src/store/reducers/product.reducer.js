@@ -61,7 +61,7 @@ const newProductReducer = (state = initialState, action) => {
             return {
                 ...state,
                 productsData: [
-                    ...restProducts,
+                    restProducts,
                     objectiveProduct
                 ]
             }

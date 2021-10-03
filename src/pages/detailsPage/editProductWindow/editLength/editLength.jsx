@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editLengthAction } from '../../../../store/reducers/editProduct.reducer'
 import './editLength.scss'
 
 
@@ -22,13 +23,14 @@ const EditLength = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        length: state.editProduct.modalFields.length
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditLength: (text) => {
+            dispatch(editLengthAction(text))
+        }  
     }
 }
 

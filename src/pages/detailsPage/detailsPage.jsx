@@ -16,32 +16,31 @@ import EditProductButton from './editProductButton/editProductButton'
 import Comments from './comments/comments'
 import EditProductWindow from './editProductWindow/editProductWindow'
 import { Modal } from 'antd'
+import { editProductAction } from '../../store/reducers/editProduct.reducer'
 
 
 const DetailsPage = (props) => {
     const [ModalActive, setModalActive] = useState(false)
 
+    let addEditedProduct = () => {
+        props.editProduct(props.uid)
+        setModalActive(false)
+    }
+
     return (
         <div className='DetailPageWrapper'>
             <BackButton />
             <EditProductButton setModalActive={setModalActive} />
-            {/* {ModalActive && (
-                <EditProductWindow
-                    uid={props.uid}
-                    setActive={setModalActive}
-                />
-            )} */}
             <Modal 
                 title="Edit product" 
                 visible={ModalActive} 
                 onCancel={() => setModalActive(false)}
+                onOk={addEditedProduct}
                 okText={'Save'}
-                //footer={null}
                 width={900}>
                 <EditProductWindow
                     uid={props.uid}
-                    setActive={setModalActive}
-                />
+                    setActive={setModalActive} />
             </Modal>
             <Name name={props.productData.name} />
             <Photo photo={props.productData.photo} />
@@ -72,7 +71,9 @@ const mapStateToProps = (state, ownProps) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        editProduct: (uid) => {
+            dispatch(editProductAction(uid))
+        }
     }
 }
 

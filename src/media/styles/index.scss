@@ -2,16 +2,17 @@
 @import './normalize';
 
 
-a {
-    text-decoration: none;  
-}
+// a {
+//     text-decoration: none;  
+// }
 textarea { 
     font-size: 18px;
     resize: none;
+    &:focus {
+        background-color: rgb(183, 240, 185);
+    }
 }
-textarea:focus{
-    background-color: rgb(183, 240, 185);
-}
+
 .app-wrapper {
     background-color: rgb(255, 255, 255);
     min-height: 300px;

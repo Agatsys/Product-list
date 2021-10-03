@@ -40,7 +40,7 @@ export let initialState = {
         height: '',
         width: '',
         count: '',
-        photo: ''
+        photo: '',
     }
 }
 
@@ -56,37 +56,88 @@ const editProductReducer = (state = initialState, action) => {
         }
         case EDIT_NAME: {
             return {
-
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    name: action.payload
+                } 
             }
         }
         case EDIT_DISCRIPTION: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    discription: action.payload
+                }
+            }
         }
         case EDIT_COLOR: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    color: action.payload
+                }
+            }
         }
         case EDIT_WEIGHT: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    weight: action.payload
+                }
+            }
         }
         case EDIT_LENGTH: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    length: action.payload
+                }
+            }
         }
         case EDIT_HEIGHT: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    height: action.payload
+                }
+            }
         }
         case EDIT_WIDTH: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    width: action.payload
+                }
+            }
         }
         case EDIT_COUNT: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    count: action.payload
+                }
+            }
         }
         case EDIT_PHOTO: {
-
+            return {
+                ...state,
+                modalFields: {
+                    ...state.modalFields, 
+                    photo: action.payload
+                }
+            }
         }
         default:
             return state;
     }
 }
-
 
 export default editProductReducer;

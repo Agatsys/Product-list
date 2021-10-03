@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editColorAction } from '../../../../store/reducers/editProduct.reducer'
 import './editColor.scss'
 
 
@@ -22,13 +23,14 @@ const EditColor = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        color: state.editProduct.modalFields.color
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditColor: (text) => {
+            dispatch(editColorAction(text))
+        }    
     }
 }
 

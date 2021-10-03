@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editPhotoAction } from '../../../../store/reducers/editProduct.reducer'
 import './editPhoto.scss'
 
 
@@ -22,13 +23,14 @@ const EditPhoto = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        photo: state.editProduct.modalFields.photo
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditPhoto: (text) => {
+            dispatch(editPhotoAction(text))
+        }  
     }
 }
 

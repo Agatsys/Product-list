@@ -16,3 +16,18 @@
         justify-content: space-between;
     }
 }
+
+.AddNewProductButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: a;
+    width: 200px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bolder;
+    &:hover {
+        box-shadow: 0px 0px 15px rgb(0, 0, 0);
+        transition: 0.5s
+    }
+}

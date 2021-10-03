@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Select } from 'antd'
+import { Button, Select } from 'antd'
 import AddNewProductButton from './addNewProductButton/addNewProductButton'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
-import SortProducts from './sortProducts/sortProducts'
+//import SortProducts from './sortProducts/sortProducts'
 const { Option } = Select
 
 
@@ -33,12 +33,14 @@ const MainPage = (props) => {
             return 0
         } 
     }
-
     return (
         <div className='MainPage'>
             <div className="MainPage__heading">
-                <AddNewProductButton setModalActive={setModalActive} />
+                {/* <AddNewProductButton setModalActive={setModalActive} /> */}
 
+                <Button type="primary" className='AddNewProductButton' onClick={() => setModalActive(true)}>
+                    New product
+                </Button>
                 <Select size="large" defaultValue={sortBy} value={sortBy} style={{ width: 120 }} onChange={(value) => setSortBy(value)}>
                     <Option value="A to Z">A to Z</Option>
                     <Option value="Z to A">Z to A</Option>
@@ -48,7 +50,6 @@ const MainPage = (props) => {
 
             </div>
             <div className='Products-wrapper'>
-
                 {props.productsData.sort(sortRules).map(p => (
                     <Product
                         name={p.name}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { editDiscriptionAction } from '../../../../store/reducers/editProduct.reducer'
 import './editDiscription.scss'
 
 
@@ -22,13 +23,14 @@ const EditDiscription = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        
+        discription: state.editProduct.modalFields.discription
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        
-        
+        updateEditDiscription: (text) => {
+            dispatch(editDiscriptionAction(text))
+        }    
     }
 }
 

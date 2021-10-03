@@ -19,12 +19,12 @@ const EditProductWindow = (props) => {
 
     useEffect(() => {
         props.loadProductData(props.uid)
-        return () => {   
-        }
-    }, [])
+        // return () => {   
+        // }
+    },[props.uid])
     
     return (
-        <div className={'editProductWindow'} onClick={() => props.setActive(false)}>
+        <div className={'editProductWindow'}>
             <div className='modalContent__editProductWindow' onClick={e => e.stopPropagation()}>
                 <h4 className='name_e'>Name</h4>
                 <h4 className='discription_e'>Discription</h4>
@@ -35,23 +35,21 @@ const EditProductWindow = (props) => {
                 <h4 className='width_e'>Width (mm)</h4>
                 <h4 className='count_e'>Count</h4>
                 <h4 className='photo_e'>Photo (url)</h4>
-                <EditName name={props.modalFields.name}/>
-                <EditDiscription discription={props.modalFields.discription} />
-                <EditColor color={props.modalFields.color}/>
-                <EditWeight weight={props.modalFields.weight}/>
-                <EditLength length={props.modalFields.length}/>
-                <EditHeight height={props.modalFields.height}/>
-                <EditWidth width={props.modalFields.width}/>
-                <EditCount count={props.modalFields.count}/>
-                <EditPhoto photo={props.modalFields.photo}/>
-                
+                <EditName />
+                <EditDiscription />
+                <EditColor />
+                <EditWeight />
+                <EditLength />
+                <EditHeight />
+                <EditWidth />
+                <EditCount />
+                <EditPhoto />
             </div> 
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
-
     return {
         modalFields: state.editProduct.modalFields
     }
@@ -65,7 +63,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditProductWindow) 
-
-
-{/* <CancelButtonEW setActive={props.setActive}/>
-                <SaveButtonEW /> */}
