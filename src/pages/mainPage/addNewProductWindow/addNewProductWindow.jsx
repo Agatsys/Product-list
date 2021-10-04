@@ -40,7 +40,7 @@ const AddNewProductWindow = (props) => {
             {props.isValid === false && props.didTryToProcess === true && (
                 <div>
                     <div>Errors:</div>
-                    <div>{props.errors.map(errorText => <div>{errorText}</div>)}</div>
+                    <div>{props.errors.map((errorText, index) => <div key={`err-${index}`}>{errorText}</div>)}</div>
                 </div>
             )}
         </div>

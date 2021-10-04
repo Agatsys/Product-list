@@ -47,7 +47,7 @@ const EditProductWindow = (props) => {
             {props.isValidEdit === false && props.didTryToProcessEdit === true && (
                 <div>
                     <div>Errors:</div>
-                    <div>{props.errorsEdit.map(errorText => <div>{errorText}</div>)}</div>
+                    <div>{props.errorsEdit.map((errorText, index) => <div key={`er-${index}`}>{errorText}</div>)}</div>
                 </div>
             )}
         </div>

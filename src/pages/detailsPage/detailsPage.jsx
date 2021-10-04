@@ -23,7 +23,6 @@ const DetailsPage = (props) => {
 
     let addEditedProduct = () => {
         props.editProduct(props.uid)
-        setModalActive(false)
     }
 
     return (

@@ -37,8 +37,9 @@ const validateAction = () => (dispatch, getState) => {
     const isHeightValid = validate('height', state.newHeight) ? true : "The 'height' field cannot contain letters"
     const isWidthValid = validate('width', state.newWidth) ? true : "The 'width' field cannot contain letters"
     const isCountValid = validate('count', state.newCount) ? true : "The 'count' field cannot contain letters"
+    const isPhotoValid = validate('photo', state.newPhoto) ? true : "The 'photo' field must contain the URL address "
 
-    const results = [isNameValid, isDescriptionValid, isColorValid, isWeightValid, isLengthValid, isHeightValid, isWidthValid, isCountValid]
+    const results = [isNameValid, isDescriptionValid, isColorValid, isWeightValid, isLengthValid, isHeightValid, isWidthValid, isCountValid, isPhotoValid]
     const errors = results.filter(item => item !== true)
     const isValid = results.every(item => item === true)
     dispatch({ type: VALIDATE_PRODUCT_CREATION, payload: { errors: errors, isValid: isValid }})
@@ -75,7 +76,10 @@ export const updateCountAction = (text) => (dispatch) => {
     dispatch({ type: CHANGE_COUNT, payload: text })
     dispatch(validateAction())
 }
-export const updatePhotoAction = (text) => ({ type: CHANGE_PHOTO, payload: text })
+export const updatePhotoAction = (text) => (dispatch) => {
+    dispatch({ type: CHANGE_PHOTO, payload: text })
+    dispatch(validateAction())
+}
 
 export let initialState = {
     productsData: [],

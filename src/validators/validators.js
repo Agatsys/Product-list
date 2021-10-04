@@ -22,7 +22,7 @@ export function validate(id, text) {
             }
         },
         'weight': (text) => {
-            const isDigitsExists = text.match(/[0-9]/)
+            const isDigitsExists = text === '' || text.match(/[0-9]/)
             if (isDigitsExists) {
                 return true
             } else {
@@ -30,7 +30,7 @@ export function validate(id, text) {
             }
         },
         'length': (text) => {
-            const isDigitsExists = text.match(/[0-9]/)
+            const isDigitsExists = text === '' || text.match(/[0-9]/)
             if (isDigitsExists) {
                 return true
             } else {
@@ -38,7 +38,7 @@ export function validate(id, text) {
             }
         },
         'height': (text) => {
-            const isDigitsExists = text.match(/[0-9]/)
+            const isDigitsExists = text === '' || text.match(/[0-9]/)
             if (isDigitsExists) {
                 return true
             } else {
@@ -46,7 +46,7 @@ export function validate(id, text) {
             }
         },
         'width': (text) => {
-            const isDigitsExists = text.match(/[0-9]/)
+            const isDigitsExists = text === '' || text.match(/[0-9]/)
             if (isDigitsExists) {
                 return true
             } else {
@@ -54,7 +54,7 @@ export function validate(id, text) {
             }
         },
         'count': (text) => {
-            const isDigitsExists = text.match(/[0-9]/)
+            const isDigitsExists = text === '' || text.match(/[0-9]/)
             if (isDigitsExists) {
                 return true
             } else {
@@ -62,7 +62,14 @@ export function validate(id, text) {
             }
         },
         'photo': (text) => {
-
+            const isDigitsExists = text === '' || text.match('http')
+            if (isDigitsExists) {
+                return true
+            } else {
+                return false
+            }
+            
+            
         }
     }
     return rules[id](text)
