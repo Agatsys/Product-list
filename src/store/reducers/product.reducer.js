@@ -8,7 +8,7 @@ const DELETE_PRODUCT = 'DELETE-PRODUCT'
 const TRY_PROCESS_FORM = 'TRY_PROCESS_FORM'
 const VALIDATE_PRODUCT_CREATION = 'VALIDATE-PRODUCT-CREATION'
 const CHANGE_NAME = 'CHANGE-NAME'
-const CHANGE_DISCRIPTION = 'CHANGE-DISCRIPTION'
+const CHANGE_DESCRIPTION = 'CHANGE-DESCRIPTION'
 const CHANGE_COLOR = 'CHANGE-COLOR'
 const CHANGE_WEIGHT = 'CHANGE-WEIGHT'
 const CHANGE_LENGTH = 'CHANGE-LENGTH'
@@ -29,8 +29,8 @@ export const deleteProductAction = (uid) => ({ type: DELETE_PRODUCT, payload: ui
 
 const validateAction = () => (dispatch, getState) => {
     const state = getState().newProduct
-    const isNameValid = validate('name', state.newName) ? true : "The 'Name' field cannot contain numbers"
-    const isDescriptionValid = validate('description', state.newDiscription) ? true : "The 'Description' field cannot be shorter than 6 characters"
+    const isNameValid = validate('name', state.newName) ? true : "The 'Description' field cannot be shorter than 1 symbol"
+    const isDescriptionValid = validate('description', state.newDescription) ? true : "The 'Description' field cannot be shorter than 3 symbols"
     const isColorValid = validate('color', state.newColor) ? true : "The 'Color' field cannot contain numbers"
     const isWeightValid = validate('weight', state.newWeight) ? true : "The 'weight' field cannot contain letters"
     const isLengthValid = validate('length', state.newLength) ? true : "The 'length' field cannot contain letters"
@@ -48,8 +48,8 @@ export const updateNameAction = (text) => (dispatch) => {
     dispatch({ type: CHANGE_NAME, payload: text })
     dispatch(validateAction())
 }
-export const updateDiscriptionAction = (text) => (dispatch) => {
-    dispatch({ type: CHANGE_DISCRIPTION, payload: text })
+export const updateDescriptionAction = (text) => (dispatch) => {
+    dispatch({ type: CHANGE_DESCRIPTION, payload: text })
     dispatch(validateAction())
 }
 export const updateColorAction = (text) => (dispatch) => {
@@ -85,7 +85,7 @@ export let initialState = {
     productsData: [],
 
     newName: '',
-    newDiscription: '',
+    newDescription: '',
     newColor: '',
     newWeight: '',
     newLength: '',
@@ -109,7 +109,7 @@ const newProductReducer = (state = initialState, action) => {
             const restProducts = state.productsData.filter(item => item.id !== uid)
 
             objectiveProduct.name = newData.name
-            objectiveProduct.discription = newData.discription
+            objectiveProduct.description = newData.description
             objectiveProduct.color = newData.color
             objectiveProduct.weight = newData.weight
             objectiveProduct.length = newData.length
@@ -130,7 +130,7 @@ const newProductReducer = (state = initialState, action) => {
             let newProduct = {
                 id: uuidv4(),
                 name: state.newName,
-                discription: state.newDiscription,
+                description: state.newDescription,
                 color: state.newColor,
                 weight: state.newWeight,
                 length: state.newLength,
@@ -141,7 +141,7 @@ const newProductReducer = (state = initialState, action) => {
             };
             return {
                 newName: '',
-                newDiscription: '',
+                newDescription: '',
                 newColor: '',
                 newWeight: '',
                 newLength: '',
@@ -183,10 +183,10 @@ const newProductReducer = (state = initialState, action) => {
                 ...state, 
                 newName: action.payload
             }
-        case CHANGE_DISCRIPTION:
+        case CHANGE_DESCRIPTION:
             return {
                 ...state, 
-                newDiscription: action.payload
+                newDescription: action.payload
             }
         case CHANGE_COLOR:
             return {

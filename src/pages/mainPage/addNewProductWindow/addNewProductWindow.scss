@@ -17,7 +17,7 @@
         grid-template: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
         grid-template-areas: 
         'name_t n'
-        'discription_t d'
+        'description_t d'
         'color_t c'
         'weight_t wg'
         'length_t l'
@@ -32,8 +32,8 @@
         .name_t {
             grid-area: name_t;
         }
-        .discription_t {
-            grid-area: discription_t;
+        .description_t {
+            grid-area: description_t;
         }
         .count_t {
             grid-area: count_t;

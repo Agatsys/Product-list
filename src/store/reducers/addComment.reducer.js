@@ -39,7 +39,6 @@ const commentsReducer = (state = initialState, action) => {
             }
         case DELETE_COMMENT:
             const { uid, deleteIndex } = action.payload
-            console.log(uid)
             const restComments = state.commentsNew[uid].filter((item, index) => index !== deleteIndex)
             return {
                 ...state,

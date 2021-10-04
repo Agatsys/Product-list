@@ -6,7 +6,7 @@ import Weight from './weight/weight'
 import Photo from './photo/photo'
 import Color from './color/color'
 import Name from './name/name'
-import Discription from './discription/discription'
+import Description from './description/description'
 import Length from './length/length'
 import Count from './count/count'
 import Height from './height/height'
@@ -43,7 +43,7 @@ const DetailsPage = (props) => {
             <Name name={props.productData.name} />
             <Photo photo={props.productData.photo} />
             <div className='characteristics__DetailPageWrapper'>
-                <Discription discription={props.productData.discription} />
+                <Description description={props.productData.description} />
                 <Weight weight={props.productData.weight} />
                 <Color color={props.productData.color} />
                 <Width width={props.productData.width} />

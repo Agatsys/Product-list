@@ -25,10 +25,11 @@ const Product = (props) => {
             <div className='NameOfProduct'>
                 {props.name}
             </div>
-            <div className='Discription'>
-                {props.discription}
-                <br />
-                {props.count}
+            <div className='Description'>
+                {props.description}
+            </div>
+            <div className='Count'>
+                <span>Count:</span> {props.count}
             </div>
             <NavLink to={`/details/${props.id}`}>
                 <Button type="default"
@@ -36,7 +37,8 @@ const Product = (props) => {
                     Details
                 </Button>
             </NavLink>
-            <Button
+            <Button 
+                danger={true}
                 type="default"
                 className='DeleteButton'
                 onClick={() => setModalActive(true)}>

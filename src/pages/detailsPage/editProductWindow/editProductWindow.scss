@@ -19,7 +19,7 @@
         grid-template: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr/ 150px 1fr;
         grid-template-areas: 
         'name_e edit_n'
-        'discription_e edit_d'
+        'description_e edit_d'
         'color_e edit_c'
         'weight_e edit_wgt'
         'length_e edit_l'
@@ -34,8 +34,8 @@
         .name_e {
             grid-area: name_e;
         }
-        .discription_e {
-            grid-area: discription_e;
+        .description_e {
+            grid-area: description_e;
         }
         .count_e {
             grid-area: count_e;

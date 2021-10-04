@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { loadProductData } from "../../../store/reducers/editProduct.reducer";
-//import CancelButtonEW from "./cancelButton/cancelButton_EW";
 import EditColor from "./editColor/editColor";
 import EditCount from "./editCount/editCount";
-import EditDiscription from "./editDiscription/editDiscription";
+import EditDescription from "./editDescription/editDescription";
 import EditHeight from "./editHeight/editHeight";
 import EditLength from "./editLength/editLength";
 import EditName from "./editName/editName";
@@ -12,7 +11,6 @@ import EditPhoto from "./editPhoto/editPhoto";
 import './editProductWindow.scss'
 import EditWeight from "./editWeight/editWeight";
 import EditWidth from "./editWidth/editWidth";
-//import SaveButtonEW from "./saveButton/saveButton_EW";
 
 
 const EditProductWindow = (props) => {
@@ -26,7 +24,7 @@ const EditProductWindow = (props) => {
         <div className={'editProductWindow'}>
             <div className='modalContent__editProductWindow' onClick={e => e.stopPropagation()}>
                 <h4 className='name_e'>Name</h4>
-                <h4 className='discription_e'>Discription</h4>
+                <h4 className='description_e'>Description</h4>
                 <h4 className='color_e'>Color</h4>
                 <h4 className='weight_e'>Weight (g)</h4>
                 <h4 className='length_e'>Length (mm)</h4>
@@ -35,7 +33,7 @@ const EditProductWindow = (props) => {
                 <h4 className='count_e'>Count</h4>
                 <h4 className='photo_e'>Photo (url)</h4>
                 <EditName />
-                <EditDiscription />
+                <EditDescription />
                 <EditColor />
                 <EditWeight />
                 <EditLength />

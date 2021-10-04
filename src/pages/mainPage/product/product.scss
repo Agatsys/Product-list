@@ -1,10 +1,11 @@
 .Product {
     display: grid;
-    grid-template: auto 1fr / 200px 1fr 130px;
+    grid-template: 70px 80px 50px / 200px 1fr 130px;
     grid-template-areas: 
     'ph n del'
-    'ph dis details';
-    min-height: 200px;
+    'ph dis details'
+    'ph coun details';
+    height: 200px;
     background-color: rgb(236, 232, 232);
     margin-top: 20px;
     &:hover {
@@ -18,12 +19,21 @@
         overflow: hidden;
         text-overflow: ellipsis; 
     }
-    .Discription {
+    .Description {
         grid-area: dis;
         font-size: 20px;
         padding: 10px 0px 0px 10px;
         overflow: hidden;
         text-overflow: ellipsis; 
+    }
+    .Count {
+        grid-area: coun;
+        font-size: 20px;
+        align-self: end;
+        padding: 10px;
+        span {
+            font-weight: bolder;
+        }
     } 
     .ProductPhotoBlock {
         grid-area: ph;
@@ -46,7 +56,6 @@
         width: 100px;
         margin: 20px 0px 0px 15px;
         &:hover {
-            background-color: rgb(219, 33, 33);
             box-shadow: 0px 0px 15px rgb(36, 35, 35);
             transition: 0.5s  
         }
@@ -60,9 +69,7 @@
         font-weight: bolder;
         height: 30px;
         width: 100px;
-        margin: 100px 0px 0px 15px;
-        justify-self: left;
-        align-self: end;
+        margin: 80px 0px 0px 15px;
         &:hover {
             box-shadow: 0px 0px 15px rgb(36, 35, 35);
             transition: 0.5s

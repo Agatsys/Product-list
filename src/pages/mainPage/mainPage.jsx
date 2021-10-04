@@ -55,7 +55,7 @@ const MainPage = (props) => {
                     <Product
                         name={p.name}
                         count={p.count}
-                        discription={p.discription}
+                        description={p.description}
                         photo={p.photo}
                         id={p.id}
                         key={p.id}

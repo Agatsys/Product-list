@@ -5,7 +5,7 @@ export const EDIT_PRODUCT = 'EDIT-PRODUCT'
 const VALIDATE_PRODUCT_CREATION_EDIT_WINDOW = 'VALIDATE-PRODUCT-CREATION-EDIT-WINDOW'
 const TRY_PROCESS_FORM_EDIT_WINDOW = 'TRY-PROCESS-FORM-EDIT-WINDOW'
 const EDIT_NAME = 'EDIT-NAME'
-const EDIT_DISCRIPTION = 'EDIT-DISCRIPTION'
+const EDIT_DESCRIPTION = 'EDIT-DESCRIPTION'
 const EDIT_COLOR = 'EDIT-COLOR'
 const EDIT_WEIGHT = 'EDIT-WEIGHT'
 const EDIT_LENGTH = 'EDIT-LENGTH'
@@ -17,7 +17,7 @@ const EDIT_PHOTO = 'EDIT-PHOTO'
 const validateAction = () => (dispatch, getState) => {
     const state = getState().editProduct.modalFields
     const isNameValid = validate('name', state.name) ? true : "The 'Name' field cannot contain numbers"
-    const isDescriptionValid = validate('description', state.discription) ? true : "The 'Description' field cannot be shorter than 6 characters"
+    const isDescriptionValid = validate('description', state.description) ? true : "The 'Description' field cannot be shorter than 6 characters"
     const isColorValid = validate('color', state.color) ? true : "The 'Color' field cannot contain numbers"
     const isWeightValid = validate('weight', state.weight) ? true : "The 'weight' field cannot contain letters"
     const isLengthValid = validate('length', state.length) ? true : "The 'length' field cannot contain letters"
@@ -48,8 +48,8 @@ export const editNameAction = (text) => (dispatch) => {
     dispatch({ type: EDIT_NAME, payload: text })
     dispatch(validateAction())
 }
-export const editDiscriptionAction = (text) => (dispatch) => {
-    dispatch({ type: EDIT_DISCRIPTION, payload: text })
+export const editDescriptionAction = (text) => (dispatch) => {
+    dispatch({ type: EDIT_DESCRIPTION, payload: text })
     dispatch(validateAction())
 }
 export const editColorAction = (text) => (dispatch) => {
@@ -81,7 +81,7 @@ export const editPhotoAction = (text) => ({ type: EDIT_PHOTO, payload: text})
 export let initialState = {
     modalFields: {
         name: '',
-        discription: '',
+        description: '',
         color: '',
         weight: '',
         length: '',
@@ -128,12 +128,12 @@ const editProductReducer = (state = initialState, action) => {
                 } 
             }
         }
-        case EDIT_DISCRIPTION: {
+        case EDIT_DESCRIPTION: {
             return {
                 ...state,
                 modalFields: {
                     ...state.modalFields, 
-                    discription: action.payload
+                    description: action.payload
                 }
             }
         }

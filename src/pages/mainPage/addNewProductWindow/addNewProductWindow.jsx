@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import EnterColor from './enterColor/enterColor';
 import EnterCount from './enterCount/enterCount';
-import EnterDiscription from './enterDiscription/enterDiscription';
+import EnterDescription from './enterDescription/enterDescription';
 import EnterHeight from './enterHeight/enterHeight';
 import EnterLength from './enterLength/enterLength';
 import EnterName from './enterName/enterName';
@@ -17,7 +17,7 @@ const AddNewProductWindow = (props) => {
         <div className='addNewProductWindow'>
             <div className='modalContent__addNewProductWindow'>
                 <h4 className='name_t'>Name</h4>
-                <h4 className='discription_t'>Discription</h4>
+                <h4 className='description_t'>Description</h4>
                 <h4 className='color_t'>Color</h4>
                 <h4 className='weight_t'>Weight (g)</h4>
                 <h4 className='length_t'>Length (mm)</h4>
@@ -27,7 +27,7 @@ const AddNewProductWindow = (props) => {
                 <h4 className='photo_t'>Photo (url)</h4>
 
                 <EnterName />
-                <EnterDiscription />
+                <EnterDescription />
                 <EnterColor />
                 <EnterWeight />
                 <EnterLength />

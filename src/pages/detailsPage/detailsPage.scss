@@ -18,7 +18,6 @@
         'wdt cnt';
         grid-gap: 10px;
     }
-    
     .characteristics__DetailPageWrapper {
         grid-area: chr;
         span {
@@ -31,7 +30,7 @@
             background-color: rgb(236, 232, 232);
             padding: 10px;
             &:hover {
-                background-color: rgb(208, 214, 245);
+                background-color: rgb(135, 196, 253);
                 transition: 0.5s
             }
         }
