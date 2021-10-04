@@ -7,13 +7,10 @@ const DELETE_COMMENT = 'DELETE-COMMENT'
 
 export const updateCommentAction = (text) => ({ type: CHANGE_COMMENT, payload: text })
 export const addCommentAction = (productUid) => ({ type: ADD_COMMENT, payload: productUid })
-export const deleteCommentAction = (commentUid) => ({ type: DELETE_COMMENT, payload: commentUid})
+export const deleteCommentAction = (productUid, index) => ({ type: DELETE_COMMENT, payload: {uid: productUid, deleteIndex: index} })
 
 export let initialState = {
-    commentsNew: {
-        'asdawdaawdasd': [],
-        'asdawdasdawda': [ {}, {}, {}, {}]
-    },
+    commentsNew: {},
     newText: '',
 }
 
@@ -25,10 +22,8 @@ const commentsReducer = (state = initialState, action) => {
                 text: state.newText,
                 date: 2021,
             }
-
             const oldComments = state.commentsNew[action.payload] || []
             const updatedComments = [ ...oldComments, newComment]
-
             return {
                 newText: '',
                 commentsNew: {
@@ -44,6 +39,7 @@ const commentsReducer = (state = initialState, action) => {
             }
         case DELETE_COMMENT:
             const { uid, deleteIndex } = action.payload
+            console.log(uid)
             const restComments = state.commentsNew[uid].filter((item, index) => index !== deleteIndex)
             return {
                 ...state,

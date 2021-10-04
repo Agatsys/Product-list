@@ -6,8 +6,8 @@ import { withRouter } from "react-router-dom";
 
 
 const Comments = (props) => {
-
-    const commentElement = props.commentsNew.map((item, index) => <Comment key={`comment-${index}`} index={index} text={item.text}/> )
+    debugger
+    const commentElement = props.commentsNew.map((item, index) => <Comment key={`comment-${index}`} index={index} uid={props.uid} text={item.text}/> )
     return (
         <div className='commentsWrapper__DetailPageWrapper'>
             Comments to {props.name}:
@@ -18,9 +18,10 @@ const Comments = (props) => {
 
 let mapStateToProps = (state, ownProps) => {
     
-    const uid = ownProps.match.params.id
+    const uidOfProduct = ownProps.match.params.id
     return {
-        commentsNew: state.comments.commentsNew[uid] || []
+        commentsNew: state.comments.commentsNew[uidOfProduct] || [],
+        uid: ownProps.match.params.id
     }
 }
 let mapDispatchToProps = (dispatch) => {
