@@ -1,6 +1,5 @@
 import React from 'react'
-import AddButton from './addButton/addButton';
-import CancelButton from './cancelButton/cancelButton';
+import { connect } from 'react-redux'
 import EnterColor from './enterColor/enterColor';
 import EnterCount from './enterCount/enterCount';
 import EnterDiscription from './enterDiscription/enterDiscription';
@@ -15,9 +14,8 @@ import './addNewProductWindow.scss'
 
 const AddNewProductWindow = (props) => {
     return (
-        <div className={props.active ? 'addNewProductWindow active' : 'addNewProductWindow'} onClick={() => props.setActive(false)}>
-            <div className='modalContent__addNewProductWindow' onClick={e => e.stopPropagation()}>
-                <h3 className='title__addNewProductWindow'>Add product</h3>
+        <div className='addNewProductWindow'>
+            <div className='modalContent__addNewProductWindow'>
                 <h4 className='name_t'>Name</h4>
                 <h4 className='discription_t'>Discription</h4>
                 <h4 className='color_t'>Color</h4>
@@ -27,20 +25,37 @@ const AddNewProductWindow = (props) => {
                 <h4 className='width_t'>Width (mm)</h4>
                 <h4 className='count_t'>Count</h4>
                 <h4 className='photo_t'>Photo (url)</h4>
-                <EnterName/>
-                <EnterDiscription/>
-                <EnterColor/>
-                <EnterWeight/>
-                <EnterLength/>
-                <EnterHeight/>
-                <EnterWidth/>
-                <EnterCount/>
-                <EnterPhoto/>
-                <AddButton/>
-                <CancelButton setActive={props.setActive}/>
+
+                <EnterName />
+                <EnterDiscription />
+                <EnterColor />
+                <EnterWeight />
+                <EnterLength />
+                <EnterHeight />
+                <EnterWidth />
+                <EnterCount />
+                <EnterPhoto />
+
             </div>
+            {props.isValid === false && props.didTryToProcess === true && (
+                <div>
+                    <div>Errors:</div>
+                    <div>{props.errors.map(errorText => <div>{errorText}</div>)}</div>
+                </div>
+            )}
         </div>
     )
-} 
+}
 
-export default AddNewProductWindow;
+const mapStateToProps = (state) => ({
+    isValid: state.newProduct.isValid,
+    didTryToProcess: state.newProduct.didTryToProcess,
+    errors: state.newProduct.errors
+})
+
+const mapDispatchToProps = {
+
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddNewProductWindow);

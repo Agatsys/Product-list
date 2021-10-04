@@ -1,25 +1,21 @@
-.addNewProductWindow.active {
-    opacity: 1;
-    pointer-events: all;
-}
+
 .addNewProductWindow {
-    height: 100%; 
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.5s;
+    // height: 100%; 
+    // width: 100%;
+    // background-color: rgba(0, 0, 0, 0.8);
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // opacity: 0;
+    // pointer-events: none;
+    // transition: 0.5s;
     .modalContent__addNewProductWindow {
         display: grid;
-        grid-template: 50px 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
+        grid-template: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
         grid-template-areas: 
-        't t'
         'name_t n'
         'discription_t d'
         'color_t c'
@@ -28,18 +24,11 @@
         'height_t h'
         'width_t wd'
         'count_t a'
-        'photo_t p'
-        'cb ab';
+        'photo_t p';
         padding: 20px;
-        border-radius: 10px;
-        background-color: rgb(255, 255, 255);
-        height: 600px;
-        width: 700px;
-        .title__addNewProductWindow {
-            font-size: 20px;
-            font-weight: bolder;
-            grid-area: t;
-        }
+        font-family: Quicksand;
+        height: 550px;
+        
         .name_t {
             grid-area: name_t;
         }

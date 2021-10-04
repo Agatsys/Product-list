@@ -11,7 +11,7 @@ const EditName = (props) => {
         let text = newTextElement.current.value;
         props.updateEditName(text)
     }
-    console.log()
+
     return (
         <textarea
             className='EditName'

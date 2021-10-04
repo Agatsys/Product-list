@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Button, Select } from 'antd'
-import AddNewProductButton from './addNewProductButton/addNewProductButton'
+import { Button, Modal, Select } from 'antd'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
-//import SortProducts from './sortProducts/sortProducts'
-const { Option } = Select
+import { addProductAction } from '../../store/reducers/product.reducer'
 
+
+const { Option } = Select
 
 const MainPage = (props) => {
     const [modalActive, setModalActive] = useState(false)
@@ -33,11 +33,13 @@ const MainPage = (props) => {
             return 0
         } 
     }
+    let AddNewProduct = () => {
+        props.AddProduct()
+    }
+    
     return (
         <div className='MainPage'>
             <div className="MainPage__heading">
-                {/* <AddNewProductButton setModalActive={setModalActive} /> */}
-
                 <Button type="primary" className='AddNewProductButton' onClick={() => setModalActive(true)}>
                     New product
                 </Button>
@@ -47,7 +49,6 @@ const MainPage = (props) => {
                     <Option value="Less to More">Less to More</Option>
                     <Option value="More to Less">More to Less</Option>
                 </Select>
-
             </div>
             <div className='Products-wrapper'>
                 {props.productsData.sort(sortRules).map(p => (
@@ -61,8 +62,16 @@ const MainPage = (props) => {
                     />
                 ))}
             </div>
-
-            <AddNewProductWindow active={modalActive} setActive={setModalActive} />
+            <Modal 
+                title="Add new product" 
+                visible={modalActive} 
+                onCancel={() => setModalActive(false)}
+                onOk={AddNewProduct}
+                okText={'Add product'}
+                width={900}
+                centered={true}>
+                <AddNewProductWindow active={modalActive} setActive={setModalActive} />
+            </Modal>
         </div>
     )
 }
@@ -74,7 +83,9 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-
+        AddProduct: () => {
+            dispatch(addProductAction());
+        }
     }
 }
 

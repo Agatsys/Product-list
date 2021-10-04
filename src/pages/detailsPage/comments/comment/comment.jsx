@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React from "react";
 import './comment.scss'
 
@@ -8,9 +9,15 @@ const Comment = (props) => {
             <div className='commentText__Comments'>
                 {props.text}
             </div>
-
-
-
+            <Button 
+                type="primary" 
+                className='DelButton__Comment' 
+                onClick={() => {
+                    // xxx(props.index)
+                }}
+            >
+                Del
+            </Button>
         </div>
     )
 }

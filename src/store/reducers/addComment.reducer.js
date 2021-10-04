@@ -3,13 +3,17 @@ import { v4 as uuidv4 } from 'uuid';
 
 const CHANGE_COMMENT = 'CHANGE-COMMENT'
 const ADD_COMMENT = 'ADD-COMMENT'
+const DELETE_COMMENT = 'DELETE-COMMENT'
 
 export const updateCommentAction = (text) => ({ type: CHANGE_COMMENT, payload: text })
 export const addCommentAction = (productUid) => ({ type: ADD_COMMENT, payload: productUid })
-
+export const deleteCommentAction = (commentUid) => ({ type: DELETE_COMMENT, payload: commentUid})
 
 export let initialState = {
-    commentsNew: {},
+    commentsNew: {
+        'asdawdaawdasd': [],
+        'asdawdasdawda': [ {}, {}, {}, {}]
+    },
     newText: '',
 }
 
@@ -37,6 +41,16 @@ const commentsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newText: action.payload
+            }
+        case DELETE_COMMENT:
+            const { uid, deleteIndex } = action.payload
+            const restComments = state.commentsNew[uid].filter((item, index) => index !== deleteIndex)
+            return {
+                ...state,
+                commentsNew: {
+                    ...state.commentsNew,
+                    [uid]: restComments
+                }
             }
         default:
             return state;

@@ -16,7 +16,6 @@ const AddComment = (props) => {
         props.updateComment(text)
     }
 
-    
     return (
         <div className='addComment__DetailPageWrapper'>
             <div className='writeYourComment'>Write your comment:</div>

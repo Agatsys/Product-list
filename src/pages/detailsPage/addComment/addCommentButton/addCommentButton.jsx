@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import React from "react";
 import { connect } from "react-redux";
 import { addCommentAction } from "../../../../store/reducers/addComment.reducer";
@@ -11,7 +12,12 @@ const addCommentButton = (props) => {
     }
 
     return (
-        <button className='addCommentButton__DetailPageWrapper' onClick={AddNewComment}>Add comment</button>
+        <Button 
+            type="primary" 
+            className='addCommentButton__DetailPageWrapper' 
+            onClick={AddNewComment}>
+            Add comment
+        </Button>
     )
 }
 

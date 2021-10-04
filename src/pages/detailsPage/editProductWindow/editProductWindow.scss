@@ -30,11 +30,7 @@
         border-radius: 10px;
         background-color: rgb(255, 255, 255);
         height: 500px;
-        .title__editProductWindow {
-            font-size: 20px;
-            font-weight: bolder;
-            grid-area: t;
-        }
+        font-family: Quicksand;
         .name_e {
             grid-area: name_e;
         }
@@ -61,6 +57,10 @@
         }
         .width_e {
             grid-area: width_e;
+        }
+        h4 {
+            font-weight: bolder;
+            padding-top: 8px;
         }
     }
 }

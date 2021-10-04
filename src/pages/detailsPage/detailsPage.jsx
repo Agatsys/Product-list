@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './detailsPage.scss'
 import { connect } from 'react-redux'
-import BackButton from './backButton/backButton'
 import Width from './width/width'
 import Weight from './weight/weight'
 import Photo from './photo/photo'
@@ -12,11 +11,11 @@ import Length from './length/length'
 import Count from './count/count'
 import Height from './height/height'
 import AddComment from './addComment/addComment'
-import EditProductButton from './editProductButton/editProductButton'
 import Comments from './comments/comments'
 import EditProductWindow from './editProductWindow/editProductWindow'
-import { Modal } from 'antd'
+import { Button, Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
+import { NavLink } from 'react-router-dom'
 
 
 const DetailsPage = (props) => {
@@ -29,19 +28,19 @@ const DetailsPage = (props) => {
 
     return (
         <div className='DetailPageWrapper'>
-            <BackButton />
-            <EditProductButton setModalActive={setModalActive} />
-            <Modal 
-                title="Edit product" 
-                visible={ModalActive} 
-                onCancel={() => setModalActive(false)}
-                onOk={addEditedProduct}
-                okText={'Save'}
-                width={900}>
-                <EditProductWindow
-                    uid={props.uid}
-                    setActive={setModalActive} />
-            </Modal>
+            <NavLink  to='/'>
+                <Button 
+                    type="primary"
+                    className='backButton'>
+                    Back
+                </Button>
+            </NavLink>
+            <Button 
+                type="primary" 
+                className='EditButton__DetailPageWrapper' 
+                onClick={() => setModalActive(true)}>
+                Edit product
+            </Button>
             <Name name={props.productData.name} />
             <Photo photo={props.productData.photo} />
             <div className='characteristics__DetailPageWrapper'>
@@ -55,6 +54,18 @@ const DetailsPage = (props) => {
             </div>
             <Comments name={props.productData.name} />
             <AddComment />
+            <Modal 
+                title="Edit product" 
+                visible={ModalActive} 
+                onCancel={() => setModalActive(false)}
+                onOk={addEditedProduct}
+                okText={'Save'}
+                width={900}
+                centered={true}>
+                <EditProductWindow
+                    uid={props.uid}
+                    setActive={setModalActive} />
+            </Modal>
         </div>
     )
 }

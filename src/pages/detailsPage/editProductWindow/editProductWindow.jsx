@@ -19,9 +19,8 @@ const EditProductWindow = (props) => {
 
     useEffect(() => {
         props.loadProductData(props.uid)
-        // return () => {   
-        // }
-    },[props.uid])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
     return (
         <div className={'editProductWindow'}>
@@ -45,15 +44,22 @@ const EditProductWindow = (props) => {
                 <EditCount />
                 <EditPhoto />
             </div> 
+            {props.isValidEdit === false && props.didTryToProcessEdit === true && (
+                <div>
+                    <div>Errors:</div>
+                    <div>{props.errorsEdit.map(errorText => <div>{errorText}</div>)}</div>
+                </div>
+            )}
         </div>
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        modalFields: state.editProduct.modalFields
-    }
-}
+const mapStateToProps = (state) => ({
+    modalFields: state.editProduct.modalFields,
+    isValidEdit: state.editProduct.isValidEdit,
+    didTryToProcessEdit: state.editProduct.didTryToProcessEdit,
+    errorsEdit: state.editProduct.errorsEdit
+})
 const mapDispatchToProps = (dispatch) => {
     return {
         loadProductData: (uid) => {
