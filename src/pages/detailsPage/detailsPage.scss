@@ -8,6 +8,27 @@
     'adcomm comm';
     min-height: 300px;
     gap: 10px;
+    .name__DetailPageWrapper {
+        grid-area: nm;
+        //border: 1px solid black;
+        font-weight: bold;
+        font-size: 40px;
+    }
+    .photo__DetailPageWrapper {
+        grid-area: ph;
+        padding: 5px;
+        border: 1px solid black;
+        background-color: rgb(236, 232, 232);
+        height: 400px;
+        width: 400px;
+        border-radius: 7px;
+        .ProductPhoto__DetailPageWrapper {
+            display: block;
+            border-radius: 5px;
+            height: 390px;
+            width: 390px;
+        }
+    }
     .characteristics__DetailPageWrapper {
         display: grid;
         grid-template: 220px 50px 50px 50px / 1fr 1fr;
@@ -17,11 +38,32 @@
         'hgt wgt'
         'wdt cnt';
         grid-gap: 10px;
-    }
-    .characteristics__DetailPageWrapper {
         grid-area: chr;
         span {
             font-weight: bold;
+        }
+        .description__DetailPageWrapper {
+            grid-area: dsc;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+        }
+        .weight__DetailPageWrapper {
+            grid-area: wgt;
+        }
+        .color__DetailPageWrapper {
+            grid-area: clr;
+        }
+        .width__DetailPageWrapper {
+            grid-area: wdt;
+        }
+        .length__DetailPageWrapper {
+            grid-area: lng;
+        }
+        .count__DetailPageWrapper {
+            grid-area: cnt;
+        }
+        .height__DetailPageWrapper {
+            grid-area: hgt;
         }
         .char__DetailPageWrapper {
             border: 1px solid rgb(155, 156, 155);
@@ -34,7 +76,7 @@
                 transition: 0.5s
             }
         }
-    }  
+    }
 }
 .backButton {
     display: flex;

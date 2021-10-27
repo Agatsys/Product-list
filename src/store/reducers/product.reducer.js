@@ -17,19 +17,9 @@ const CHANGE_WIDTH = 'CHANGE-WIDTH'
 const CHANGE_COUNT = 'CHANGE-COUNT'
 const CHANGE_PHOTO = 'CHANGE-PHOTO'
 
-export const addProductAction = () => (dispatch, getState) => {
-    dispatch({ type: TRY_PROCESS_FORM })
-    dispatch(validateAction())
-    const isValid = getState().newProduct.isValid
-    if (isValid) {
-        dispatch({ type: ADD_PRODUCT })
-    }
-}
-export const deleteProductAction = (uid) => ({ type: DELETE_PRODUCT, payload: uid })
-
 const validateAction = () => (dispatch, getState) => {
     const state = getState().newProduct
-    const isNameValid = validate('name', state.newName) ? true : "The 'Description' field cannot be shorter than 1 symbol"
+    const isNameValid = validate('name', state.newName) ? true : "The 'Name' field cannot be shorter than 1 symbol"
     const isDescriptionValid = validate('description', state.newDescription) ? true : "The 'Description' field cannot be shorter than 3 symbols"
     const isColorValid = validate('color', state.newColor) ? true : "The 'Color' field cannot contain numbers"
     const isWeightValid = validate('weight', state.newWeight) ? true : "The 'weight' field cannot contain letters"
@@ -44,6 +34,16 @@ const validateAction = () => (dispatch, getState) => {
     const isValid = results.every(item => item === true)
     dispatch({ type: VALIDATE_PRODUCT_CREATION, payload: { errors: errors, isValid: isValid }})
 }
+export const addProductAction = () => (dispatch, getState) => {
+    dispatch({ type: TRY_PROCESS_FORM })
+    dispatch(validateAction())
+    const isValid = getState().newProduct.isValid
+    if (isValid) {
+        dispatch({ type: ADD_PRODUCT })
+    }
+}
+export const deleteProductAction = (uid) => ({ type: DELETE_PRODUCT, payload: uid })
+
 export const updateNameAction = (text) => (dispatch) => {
     dispatch({ type: CHANGE_NAME, payload: text })
     dispatch(validateAction())

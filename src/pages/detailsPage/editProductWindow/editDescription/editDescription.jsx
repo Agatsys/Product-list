@@ -23,7 +23,7 @@ const EditDescription = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        dEscription: state.editProduct.modalFields.dEscription
+        description: state.editProduct.modalFields.description
     }
 }
 let mapDispatchToProps = (dispatch) => {

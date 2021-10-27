@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import EnterColor from './enterColor/enterColor';
 import EnterCount from './enterCount/enterCount';
 import EnterDescription from './enterDescription/enterDescription';
@@ -35,27 +34,9 @@ const AddNewProductWindow = (props) => {
                 <EnterWidth />
                 <EnterCount />
                 <EnterPhoto />
-
             </div>
-            {props.isValid === false && props.didTryToProcess === true && (
-                <div>
-                    <div>Errors:</div>
-                    <div>{props.errors.map((errorText, index) => <div key={`err-${index}`}>{errorText}</div>)}</div>
-                </div>
-            )}
         </div>
     )
 }
 
-const mapStateToProps = (state) => ({
-    isValid: state.newProduct.isValid,
-    didTryToProcess: state.newProduct.didTryToProcess,
-    errors: state.newProduct.errors
-})
-
-const mapDispatchToProps = {
-
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddNewProductWindow);
+export default AddNewProductWindow;

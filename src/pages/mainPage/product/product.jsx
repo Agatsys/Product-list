@@ -14,46 +14,42 @@ const Product = (props) => {
     }
 
     return (
-        <div className='Product'>
-            <div className='ProductPhotoBlock'>
-                <img className='ProductPhoto'
-                    src={props.photo}
-                    alt='...'
-                    height='190px'
-                    width='190px' />
-            </div>
-            <div className='NameOfProduct'>
-                {props.name}
-            </div>
-            <div className='Description'>
-                {props.description}
-            </div>
-            <div className='Count'>
-                <span>Count:</span> {props.count}
-            </div>
-            <NavLink to={`/details/${props.id}`}>
-                <Button type="default"
-                    className='DetailsButton'>
-                    Details
+        <NavLink to={`/details/${props.id}`}>
+            <div className='Product'>
+                <div className='ProductPhotoBlock'>
+                    <img className='ProductPhoto'
+                        src={props.photo}
+                        alt='...'
+                        height='190px'
+                        width='190px' />
+                </div>
+                <div className='NameOfProduct'>
+                    {props.name}
+                </div>
+                <div className='Description'>
+                    {props.description}
+                </div>
+                <div className='Count'>
+                    <span>Count:</span> {props.count}
+                </div>
+                <Button
+                    danger={true}
+                    type="default"
+                    className='DeleteButton'
+                    onClick={() => setModalActive(true)}>
+                    Delete
                 </Button>
-            </NavLink>
-            <Button 
-                danger={true}
-                type="default"
-                className='DeleteButton'
-                onClick={() => setModalActive(true)}>
-                Delete
-            </Button>
-            <Modal
-                title="Delete this? Realy?"
-                visible={modalActive}
-                onCancel={() => setModalActive(false)}
-                onOk={del}
-                okText={'Delete'}
-                width={400}>
-                <div className='name__deleteProductWindow'>{props.name}</div>
-            </Modal>
-        </div>
+                <Modal
+                    title="Delete this? Realy?"
+                    visible={modalActive}
+                    onCancel={() => setModalActive(false)}
+                    onOk={del}
+                    okText={'Delete'}
+                    width={400}>
+                    <div className='name__deleteProductWindow'>{props.name}</div>
+                </Modal>
+            </div>
+        </NavLink >
     )
 }
 

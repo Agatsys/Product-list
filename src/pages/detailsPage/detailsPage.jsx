@@ -1,15 +1,6 @@
 import React, { useState } from 'react'
 import './detailsPage.scss'
 import { connect } from 'react-redux'
-import Width from './width/width'
-import Weight from './weight/weight'
-import Photo from './photo/photo'
-import Color from './color/color'
-import Name from './name/name'
-import Description from './description/description'
-import Length from './length/length'
-import Count from './count/count'
-import Height from './height/height'
 import AddComment from './addComment/addComment'
 import Comments from './comments/comments'
 import EditProductWindow from './editProductWindow/editProductWindow'
@@ -27,35 +18,53 @@ const DetailsPage = (props) => {
 
     return (
         <div className='DetailPageWrapper'>
-            <NavLink  to='/'>
-                <Button 
+            <NavLink to='/'>
+                <Button
                     type="primary"
                     className='backButton'>
                     Back
                 </Button>
             </NavLink>
-            <Button 
-                type="primary" 
-                className='EditButton__DetailPageWrapper' 
+            <Button
+                type="primary"
+                className='EditButton__DetailPageWrapper'
                 onClick={() => setModalActive(true)}>
                 Edit product
             </Button>
-            <Name name={props.productData.name} />
-            <Photo photo={props.productData.photo} />
+            <div className='name__DetailPageWrapper'>
+                {props.productData.name}
+            </div>
+            <div className='photo__DetailPageWrapper'>
+                <img className='ProductPhoto__DetailPageWrapper' src={props.productData.photo} alt="..." />
+            </div>
             <div className='characteristics__DetailPageWrapper'>
-                <Description description={props.productData.description} />
-                <Weight weight={props.productData.weight} />
-                <Color color={props.productData.color} />
-                <Width width={props.productData.width} />
-                <Length length={props.productData.length} />
-                <Count count={props.productData.count} />
-                <Height height={props.productData.height} />
+                <div className='description__DetailPageWrapper char__DetailPageWrapper'>
+                    {props.productData.description}
+                </div>
+                <div className='weight__DetailPageWrapper char__DetailPageWrapper'>
+                    <span>Weight:</span> {props.productData.weight}g
+                </div>
+                <div className='color__DetailPageWrapper char__DetailPageWrapper'>
+                    <span>Color:</span> {props.productData.color}
+                </div>
+                <div className='width__DetailPageWrapper char__DetailPageWrapper'>
+                    <span>Width:</span> {props.productData.width}mm
+                </div>
+                <div className='length__DetailPageWrapper char__DetailPageWrapper'>
+                    <span>Length:</span> {props.productData.length}mm
+                </div>
+                <div className='count__DetailPageWrapper char__DetailPageWrapper'>
+                    <span>Count:</span> {props.productData.count}
+                </div>
+                <div className='height__DetailPageWrapper char__DetailPageWrapper'>
+                    <span>Height:</span> {props.productData.height}mm
+                </div>
             </div>
             <Comments name={props.productData.name} />
             <AddComment />
-            <Modal 
-                title="Edit product" 
-                visible={ModalActive} 
+            <Modal
+                title="Edit product"
+                visible={ModalActive}
                 onCancel={() => setModalActive(false)}
                 onOk={addEditedProduct}
                 okText={'Save'}
@@ -70,21 +79,15 @@ const DetailsPage = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-
     const allProducts = state.newProduct.productsData
     const data = (allProducts.find(item => item.id === ownProps.match.params.id) || {})
-
     return {
         productData: data,
         uid: ownProps.match.params.id
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
-        editProduct: (uid) => {
-            dispatch(editProductAction(uid))
-        }
-    }
+const mapDispatchToProps = {
+    editProduct: editProductAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);

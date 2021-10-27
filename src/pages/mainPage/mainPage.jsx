@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Button, Modal, Select } from 'antd'
+import { Button, message, Modal, Select } from 'antd'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
@@ -33,8 +33,17 @@ const MainPage = (props) => {
             return 0
         } 
     }
-    let AddNewProduct = () => {
+    const warningsModal = () => {
+        const warning = (errorText) => {
+            message.warning(errorText, [7]);
+        };
+        if (props.isValid === false && props.didTryToProcess === true) {
+            props.errors.forEach(errorText => warning(errorText) )
+        }
+    }          
+    const AddNewProduct = () => {
         props.AddProduct()
+        warningsModal()
     }
     
     return (
@@ -76,11 +85,12 @@ const MainPage = (props) => {
     )
 }
 
-let mapStateToProps = (state) => {
-    return {
-        productsData: state.newProduct.productsData
-    }
-}
+let mapStateToProps = (state) => ({
+    productsData: state.newProduct.productsData,
+    isValid: state.newProduct.isValid,
+    didTryToProcess: state.newProduct.didTryToProcess,
+    errors: state.newProduct.errors
+})
 let mapDispatchToProps = (dispatch) => {
     return {
         AddProduct: () => {
