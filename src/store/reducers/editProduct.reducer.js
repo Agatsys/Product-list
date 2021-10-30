@@ -94,7 +94,7 @@ export let initialState = {
     isValidEdit: true,
     errorsEdit: []
 }
-
+console.log(initialState)
 const editProductReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_PRODUCT_DATA: {

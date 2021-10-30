@@ -1,46 +1,82 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { loadProductData } from "../../../store/reducers/editProduct.reducer";
-import EditColor from "./editColor/editColor";
-import EditCount from "./editCount/editCount";
-import EditDescription from "./editDescription/editDescription";
-import EditHeight from "./editHeight/editHeight";
-import EditLength from "./editLength/editLength";
-import EditName from "./editName/editName";
-import EditPhoto from "./editPhoto/editPhoto";
+import { editColorAction, editCountAction, editDescriptionAction, editHeightAction, editLengthAction, editNameAction, editPhotoAction, editWeightAction, editWidthAction, loadProductData } from "../../../store/reducers/editProduct.reducer";
+import CustomInput from "../../components/CustomInput";
 import './editProductWindow.scss'
-import EditWeight from "./editWeight/editWeight";
-import EditWidth from "./editWidth/editWidth";
 
 
 const EditProductWindow = (props) => {
-
     useEffect(() => {
         props.loadProductData(props.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     return (
-        <div className={'editProductWindow'}>
-            <div className='modalContent__editProductWindow' onClick={e => e.stopPropagation()}>
-                <h4 className='name_e'>Name</h4>
-                <h4 className='description_e'>Description</h4>
-                <h4 className='color_e'>Color</h4>
-                <h4 className='weight_e'>Weight (g)</h4>
-                <h4 className='length_e'>Length (mm)</h4>
-                <h4 className='height_e'>Height (mm)</h4>
-                <h4 className='width_e'>Width (mm)</h4>
-                <h4 className='count_e'>Count</h4>
-                <h4 className='photo_e'>Photo (url)</h4>
-                <EditName />
-                <EditDescription />
-                <EditColor />
-                <EditWeight />
-                <EditLength />
-                <EditHeight />
-                <EditWidth />
-                <EditCount />
-                <EditPhoto />
+        <div>
+            <div className='editProductWindow' onClick={e => e.stopPropagation()}>
+                <CustomInput 
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Name"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editName}
+                    value={props.name} />
+                <CustomInput 
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="BigInput"
+                    label="Description"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editDescription}
+                    value={props.description} />
+                <CustomInput
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Color"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editColor}
+                    value={props.color} />
+                <CustomInput
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Weight (g)"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editWeight}
+                    value={props.weight} />
+                <CustomInput
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Length (mm)"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editLength}
+                    value={props.length} />
+                <CustomInput
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Height (mm)"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editHeight}
+                    value={props.height} />
+                <CustomInput
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Width (mm)"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editWidth}
+                    value={props.width} />
+                <CustomInput
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Count"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editCount}
+                    value={props.count} />
+                <CustomInput 
+                    inputBlockClassName='EditProductInput'
+                    inputClassName="SmallInput"
+                    label="Photo (url)"
+                    labelClassName="EditProductLabel"
+                    onChange={props.editPhoto}
+                    value={props.photo} />
             </div> 
             {props.isValidEdit === false && props.didTryToProcessEdit === true && (
                 <div>
@@ -56,14 +92,28 @@ const mapStateToProps = (state) => ({
     modalFields: state.editProduct.modalFields,
     isValidEdit: state.editProduct.isValidEdit,
     didTryToProcessEdit: state.editProduct.didTryToProcessEdit,
-    errorsEdit: state.editProduct.errorsEdit
+    errorsEdit: state.editProduct.errorsEdit,
+    color: state.editProduct.modalFields.color,
+    count: state.editProduct.modalFields.count,
+    description: state.editProduct.modalFields.description,
+    height: state.editProduct.modalFields.height,
+    length: state.editProduct.modalFields.length,
+    name: state.editProduct.modalFields.name,
+    photo: state.editProduct.modalFields.photo,
+    weight: state.editProduct.modalFields.weight,
+    width: state.editProduct.modalFields.width
 })
-const mapDispatchToProps = (dispatch) => {
-    return {
-        loadProductData: (uid) => {
-            dispatch(loadProductData(uid))
-        }
-    }
+const mapDispatchToProps = {
+    loadProductData: loadProductData,
+    editColor: editColorAction,
+    editCount: editCountAction,
+    editDescription: editDescriptionAction,
+    editHeight: editHeightAction,
+    editLength: editLengthAction,
+    editName: editNameAction,
+    editPhoto: editPhotoAction,
+    editWeight: editWeightAction,
+    editWidth: editWidthAction,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditProductWindow) 

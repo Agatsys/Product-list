@@ -1,66 +1,27 @@
-// .editProductWindow.active {
-//     opacity: 1;
-//     pointer-events: all;
-// }
 .editProductWindow {
-    // height: 100%; 
-    // width: 100%;
-    // background-color: rgba(0, 0, 0, 0.8);
-    // position: fixed;
-    // top: 0;
-    // left: 0;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // opacity: 0;
-    // pointer-events: none;
-    .modalContent__editProductWindow {
-        display: grid;
-        grid-template: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr/ 150px 1fr;
-        grid-template-areas: 
-        'name_e edit_n'
-        'description_e edit_d'
-        'color_e edit_c'
-        'weight_e edit_wgt'
-        'length_e edit_l'
-        'height_e edit_h'
-        'width_e edit_w'
-        'count_e edit_cn'
-        'photo_e edit_p';
-        border-radius: 10px;
-        background-color: rgb(255, 255, 255);
-        height: 500px;
-        font-family: Quicksand;
-        .name_e {
-            grid-area: name_e;
-        }
-        .description_e {
-            grid-area: description_e;
-        }
-        .count_e {
-            grid-area: count_e;
-        }
-        .photo_e {
-            grid-area: photo_e;
-        }
-        .color_e {
-            grid-area: color_e;
-        }
-        .weight_e {
-            grid-area: weight_e;
-        }
-        .length_e {
-            grid-area: length_e;
-        }
-        .height_e {
-            grid-area: height_e;
-        }
-        .width_e {
-            grid-area: width_e;
-        }
-        h4 {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    font-family: Quicksand;
+    flex-direction: column;
+    .EditProductInput {
+        display: flex;
+        justify-content: space-between;
+        .EditProductLabel {
             font-weight: bolder;
             padding-top: 8px;
+            width: 120px;
+        }
+        .SmallInput {
+            border: 1px solid black;
+            margin: 5px 0px 5px 0px;
+            flex-grow: 1;
+        }
+        .BigInput {
+            display: block;
+            border: 1px solid black;
+            margin: 5px 0px 5px 0px;
+            height: 150px;
+            flex-grow: 1;
         }
     }
 }

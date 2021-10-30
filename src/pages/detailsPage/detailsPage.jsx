@@ -14,6 +14,7 @@ const DetailsPage = (props) => {
 
     let addEditedProduct = () => {
         props.editProduct(props.uid)
+        setModalActive(false)
     }
 
     return (
@@ -68,7 +69,7 @@ const DetailsPage = (props) => {
                 onCancel={() => setModalActive(false)}
                 onOk={addEditedProduct}
                 okText={'Save'}
-                width={900}
+                width={800}
                 centered={true}>
                 <EditProductWindow
                     uid={props.uid}
