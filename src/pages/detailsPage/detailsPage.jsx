@@ -7,13 +7,19 @@ import EditProductWindow from './editProductWindow/editProductWindow'
 import { Button, Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
 import { NavLink } from 'react-router-dom'
+import LargePhotoModal from './LargePhoto/LargePhotoModal'
 
 
 const DetailsPage = (props) => {
-    const [ModalActive, setModalActive] = useState(false)
-
+    const [editProductModal, setEditProductModalActive] = useState(false)
+    const [largePhotoModal, setlargePhotoModalActive] = useState(false)
+    console.log(largePhotoModal)
     let addEditedProduct = () => {
         props.editProduct(props.uid)
+        debugger
+        if (props.isValidEdit === true) {
+            setEditProductModalActive(false)
+        }
     }
 
     return (
@@ -29,7 +35,7 @@ const DetailsPage = (props) => {
                 <Button
                     type="primary"
                     className="details-page__edit-button"
-                    onClick={() => setModalActive(true)}>
+                    onClick={() => setEditProductModalActive(true)}>
                     Edit product
                 </Button>
             </div>
@@ -37,8 +43,8 @@ const DetailsPage = (props) => {
                 {props.productData.name}
             </div>
             <div className="details-page__photo-and-characteristics">
-                <div className="details-page__photo-wrapper">
-                    <img className="details-page__photo" src={props.productData.photo} alt="..." />
+                <div onClick={() => setlargePhotoModalActive(true)}  className="details-page__photo">
+                    <img src={props.productData.photo} alt="..." />
                 </div>
                 <div className="details-page__characteristics">
                     <div className="details-page__char">
@@ -74,16 +80,20 @@ const DetailsPage = (props) => {
             <AddComment />
             <Modal
                 title="Edit product"
-                visible={ModalActive}
-                onCancel={() => setModalActive(false)}
+                visible={editProductModal}
+                onCancel={() => setEditProductModalActive(false)}
                 onOk={addEditedProduct}
                 okText={'Save'}
                 width={800}
                 centered={true}>
                 <EditProductWindow
                     uid={props.uid}
-                    setActive={setModalActive} />
+                    setActive={setEditProductModalActive} />
             </Modal>
+            <LargePhotoModal 
+                modalActive={largePhotoModal} 
+                setModalActive={setlargePhotoModalActive}
+                photo={props.productData.photo}/>
         </div>
     )
 }
@@ -93,7 +103,8 @@ const mapStateToProps = (state, ownProps) => {
     const data = (allProducts.find(item => item.id === ownProps.match.params.id) || {})
     return {
         productData: data,
-        uid: ownProps.match.params.id
+        uid: ownProps.match.params.id,
+        isValidEdit: state.editProduct.isValidEdit
     }
 }
 const mapDispatchToProps = {

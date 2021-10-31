@@ -38,14 +38,12 @@
     .details-page__photo-and-characteristics {
         display: flex;
         flex-wrap: wrap;
-        .details-page__photo-wrapper {
+        .details-page__photo img {
             padding: 3px;
             background-color: rgb(86, 104, 133);
-            .details-page__photo {
-                display: block;
-                height: 390px;
-                width: 490px;
-            }
+            object-fit: cover;
+            height: 390px;
+            width: 663px;
         }
         .details-page__characteristics {
             flex-grow: 1;

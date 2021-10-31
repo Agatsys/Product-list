@@ -45,14 +45,12 @@
             }
         }
         .product__description {
-            grid-area: dis;
             font-size: 20px;
             padding: 10px 0px 0px 10px;
             overflow: hidden;
             text-overflow: ellipsis; 
         }
         .product__count {
-            grid-area: coun;
             font-size: 20px;
             align-self: end;
             padding: 10px;

@@ -49,21 +49,21 @@ const MainPage = (props) => {
     }
     
     return (
-        <div className='MainPage'>
-            <div className="MainPage__heading">
+        <div className="main-page">
+            <div className="main-page__header">
                 <button 
-                    className='AddNewProductButton' 
+                    className="main-page__add-new-product-button" 
                     onClick={() => setModalActive(true)}>
                     New product
                 </button>
-                <Select size="large" defaultValue={sortBy} value={sortBy} style={{ width: 120 }} onChange={(value) => setSortBy(value)}>
+                <Select size="large" defaultValue={sortBy} value={sortBy} style={{ width: 220 }} onChange={(value) => setSortBy(value)}>
                     <Option value="A to Z">A to Z</Option>
                     <Option value="Z to A">Z to A</Option>
                     <Option value="Less to More">Less to More</Option>
                     <Option value="More to Less">More to Less</Option>
                 </Select>
             </div>
-            <div className='Products-wrapper'>
+            <div className="main-page__products-wrapper">
                 {props.productsData.sort(sortRules).map(p => (
                     <Product
                         name={p.name}
@@ -102,5 +102,4 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
