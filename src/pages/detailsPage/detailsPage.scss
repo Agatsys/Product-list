@@ -1,109 +1,72 @@
-.DetailPageWrapper {
-    display: grid;
-    grid-template: 60px 60px 400px 500px / 1fr 2fr;
-    grid-template-areas: 
-    'back edit'
-    'nm nm'
-    'ph chr'
-    'adcomm comm';
+.details-page {
     min-height: 300px;
-    gap: 10px;
-    .name__DetailPageWrapper {
-        grid-area: nm;
-        //border: 1px solid black;
-        font-weight: bold;
-        font-size: 40px;
-    }
-    .photo__DetailPageWrapper {
-        grid-area: ph;
-        padding: 5px;
-        border: 1px solid black;
-        background-color: rgb(236, 232, 232);
-        height: 400px;
-        width: 400px;
-        border-radius: 7px;
-        .ProductPhoto__DetailPageWrapper {
-            display: block;
-            border-radius: 5px;
-            height: 390px;
-            width: 390px;
-        }
-    }
-    .characteristics__DetailPageWrapper {
-        display: grid;
-        grid-template: 220px 50px 50px 50px / 1fr 1fr;
-        grid-template-areas: 
-        'dsc dsc'
-        'lng clr'
-        'hgt wgt'
-        'wdt cnt';
-        grid-gap: 10px;
-        grid-area: chr;
-        span {
-            font-weight: bold;
-        }
-        .description__DetailPageWrapper {
-            grid-area: dsc;
-            overflow: hidden;
-            text-overflow: ellipsis; 
-        }
-        .weight__DetailPageWrapper {
-            grid-area: wgt;
-        }
-        .color__DetailPageWrapper {
-            grid-area: clr;
-        }
-        .width__DetailPageWrapper {
-            grid-area: wdt;
-        }
-        .length__DetailPageWrapper {
-            grid-area: lng;
-        }
-        .count__DetailPageWrapper {
-            grid-area: cnt;
-        }
-        .height__DetailPageWrapper {
-            grid-area: hgt;
-        }
-        .char__DetailPageWrapper {
-            border: 1px solid rgb(155, 156, 155);
-            color: rgb(0, 0, 0);
-            font-size: 26px;
-            background-color: rgb(236, 232, 232);
-            padding: 10px;
+    .details-page__header {
+        display: flex;
+        justify-content: space-between;
+        .details-page__back-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 35px;
+            font-size: 20px;  
+            font-weight: bolder;
             &:hover {
-                background-color: rgb(135, 196, 253);
+                box-shadow: 0px 0px 15px rgb(36, 35, 35);
+                transition: 0.5s
+            }
+        }
+        .details-page__edit-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 35px;
+            font-size: 20px;  
+            font-weight: bolder;
+            &:hover {
+                box-shadow: 0px 0px 15px rgb(36, 35, 35);
                 transition: 0.5s
             }
         }
     }
-}
-.backButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 35px;
-    font-size: 20px;  
-    font-weight: bolder;
-    grid-area: back;
-    &:hover {
-    box-shadow: 0px 0px 15px rgb(36, 35, 35);
-    transition: 0.5s
+    .details-page__name {
+        margin: 20px 0 20px 0;
+        font-weight: bold;
+        font-size: 40px;
     }
-}
-.EditButton__DetailPageWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 35px;
-    font-size: 20px;  
-    font-weight: bolder;
-    grid-area: edit;
-    margin-left: 750px;
-    &:hover {
-        box-shadow: 0px 0px 15px rgb(36, 35, 35);
-        transition: 0.5s
+    .details-page__photo-and-characteristics {
+        display: flex;
+        flex-wrap: wrap;
+        .details-page__photo-wrapper {
+            padding: 3px;
+            background-color: rgb(86, 104, 133);
+            .details-page__photo {
+                display: block;
+                height: 390px;
+                width: 490px;
+            }
+        }
+        .details-page__characteristics {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            span { font-weight: bold; }
+            .details-page__char-block {
+                display: flex;
+            }
+            .details-page__char {
+                flex-grow: 1;
+                border: 1px solid rgb(155, 156, 155);
+                font-size: 26px;
+                background-color: rgb(236, 232, 232);
+                padding: 10px;
+                margin: 0 0 5px 5px;
+                &:hover {
+                    background-color: rgb(135, 196, 253);
+                    transition: 0.5s
+                }
+            }
+        }
     }
 }

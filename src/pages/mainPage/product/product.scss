@@ -1,86 +1,69 @@
-.Product {
-    color: black;
-    display: grid;
-    grid-template: 70px 80px 50px / 200px 1fr 130px;
-    grid-template-areas: 
-    'ph n del'
-    'ph dis details'
-    'ph coun details';
+.product {
+    display: flex;
     height: 200px;
-    background-color: rgb(236, 232, 232);
+    background-color: rgb(221, 220, 217);
     margin-top: 20px;
     &:hover {
-        background-color: rgb(135, 196, 253);
+        background-color: rgb(214, 225, 239);
         cursor: pointer;
     }
-    .NameOfProduct {
-        font-size: 30px;
-        font-weight: bold;
-        grid-area: n;
-        padding: 10px 0px 0px 10px;
-        overflow: hidden;
-        text-overflow: ellipsis; 
+    .product__photo img {
+        width: 340px;
+        height: 100%;
+        object-fit: cover;
+        padding: 3px;
+        background-color: rgb(86, 104, 133);
     }
-    .Description {
-        grid-area: dis;
-        font-size: 20px;
-        padding: 10px 0px 0px 10px;
-        overflow: hidden;
-        text-overflow: ellipsis; 
-    }
-    .Count {
-        grid-area: coun;
-        font-size: 20px;
-        align-self: end;
-        padding: 10px;
-        span {
-            font-weight: bolder;
-        }
-    } 
-    .ProductPhotoBlock {
-        grid-area: ph;
-        padding: 5px;
-        background-color: rgb(100, 98, 98);
-        .ProductPhoto {
-            display: block;
-            height: 190px;
-            width: 190px;
-        }
-    }
-    .DeleteButton {
+    .product__product-info {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-area: del;
-        font-family: Quicksand;
-        font-weight: bolder;
-        height: 30px;
-        width: 100px;
-        margin: 20px 0px 0px 15px;
-        &:hover {
-            box-shadow: 0px 0px 15px rgb(36, 35, 35);
-            transition: 0.5s  
+        flex-direction: column;
+        width: 100%;
+        .product__name-and-delete-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-grow: 1;
+            .product__name-of-product {
+                font-size: 30px;
+                font-weight: bold;
+                padding: 10px 0px 0px 10px;
+                overflow: hidden;
+                text-overflow: ellipsis; 
+            }
+            .product__delete-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Quicksand;
+                font-weight: bolder;
+                height: 30px;
+                width: 100px;
+                margin: 10px 10px 0 0;
+                &:hover {
+                    transition: 0.5s  
+                }
+            }
         }
-    }
-    .DetailsButton {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-area: details;
-        font-family: Quicksand;
-        font-weight: bolder;
-        height: 30px;
-        width: 100px;
-        margin: 80px 0px 0px 15px;
-        &:hover {
-            box-shadow: 0px 0px 15px rgb(36, 35, 35);
-            transition: 0.5s
-        }    
+        .product__description {
+            grid-area: dis;
+            font-size: 20px;
+            padding: 10px 0px 0px 10px;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+        }
+        .product__count {
+            grid-area: coun;
+            font-size: 20px;
+            align-self: end;
+            padding: 10px;
+            span {
+                font-weight: bolder;
+            }
+        } 
     }
 }
-.name__deleteProductWindow {
+.product__name-of-deleted-product {
     font-size: 25px;
-    color: rgb(0, 0, 0);
     font-weight: bolder;
     font-family: Quicksand;
     overflow: hidden;

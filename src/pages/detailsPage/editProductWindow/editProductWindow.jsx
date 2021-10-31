@@ -13,68 +13,69 @@ const EditProductWindow = (props) => {
     
     return (
         <div>
-            <div className='editProductWindow' onClick={e => e.stopPropagation()}>
+            <div className='edit-product-window'>
                 <CustomInput 
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Name"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editName}
                     value={props.name} />
                 <CustomInput 
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="BigInput"
                     label="Description"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window___large-input"
+                    labelClassName="edit-product-window__label"
+                    textarea={true} 
                     onChange={props.editDescription}
                     value={props.description} />
                 <CustomInput
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Color"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editColor}
                     value={props.color} />
                 <CustomInput
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Weight (g)"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editWeight}
                     value={props.weight} />
                 <CustomInput
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Length (mm)"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editLength}
                     value={props.length} />
                 <CustomInput
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Height (mm)"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editHeight}
                     value={props.height} />
                 <CustomInput
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Width (mm)"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editWidth}
                     value={props.width} />
                 <CustomInput
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Count"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editCount}
                     value={props.count} />
                 <CustomInput 
-                    inputBlockClassName='EditProductInput'
-                    inputClassName="SmallInput"
                     label="Photo (url)"
-                    labelClassName="EditProductLabel"
+                    inputBlockClassName="edit-product-window__input"
+                    inputClassName="edit-product-window__small-input"
+                    labelClassName="edit-product-window__label"
                     onChange={props.editPhoto}
                     value={props.photo} />
             </div> 

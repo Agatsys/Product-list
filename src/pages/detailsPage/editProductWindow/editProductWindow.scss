@@ -1,22 +1,22 @@
-.editProductWindow {
+.edit-product-window {
     display: flex;
+    flex-direction: column;
     background-color: rgb(255, 255, 255);
     font-family: Quicksand;
-    flex-direction: column;
-    .EditProductInput {
+    .edit-product-window__input {
         display: flex;
         justify-content: space-between;
-        .EditProductLabel {
+        .edit-product-window__label {
             font-weight: bolder;
             padding-top: 8px;
             width: 120px;
         }
-        .SmallInput {
+        .edit-product-window__small-input {
             border: 1px solid black;
             margin: 5px 0px 5px 0px;
             flex-grow: 1;
         }
-        .BigInput {
+        .edit-product-window___large-input {
             display: block;
             border: 1px solid black;
             margin: 5px 0px 5px 0px;

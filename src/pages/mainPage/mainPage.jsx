@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Button, message, Modal, Select } from 'antd'
+import { message, Modal, Select } from 'antd'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
 import Product from './product/product'
 import './mainPage.scss'
@@ -11,7 +11,6 @@ const { Option } = Select
 
 const MainPage = (props) => {
     const [modalActive, setModalActive] = useState(false)
-
     const [sortBy, setSortBy] = useState('A to Z')
     
     const sortRules = (a, b) => {
@@ -44,14 +43,19 @@ const MainPage = (props) => {
     const AddNewProduct = () => {
         props.AddProduct()
         warningsModal()
+        if (props.isValid === true) {
+            setModalActive(false)
+        }
     }
     
     return (
         <div className='MainPage'>
             <div className="MainPage__heading">
-                <Button type="primary" className='AddNewProductButton' onClick={() => setModalActive(true)}>
+                <button 
+                    className='AddNewProductButton' 
+                    onClick={() => setModalActive(true)}>
                     New product
-                </Button>
+                </button>
                 <Select size="large" defaultValue={sortBy} value={sortBy} style={{ width: 120 }} onChange={(value) => setSortBy(value)}>
                     <Option value="A to Z">A to Z</Option>
                     <Option value="Z to A">Z to A</Option>
@@ -77,7 +81,7 @@ const MainPage = (props) => {
                 onCancel={() => setModalActive(false)}
                 onOk={AddNewProduct}
                 okText={'Add product'}
-                width={900}
+                width={800}
                 centered={true}>
                 <AddNewProductWindow active={modalActive} setActive={setModalActive} />
             </Modal>

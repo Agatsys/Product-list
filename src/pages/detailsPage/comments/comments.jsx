@@ -16,17 +16,11 @@ const Comments = (props) => {
 }
 
 let mapStateToProps = (state, ownProps) => {
-    
     const uidOfProduct = ownProps.match.params.id
     return {
         commentsNew: state.comments.commentsNew[uidOfProduct] || [],
         uid: ownProps.match.params.id
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
 
-    }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Comments))
+export default withRouter(connect(mapStateToProps, null)(Comments))

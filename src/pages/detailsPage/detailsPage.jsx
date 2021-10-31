@@ -14,51 +14,60 @@ const DetailsPage = (props) => {
 
     let addEditedProduct = () => {
         props.editProduct(props.uid)
-        setModalActive(false)
     }
 
     return (
-        <div className='DetailPageWrapper'>
-            <NavLink to='/'>
+        <div className="details-page">
+            <div className="details-page__header">
+                <NavLink to='/'>
+                    <Button
+                        type="primary"
+                        className="details-page__back-button">
+                        Back
+                    </Button>
+                </NavLink>
                 <Button
                     type="primary"
-                    className='backButton'>
-                    Back
+                    className="details-page__edit-button"
+                    onClick={() => setModalActive(true)}>
+                    Edit product
                 </Button>
-            </NavLink>
-            <Button
-                type="primary"
-                className='EditButton__DetailPageWrapper'
-                onClick={() => setModalActive(true)}>
-                Edit product
-            </Button>
-            <div className='name__DetailPageWrapper'>
+            </div>
+            <div className="details-page__name">
                 {props.productData.name}
             </div>
-            <div className='photo__DetailPageWrapper'>
-                <img className='ProductPhoto__DetailPageWrapper' src={props.productData.photo} alt="..." />
-            </div>
-            <div className='characteristics__DetailPageWrapper'>
-                <div className='description__DetailPageWrapper char__DetailPageWrapper'>
-                    {props.productData.description}
+            <div className="details-page__photo-and-characteristics">
+                <div className="details-page__photo-wrapper">
+                    <img className="details-page__photo" src={props.productData.photo} alt="..." />
                 </div>
-                <div className='weight__DetailPageWrapper char__DetailPageWrapper'>
-                    <span>Weight:</span> {props.productData.weight}g
-                </div>
-                <div className='color__DetailPageWrapper char__DetailPageWrapper'>
-                    <span>Color:</span> {props.productData.color}
-                </div>
-                <div className='width__DetailPageWrapper char__DetailPageWrapper'>
-                    <span>Width:</span> {props.productData.width}mm
-                </div>
-                <div className='length__DetailPageWrapper char__DetailPageWrapper'>
-                    <span>Length:</span> {props.productData.length}mm
-                </div>
-                <div className='count__DetailPageWrapper char__DetailPageWrapper'>
-                    <span>Count:</span> {props.productData.count}
-                </div>
-                <div className='height__DetailPageWrapper char__DetailPageWrapper'>
-                    <span>Height:</span> {props.productData.height}mm
+                <div className="details-page__characteristics">
+                    <div className="details-page__char">
+                        {props.productData.description}
+                    </div>
+                    <div className="details-page__char-block">
+                        <div className="details-page__char">
+                            <span>Color:</span> {props.productData.color}
+                        </div>
+                        <div className="details-page__char">
+                            <span>Length:</span> {props.productData.length}mm
+                        </div>
+                    </div>
+                    <div className="details-page__char-block">
+                        <div className="details-page__char">
+                            <span>Weight:</span> {props.productData.weight}g
+                        </div>
+                        <div className="details-page__char">
+                            <span>Width:</span> {props.productData.width}mm
+                        </div>
+                    </div>
+                    <div className="details-page__char-block">
+                        <div className="details-page__char">
+                            <span>Count:</span> {props.productData.count}
+                        </div>
+                        <div className="details-page__char">
+                            <span>Height:</span> {props.productData.height}mm
+                        </div>
+                    </div>
                 </div>
             </div>
             <Comments name={props.productData.name} />

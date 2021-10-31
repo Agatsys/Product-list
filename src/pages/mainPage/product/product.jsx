@@ -14,50 +14,47 @@ const Product = (props) => {
         props.deleteProduct(props.id)
     }
 
-    return (
-        <>
-            <div onClick={() => history.push(`/details/${props.id}`)}>
-                <div className='Product'>
-                    <div className='ProductPhotoBlock'>
-                        <img className='ProductPhoto'
-                            src={props.photo}
-                            alt='...'
-                            height='190px'
-                            width='190px' />
+    return <>
+        <div onClick={() => history.push(`/details/${props.id}`)}>
+            <div className="product">
+                <div className="product__photo">
+                    <img src={props.photo} alt='...' />
+                </div>
+                <div className="product__product-info">
+                    <div className="product__name-and-delete-button">
+                        <div className="product__name-of-product">
+                            {props.name}
+                        </div>
+                        <Button
+                            className="product__delete-button"
+                            danger={true}
+                            type="default"
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                setModalActive(true)
+                            }}>
+                            Delete
+                        </Button>
                     </div>
-                    <div className='NameOfProduct'>
-                        {props.name}
-                    </div>
-                    <div className='Description'>
+                    <div className="product__description">
                         {props.description}
                     </div>
-                    <div className='Count'>
+                    <div className="product__count">
                         <span>Count:</span> {props.count}
                     </div>
-                    <Button
-                        danger={true}
-                        type="default"
-                        className='DeleteButton'
-                        onClick={(e) => {
-                            e.stopPropagation()
-                            setModalActive(true)
-                        }}>
-                        Delete
-                    </Button>
-                    
                 </div>
-            </div >
-            <Modal
-                title="Delete this? Realy?"
-                visible={modalActive}
-                onCancel={() => setModalActive(false)}
-                onOk={del}
-                okText={'Delete'}
-                width={400}>
-                <div className='name__deleteProductWindow'>{props.name}</div>
-            </Modal>
-        </>
-    )
+            </div>
+        </div >
+        <Modal
+            title="Delete this? Realy?"
+            visible={modalActive}
+            onCancel={() => setModalActive(false)}
+            onOk={del}
+            okText={'Delete'}
+            width={400}>
+            <div className="product__name-of-deleted-product">{props.name}</div>
+        </Modal>
+    </>
 }
 
 const mapDispatchToProps = {

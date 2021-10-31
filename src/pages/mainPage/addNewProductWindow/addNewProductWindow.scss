@@ -1,64 +1,27 @@
-
-.addNewProductWindow {
-    // height: 100%; 
-    // width: 100%;
-    // background-color: rgba(0, 0, 0, 0.8);
-    // position: fixed;
-    // top: 0;
-    // left: 0;
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // opacity: 0;
-    // pointer-events: none;
-    // transition: 0.5s;
-    .modalContent__addNewProductWindow {
-        display: grid;
-        grid-template: 1fr 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr / 150px 1fr;
-        grid-template-areas: 
-        'name_t n'
-        'description_t d'
-        'color_t c'
-        'weight_t wg'
-        'length_t l'
-        'height_t h'
-        'width_t wd'
-        'count_t a'
-        'photo_t p';
-        padding: 20px;
-        font-family: Quicksand;
-        height: 550px;
-        
-        .name_t {
-            grid-area: name_t;
-        }
-        .description_t {
-            grid-area: description_t;
-        }
-        .count_t {
-            grid-area: count_t;
-        }
-        .photo_t {
-            grid-area: photo_t;
-        }
-        .color_t {
-            grid-area: color_t;
-        }
-        .weight_t {
-            grid-area: weight_t;
-        }
-        .length_t {
-            grid-area: length_t;
-        }
-        .height_t {
-            grid-area: height_t;
-        }
-        .width_t {
-            grid-area: width_t;
-        }
-        h4 {
+.add-new-product-window {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    font-family: Quicksand;
+    .add-new-product-window__input {
+        display: flex;
+        justify-content: space-between;
+        .add-new-product-window__label {
             font-weight: bolder;
             padding-top: 8px;
+            width: 120px;
+        }
+        .add-new-product-window__small-input {
+            border: 1px solid black;
+            margin: 5px 0px 5px 0px;
+            flex-grow: 1;
+        }
+        .add-new-product-window___large-input {
+            display: block;
+            border: 1px solid black;
+            margin: 5px 0px 5px 0px;
+            height: 150px;
+            flex-grow: 1;
         }
     }
 }

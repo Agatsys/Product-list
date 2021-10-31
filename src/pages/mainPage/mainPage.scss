@@ -4,11 +4,11 @@
     grid-template-areas: 
     'heading heading'
     'pw      pw';
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(246, 245, 243);
     
     .Products-wrapper {
         grid-area: pw;
-        background-color: rgb(255, 255, 255);   
+        background-color: rgb(246, 245, 243);   
     }
     .MainPage__heading {
         grid-area: heading;
@@ -18,16 +18,17 @@
 }
 
 .AddNewProductButton {
+    background-color: rgb(86, 104, 133);
     display: flex;
     align-items: center;
     justify-content: center;
     grid-area: a;
-    width: 200px;
+    width: 250px;
     height: 35px;
     font-size: 20px;
     font-weight: bolder;
     &:hover {
-        box-shadow: 0px 0px 15px rgb(0, 0, 0);
+        background-color: rgb(59, 77, 105);
         transition: 0.5s
     }
 }

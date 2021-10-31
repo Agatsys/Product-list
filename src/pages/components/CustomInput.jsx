@@ -7,16 +7,24 @@ const CustomInput = ({
     inputBlockClassName,
     inputClassName,
     labelClassName,
-    onChange
+    onChange,
+    textarea
 }) => {
     return (
         <div className={inputBlockClassName}>
             <h4 className={labelClassName}>{label}</h4>
-            <input
-                className={inputClassName}
-                onChange={(event) => onChange(event.currentTarget.value)}
-                value={value}>
-            </input>
+            {!textarea &&
+                <input
+                    className={inputClassName}
+                    onChange={(event) => onChange(event.currentTarget.value)}
+                    value={value}>
+                </input> }
+            {textarea &&
+                <textarea
+                    className={inputClassName}
+                    onChange={(event) => onChange(event.currentTarget.value)}
+                    value={value}>
+                </textarea> }
         </div>
     )
 }
