@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import './detailsPage.scss'
+import './DetailsPage.scss'
 import { connect } from 'react-redux'
 import AddComment from './addComment/addComment'
 import Comments from './comments/comments'
 import EditProductWindow from './editProductWindow/editProductWindow'
-import { Button, Modal } from 'antd'
+import { Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
 import { NavLink } from 'react-router-dom'
 import LargePhotoModal from './LargePhoto/LargePhotoModal'
@@ -13,7 +13,7 @@ import LargePhotoModal from './LargePhoto/LargePhotoModal'
 const DetailsPage = (props) => {
     const [editProductModal, setEditProductModalActive] = useState(false)
     const [largePhotoModal, setlargePhotoModalActive] = useState(false)
-    console.log(largePhotoModal)
+    
     let addEditedProduct = () => {
         props.editProduct(props.uid)
         debugger
@@ -26,18 +26,16 @@ const DetailsPage = (props) => {
         <div className="details-page">
             <div className="details-page__header">
                 <NavLink to='/'>
-                    <Button
-                        type="primary"
+                    <button
                         className="details-page__back-button">
                         Back
-                    </Button>
+                    </button>
                 </NavLink>
-                <Button
-                    type="primary"
+                <button
                     className="details-page__edit-button"
                     onClick={() => setEditProductModalActive(true)}>
                     Edit product
-                </Button>
+                </button>
             </div>
             <div className="details-page__name">
                 {props.productData.name}
@@ -110,5 +108,4 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     editProduct: editProductAction
 }
-
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);

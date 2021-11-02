@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { message, Modal, Select } from 'antd'
 import AddNewProductWindow from './addNewProductWindow/addNewProductWindow'
-import Product from './product/product'
+import Product from './Product/Product'
 import './mainPage.scss'
 import { addProductAction } from '../../store/reducers/product.reducer'
 

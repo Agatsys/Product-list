@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route } from 'react-router';
 import './media/styles/index.scss';
-import detailsPage from './pages/detailsPage/detailsPage';
+import DetailsPage from './pages/detailsPage/DetailsPage';
 import mainPage from './pages/mainPage/mainPage';
 
 
@@ -10,7 +10,7 @@ const App = () => {
     <>
       <div className="app-wrapper">
         <Route exact path='/' component={mainPage} />
-        <Route exact path='/details/:id' component={detailsPage} />
+        <Route exact path='/details/:id' component={DetailsPage} />
       </div>
     </>
   );

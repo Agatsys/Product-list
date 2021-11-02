@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { deleteProductAction } from '../../../store/reducers/product.reducer'
-import './product.scss'
+import './Product.scss'
 
 
 const Product = (props) => {

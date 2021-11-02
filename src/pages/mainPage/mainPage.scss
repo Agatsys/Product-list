@@ -3,6 +3,7 @@
     .main-page__header {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 20px;
         .main-page__add-new-product-button {
             background-color: rgb(86, 104, 133);
             color: rgb(246, 245, 243);
@@ -20,6 +21,9 @@
         }
     }
     .main-page__products-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         background-color: rgb(246, 245, 243);   
     }
 }
