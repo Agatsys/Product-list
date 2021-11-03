@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 import './DetailsPage.scss'
 import { connect } from 'react-redux'
-import AddComment from './addComment/addComment'
 import Comments from './comments/comments'
 import EditProductWindow from './editProductWindow/editProductWindow'
 import { Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
-import { NavLink } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import LargePhotoModal from './LargePhoto/LargePhotoModal'
+import { addCommentAction, updateCommentAction } from '../../store/reducers/addComment.reducer'
 
 
 const DetailsPage = (props) => {
     const [editProductModal, setEditProductModalActive] = useState(false)
     const [largePhotoModal, setlargePhotoModalActive] = useState(false)
-    
+    const params = useParams()
+    const history = useHistory()
+
     let addEditedProduct = () => {
         props.editProduct(props.uid)
         debugger
@@ -21,18 +23,18 @@ const DetailsPage = (props) => {
             setEditProductModalActive(false)
         }
     }
+    let AddNewComment = () => {
+        props.AddComment(params.id)
+    }
 
     return (
         <div className="details-page">
             <div className="details-page__header">
-                <NavLink to='/'>
-                    <button
-                        className="details-page__back-button">
-                        Back
-                    </button>
-                </NavLink>
-                <button
-                    className="details-page__edit-button"
+                <button className="details-page__back-button"
+                    onClick={() => history.push("/")}>
+                    Back
+                </button>
+                <button className="details-page__edit-button"
                     onClick={() => setEditProductModalActive(true)}>
                     Edit product
                 </button>
@@ -41,8 +43,8 @@ const DetailsPage = (props) => {
                 {props.productData.name}
             </div>
             <div className="details-page__photo-and-characteristics">
-                <div onClick={() => setlargePhotoModalActive(true)}  className="details-page__photo">
-                    <img src={props.productData.photo} alt="..." />
+                <div onClick={() => setlargePhotoModalActive(true)} className="details-page__photo">
+                    <img src={props.productData.photo} alt="..." />         {/* {props.productData.photo} */}
                 </div>
                 <div className="details-page__characteristics">
                     <div className="details-page__char">
@@ -75,7 +77,19 @@ const DetailsPage = (props) => {
                 </div>
             </div>
             <Comments name={props.productData.name} />
-            <AddComment />
+            <div className='addComment__DetailPageWrapper'>
+                <div className='writeYourComment'>Write your comment:</div>
+                <textarea
+                    className='enterComment__DetailPageWrapper'
+                    onChange={(event) => props.updateComment(event.currentTarget.value)}
+                    value={props.newText}
+                />
+                <button
+                    className='addCommentButton__DetailPageWrapper'
+                    onClick={AddNewComment}>
+                    Add comment
+                </button>
+            </div>
             <Modal
                 title="Edit product"
                 visible={editProductModal}
@@ -88,10 +102,10 @@ const DetailsPage = (props) => {
                     uid={props.uid}
                     setActive={setEditProductModalActive} />
             </Modal>
-            <LargePhotoModal 
-                modalActive={largePhotoModal} 
+            <LargePhotoModal
+                modalActive={largePhotoModal}
                 setModalActive={setlargePhotoModalActive}
-                photo={props.productData.photo}/>
+                photo={props.productData.photo} />
         </div>
     )
 }
@@ -102,10 +116,14 @@ const mapStateToProps = (state, ownProps) => {
     return {
         productData: data,
         uid: ownProps.match.params.id,
-        isValidEdit: state.editProduct.isValidEdit
+        isValidEdit: state.editProduct.isValidEdit,
+        newText: state.comments.newText
     }
 }
 const mapDispatchToProps = {
-    editProduct: editProductAction
+    editProduct: editProductAction,
+    updateComment: updateCommentAction,
+    AddComment: addCommentAction
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);

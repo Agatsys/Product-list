@@ -12,7 +12,7 @@ const CustomInput = ({
 }) => {
     return (
         <div className={inputBlockClassName}>
-            <h4 className={labelClassName}>{label}</h4>
+            <div className={labelClassName}>{label}</div>
             {!textarea &&
                 <input
                     className={inputClassName}

@@ -1,7 +1,7 @@
+@import '../../media/styles/adaptive-value';
+
+
 .details-page {
-    //display: flex;
-    //flex-grow: 1;
-    //flex-direction: column;
     .details-page__header {
         display: flex;
         justify-content: space-between;
@@ -9,9 +9,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 200px;
-            height: 35px;
-            font-size: 20px;  
+            border: 1px solid black;
+            @include adaptive-value("width", 200, 66, 0);
+            @include adaptive-value("height", 35, 17, 0);
+            @include adaptive-value("font-size", 20, 10, 0);
             font-weight: bolder;
             &:hover {
                 box-shadow: 0px 0px 15px rgb(36, 35, 35);
@@ -19,12 +20,13 @@
             }
         }
         .details-page__edit-button {
+            @include adaptive-value("width", 200, 66, 0);
+            @include adaptive-value("height", 35, 17, 0);
+            @include adaptive-value("font-size", 20, 10, 0);
             display: flex;
+            border: 1px solid black;
             align-items: center;
             justify-content: center;
-            width: 200px;
-            height: 35px;
-            font-size: 20px;  
             font-weight: bolder;
             &:hover {
                 box-shadow: 0px 0px 15px rgb(36, 35, 35);
@@ -33,25 +35,27 @@
         }
     }
     .details-page__name {
-        margin: 20px 0 20px 0;
+        @include adaptive-value("margin-top", 20, 7, 0);
+        @include adaptive-value("margin-bottom", 20, 7, 0);
+        @include adaptive-value("font-size", 40, 20, 0);
         font-weight: bold;
-        font-size: 40px;
     }
     .details-page__photo-and-characteristics {
         display: flex;
         flex-wrap: wrap;
         gap: 3px;
         .details-page__photo {
-            height: 390px;
-            width: 663px;
+            @include adaptive-value("height", 390, 133, 0);
+            @include adaptive-value("width", 663, 226, 0);
+            background-color: rgb(86, 104, 133);
         }
         .details-page__photo img {
+            @include adaptive-value("padding", 3, 1, 0);
+            @include adaptive-value("height", 390, 133, 0);
+            @include adaptive-value("width", 663, 226, 0);
             cursor: pointer;
-            padding: 3px;
             background-color: rgb(86, 104, 133);
             object-fit: cover;
-            height: 390px;
-            width: 663px;
         }
         .details-page__characteristics {
             display: flex;
@@ -66,7 +70,7 @@
             .details-page__char {
                 flex-basis: 100%;
                 border: 1px solid rgb(155, 156, 155);
-                font-size: 26px;
+                //font-size: 26px;
                 background-color: rgb(236, 232, 232);
                 padding: 10px;
                 &:hover {
@@ -77,3 +81,34 @@
         }
     }
 }
+
+// .addComment__DetailPageWrapper {
+//     grid-area: adcomm;
+//     margin-top: 40px;
+//     .writeYourComment {
+//         font-size: 25px;
+//         font-weight: bold;
+//         margin-bottom: 10px;
+//     }
+//     .enterComment__DetailPageWrapper {
+//         border: 1px solid black;
+//         width: 400px;
+//         height: 250px;
+//     }
+// }
+// .addCommentButton__DetailPageWrapper {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 400px;
+//     height: 35px;
+//     font-size: 20px;  
+//     font-weight: bolder;
+//     margin-top: 10px;
+//     &:hover {
+//         box-shadow: 0px 0px 15px rgb(36, 35, 35);
+//         transition: 0.5s
+//     }
+// }
+
+

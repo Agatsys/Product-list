@@ -1,29 +1,37 @@
+@import '../../media/styles/adaptive-value';
+
+
 .main-page {
     background-color: rgb(246, 245, 243);
     .main-page__header {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 20px;
+        @include adaptive-value("margin-bottom", 20, 7, 0);
         .main-page__add-new-product-button {
+            @include adaptive-value("width", 300, 96, 0);
+            @include adaptive-value("height", 35, 20, 0);
+            @include adaptive-value("font-size", 20, 10, 0);
             background-color: rgb(86, 104, 133);
             color: rgb(246, 245, 243);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 250px;
-            height: 35px;
-            font-size: 20px;
             font-weight: bolder;
             &:hover {
-                background-color: rgb(59, 77, 105);
+                background-color: rgb(51, 67, 92);
                 transition: 0.5s
             }
         }
+        .main-page__sort {
+            @include adaptive-value("width", 300, 96, 0);
+            @include adaptive-value("height", 35, 35, 0);
+        }
     }
     .main-page__products-wrapper {
+        @include adaptive-value("gap", 20, 5, 0);
         display: flex;
         flex-direction: column;
-        gap: 20px;
         background-color: rgb(246, 245, 243);   
     }
 }
+

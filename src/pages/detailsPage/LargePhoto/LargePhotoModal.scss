@@ -8,6 +8,7 @@
     align-items: center;
     height: 100%;
     width: 100%;
+    padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     top: 0;
@@ -15,12 +16,19 @@
     transition: 0.5s;
     pointer-events: none;
     opacity: 0;
+    backdrop-filter: blur(7px);
+    .large-photo__content {
+        padding: 5px;
+        max-width: 0px;
+        //max-height: 500px;
+    }
     .large-photo__content img {
         padding: 5px;
         background-color: rgb(240, 233, 233);
-        max-height: 700px;
-        max-width: 1200px;
-        width: auto;
-        height: auto;
+        //max-height: 700px;
+        //max-width: 1200px;
+        //width: auto;
+        //height: auto;
+        //object-fit: cover;
     }
 }
