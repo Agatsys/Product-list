@@ -1,24 +1,58 @@
-$maxWidth: 1600;
-$maxWidthContainer: 1170;
-$midWidth: 240;
-$ViewportWidth: 100;
+// calc(20px + (50 - 20) * (( 100vw - 240px) / (1600 - 240)))
+// 50: Максимальний розмір об'єкту
+// 20: Мінімальний розмір об'єкту
+// 240: Мінімальна ширина дисплею в пікселях
+// 1600: Максимальна ширина дисплею в пікселях
 
-@mixin adaptive-value ($property, $startSize, $minSize, $type) {
+//$width_1600: 1600;
+//$width_700: 700;
+//$width_450: 450;
+//$width_451: 451;
+//$minWidth: 240;
+//$ViewportWidth: 100;
+
+@mixin adaptive-value ($property, $startSize, $minSize, $blockSize) {
     $addSize: $startSize - $minSize;
-        // Якщо менше контейнеру
-    @if $type==1 {
-        #{$property}: $startSize + px;
-        @media (max-width: #{$maxWidthContainer + px}) {
-            #{$property}: calc(#{$minSize + px} + #{$addSize} * (($ViewportWidth + vw - $midWidth + px) / #{$maxWidthContainer - 240}));
-        }
-        // Якщо більше контейнеру
-    } @else if $type==2 {
-        #{$property}: $startSize + px;
-        @media (min-width: #{$maxWidthContainer + px}) {
-            #{$property}: calc(#{$minSize + px} + #{$addSize} * (($ViewportWidth + vw - $midWidth + px) / #{$maxWidth - 240}));
-        }
-        // Завжди
-    } @else {
-        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{$ViewportWidth + vw} - #{$midWidth + px}) / #{$maxWidth - 240}));
-    }
+    #{$property}: $startSize + px;
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{$blockSize - 240}));
 }
+
+
+
+
+
+
+
+
+// @mixin adaptive-value ($property, $startSize, $minSize, $type) {
+//     $addSize: $startSize - $minSize;
+//         // width 240-450 px
+//     @if $type==1 {
+//         #{$property}: $startSize + px;
+//         @media(max-width: #{450 + px}) {
+//             #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{450 - 240}));
+//         }
+//         // width 451-1600 px
+//     } @else if $type==2 {
+//         #{$property}: $startSize + px;
+//         @media(min-width: #{451 + px}) {
+//             #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{1600 - 240}));
+//         }
+//         // width 240-700 px
+//     } @else if $type==3 {
+//         #{$property}: $startSize + px;
+//         @media(max-width: #{700 + px}) {
+//             #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{700 - 240}));
+//         }
+//         // width 701-1600 px
+//     } @else if $type==4 {
+//         #{$property}: $startSize + px;
+//         @media(min-width: #{701 + px}) {
+//             #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{1600 - 240}));
+//         }
+//     }
+//         // width 240-1600 px
+//     @else {
+//         #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{1600 - 240}));
+//     }
+// }

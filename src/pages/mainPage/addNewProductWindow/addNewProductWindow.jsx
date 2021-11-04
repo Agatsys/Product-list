@@ -2,10 +2,15 @@ import React from 'react'
 import './AddNewProductWindow.scss'
 import CustomInput from '../../components/CustomInput';
 import { connect } from 'react-redux';
-import { updateColorAction, updateCountAction, updateDescriptionAction, updateHeightAction, updateLengthAction, updateNameAction, updatePhotoAction, updateWeightAction, updateWidthAction } from '../../../store/reducers/product.reducer';
+import { clearAllTextFieldsAction, updateColorAction, updateCountAction, updateDescriptionAction, updateHeightAction, updateLengthAction, updateNameAction, updatePhotoAction, updateWeightAction, updateWidthAction } from '../../../store/reducers/product.reducer';
 
 
 const AddNewProductWindow = (props) => {
+    let clearAndClose = () => {
+        props.setModalActive(false)
+        props.clearTextFields()
+    }
+
     return (
         <div className={props.modalActive ? "add-new-product-window__mask add-new-product-window__active" : "add-new-product-window__mask"} onClick={() => props.setModalActive(false)}>
             <div className="add-new-product-window" onClick={e => e.stopPropagation()}>
@@ -78,7 +83,7 @@ const AddNewProductWindow = (props) => {
                     value={props.newPhoto} />
                 <div className="add-new-product-window__buttons">
                     <button className="add-new-product-window__cancel-button"
-                        onClick={() => props.setModalActive(false)}>
+                        onClick={clearAndClose}>
                         Cancel
                     </button>
                     <button className="add-new-product-window__add-product-button"
@@ -111,7 +116,8 @@ const mapDispatchToProps = {
     enterName: updateNameAction,
     enterPhoto: updatePhotoAction,
     enterWeight: updateWeightAction,
-    enterWidth: updateWidthAction
+    enterWidth: updateWidthAction,
+    clearTextFields: clearAllTextFieldsAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNewProductWindow);

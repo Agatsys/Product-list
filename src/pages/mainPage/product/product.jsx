@@ -1,4 +1,4 @@
-import { Button, Modal } from 'antd'
+import { Modal } from 'antd'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -25,16 +25,14 @@ const Product = (props) => {
                         <div className="product__name-of-product">
                             {props.name}
                         </div>
-                        <Button
+                        <button
                             className="product__delete-button"
-                            danger={true}
-                            type="default"
                             onClick={(e) => {
                                 e.stopPropagation()
                                 setModalActive(true)
                             }}>
                             Delete
-                        </Button>
+                        </button>
                     </div>
                     <div className="product__description">
                         {props.description}

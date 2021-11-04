@@ -6,13 +6,13 @@
         display: flex;
         justify-content: space-between;
         .details-page__back-button {
+            @include adaptive-value("width", 200, 66, 1600);
+            @include adaptive-value("height", 35, 20, 1600);
+            @include adaptive-value("font-size", 20, 10, 1600);
             display: flex;
             align-items: center;
             justify-content: center;
             border: 1px solid black;
-            @include adaptive-value("width", 200, 66, 0);
-            @include adaptive-value("height", 35, 17, 0);
-            @include adaptive-value("font-size", 20, 10, 0);
             font-weight: bolder;
             &:hover {
                 box-shadow: 0px 0px 15px rgb(36, 35, 35);
@@ -20,9 +20,9 @@
             }
         }
         .details-page__edit-button {
-            @include adaptive-value("width", 200, 66, 0);
-            @include adaptive-value("height", 35, 17, 0);
-            @include adaptive-value("font-size", 20, 10, 0);
+            @include adaptive-value("width", 200, 66, 1600);
+            @include adaptive-value("height", 35, 20, 1600);
+            @include adaptive-value("font-size", 20, 10, 1600);
             display: flex;
             border: 1px solid black;
             align-items: center;
@@ -35,44 +35,63 @@
         }
     }
     .details-page__name {
-        @include adaptive-value("margin-top", 20, 7, 0);
-        @include adaptive-value("margin-bottom", 20, 7, 0);
-        @include adaptive-value("font-size", 40, 20, 0);
+        @include adaptive-value("margin-top", 20, 7, 1600);
+        @include adaptive-value("margin-bottom", 20, 7, 1600);
+        @include adaptive-value("font-size", 40, 20, 1600);
         font-weight: bold;
     }
     .details-page__photo-and-characteristics {
         display: flex;
-        flex-wrap: wrap;
         gap: 3px;
+        @media(max-width: 700px) {
+            flex-wrap: wrap;
+        }
         .details-page__photo {
-            @include adaptive-value("height", 390, 133, 0);
-            @include adaptive-value("width", 663, 226, 0);
+            @include adaptive-value("height", 395, 133, 1600);
+            @include adaptive-value("width", 674, 226, 1600);
+            @media(max-width: 700px) {
+                @include adaptive-value("height", 395, 133, 700);
+                @include adaptive-value("width", 674, 226, 700);
+            }
             background-color: rgb(86, 104, 133);
         }
         .details-page__photo img {
-            @include adaptive-value("padding", 3, 1, 0);
-            @include adaptive-value("height", 390, 133, 0);
-            @include adaptive-value("width", 663, 226, 0);
+            @include adaptive-value("height", 395, 133, 1600);
+            @include adaptive-value("width", 674, 226, 1600);
+            @media(max-width: 700px) {
+                @include adaptive-value("height", 395, 133, 700);
+                @include adaptive-value("width", 674, 226, 700);
+            }
+            @include adaptive-value("padding", 3, 1, 1600);
             cursor: pointer;
             background-color: rgb(86, 104, 133);
             object-fit: cover;
         }
         .details-page__characteristics {
+            @include adaptive-value("gap", 5, 2, 1600);
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            gap: 5px;
             span { font-weight: bold; }
             .details-page__char-block {
+                @include adaptive-value("gap", 5, 2, 1600);
                 display: flex;
-                gap: 5px;
+            }
+            .details-page__description-char {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
             }
             .details-page__char {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                @include adaptive-value("height", 50, 25, 1600);
+                @include adaptive-value("font-size", 26, 10, 1600);
+                @include adaptive-value("padding", 10, 3, 1600);
                 flex-basis: 100%;
                 border: 1px solid rgb(155, 156, 155);
-                //font-size: 26px;
                 background-color: rgb(236, 232, 232);
-                padding: 10px;
                 &:hover {
                     background-color: rgb(135, 196, 253);
                     transition: 0.5s

@@ -11,7 +11,6 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    //padding: 10px;
     background-color: rgba(0, 0, 0, 0.8);
     position: fixed;
     top: 0;
@@ -21,50 +20,51 @@
     opacity: 0;
     backdrop-filter: blur(7px);
     .add-new-product-window {
-        @include adaptive-value("height", 615, 300, 0);
-        @include adaptive-value("width", 700, 210, 0);
+        @include adaptive-value("height", 615, 280, 1600);
+        @include adaptive-value("width", 700, 220, 1600);
         border-radius: 4px;
         padding: 5px;
         display: flex;
         flex-direction: column;
-        @include adaptive-value("gap", 10, 3, 0);
+        @include adaptive-value("gap", 10, 4, 1600);
         background-color: rgb(255, 255, 255);
         .add-new-product-window__title {
-            @include adaptive-value("font-size", 20, 7, 0);
+            @include adaptive-value("font-size", 20, 10, 1600);
             margin: 10px 0 16px 10px;
             font-weight: bold;
         }
         .add-new-product-window__input {
+            @include adaptive-value("margin-left", 10, 5, 1600);
+            @include adaptive-value("margin-right", 10, 5, 1600);
             display: flex;
             justify-content: space-between;
-            margin: 0 10px 0 10px;
             .add-new-product-window__label {
-                @include adaptive-value("font-size", 20, 7, 0);
+                @include adaptive-value("font-size", 15, 9, 1600);
+                @include adaptive-value("margin-top", 13, 1, 1600);  
+                @include adaptive-value("width", 130, 80, 1600);  
                 font-weight: bolder;
-                margin-top: 13px;
-                width: 120px;    
             }
             .add-new-product-window__small-input {
-                @include adaptive-value("height", 30, 10, 0);
+                @include adaptive-value("height", 30, 15, 1600);
                 border: 1px solid black;
-                flex-grow: 1;
+                width: 100%;
             }
             .add-new-product-window___large-input {
-                @include adaptive-value("height", 150, 30, 0);
+                @include adaptive-value("height", 150, 44, 1600);
                 border: 1px solid black;
+                width: 100%;
                 padding: 4px;
-                flex-grow: 1;
             }
         }
         .add-new-product-window__buttons {
+            @include adaptive-value("margin", 10, 5, 1600);
             align-self: flex-end;
             display: flex;
             gap: 10px;
-            margin: 10px 10px 10px 0;
             .add-new-product-window__add-product-button {
-                @include adaptive-value("width", 100, 96, 0);
-                @include adaptive-value("height", 30, 20, 0);
-                @include adaptive-value("font-size", 30, 8, 0);
+                @include adaptive-value("width", 100, 90, 1600);
+                @include adaptive-value("height", 30, 18, 1600);
+                @include adaptive-value("font-size", 14, 9, 1600);
                 border-radius: 2px;
                 font-weight: bold;
                 border: 1px solid black;
@@ -75,9 +75,9 @@
                 }
             }
             .add-new-product-window__cancel-button {
-                @include adaptive-value("width", 100, 96, 0);
-                @include adaptive-value("height", 30, 20, 0);
-                @include adaptive-value("font-size", 30, 8, 0);
+                @include adaptive-value("width", 100, 90, 1600);
+                @include adaptive-value("height", 30, 18, 1600);
+                @include adaptive-value("font-size", 14, 9, 1600);
                 border-radius: 2px;
                 font-weight: bold;
                 border: 1px solid black;

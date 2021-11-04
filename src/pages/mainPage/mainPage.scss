@@ -6,11 +6,11 @@
     .main-page__header {
         display: flex;
         justify-content: space-between;
-        @include adaptive-value("margin-bottom", 20, 7, 0);
+        @include adaptive-value("margin-bottom", 20, 7, 1600);
         .main-page__add-new-product-button {
-            @include adaptive-value("width", 300, 96, 0);
-            @include adaptive-value("height", 35, 20, 0);
-            @include adaptive-value("font-size", 20, 10, 0);
+            @include adaptive-value("width", 300, 96, 1600);
+            @include adaptive-value("height", 35, 20, 1600);
+            @include adaptive-value("font-size", 20, 10, 1600);
             background-color: rgb(86, 104, 133);
             color: rgb(246, 245, 243);
             display: flex;
@@ -23,12 +23,12 @@
             }
         }
         .main-page__sort {
-            @include adaptive-value("width", 300, 96, 0);
-            @include adaptive-value("height", 35, 35, 0);
+            @include adaptive-value("width", 300, 96, 1600);
+            @include adaptive-value("height", 35, 35, 1600);
         }
     }
     .main-page__products-wrapper {
-        @include adaptive-value("gap", 20, 5, 0);
+        @include adaptive-value("gap", 20, 5, 1600);
         display: flex;
         flex-direction: column;
         background-color: rgb(246, 245, 243);   

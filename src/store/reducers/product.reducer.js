@@ -16,6 +16,7 @@ const CHANGE_HEIGHT = 'CHANGE-HEIGHT'
 const CHANGE_WIDTH = 'CHANGE-WIDTH'
 const CHANGE_COUNT = 'CHANGE-COUNT'
 const CHANGE_PHOTO = 'CHANGE-PHOTO'
+const CLEAR_ALL_TEXT_FIELDS = 'CLEAR_ALL_TEXT_FIELDS'
 
 const validateAction = () => (dispatch, getState) => {
     const state = getState().newProduct
@@ -80,6 +81,7 @@ export const updatePhotoAction = (text) => (dispatch) => {
     dispatch({ type: CHANGE_PHOTO, payload: text })
     dispatch(validateAction())
 }
+export const clearAllTextFieldsAction = () => ({ type: CLEAR_ALL_TEXT_FIELDS })
 
 export let initialState = {
     productsData: [],
@@ -222,6 +224,21 @@ const newProductReducer = (state = initialState, action) => {
             return {
                 ...state, 
                 newPhoto: action.payload
+            }
+        case CLEAR_ALL_TEXT_FIELDS:
+            return {
+                newName: '',
+                newDescription: '',
+                newColor: '',
+                newWeight: '',
+                newLength: '',
+                newHeight: '',
+                newWidth: '',
+                newCount: '',
+                newPhoto: '', 
+                productsData: [
+                    ...state.productsData
+                ]
             }
         default:
             return state;

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './DetailsPage.scss'
 import { connect } from 'react-redux'
 import Comments from './comments/comments'
-import EditProductWindow from './editProductWindow/editProductWindow'
+import EditProductWindow from './EditProductWindow/EditProductWindow'
 import { Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
 import { useParams, useHistory } from 'react-router-dom'
@@ -18,7 +18,6 @@ const DetailsPage = (props) => {
 
     let addEditedProduct = () => {
         props.editProduct(props.uid)
-        debugger
         if (props.isValidEdit === true) {
             setEditProductModalActive(false)
         }
@@ -47,7 +46,7 @@ const DetailsPage = (props) => {
                     <img src={props.productData.photo} alt="..." />         {/* {props.productData.photo} */}
                 </div>
                 <div className="details-page__characteristics">
-                    <div className="details-page__char">
+                    <div className="details-page__description-char ">
                         {props.productData.description}
                     </div>
                     <div className="details-page__char-block">

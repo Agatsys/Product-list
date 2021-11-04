@@ -1,58 +1,79 @@
+@import '../../../media/styles/adaptive-value';
+
+
 .product {
     display: flex;
-    height: 200px;
     background-color: rgb(221, 220, 217);
+    @media(max-width: 450px) {
+        @include adaptive-value("height", 350, 200, 450);
+    }
+    @include adaptive-value("height", 200, 160, 1600);
+    @media (max-width: 450px) {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
     &:hover {
         background-color: rgb(214, 225, 239);
         cursor: pointer;
     }
-    .product__photo img {
-        width: 340px;
-        height: 100%;
-        object-fit: cover;
-        padding: 3px;
+    .product__photo {
         background-color: rgb(86, 104, 133);
+        @include adaptive-value("height", 200, 160, 1600);
+        @include adaptive-value("width", 340, 230, 1600);
+        @media(max-width: 450px) {
+            @include adaptive-value("height", 264, 133, 450);
+            @include adaptive-value("width", 430, 226, 450);   
+        }
+    }
+    .product__photo img {
+        object-fit: cover;
+        background-color: rgb(86, 104, 133);
+        @include adaptive-value("height", 200, 160, 1600);
+        @include adaptive-value("width", 340, 230, 1600);
+        @media(max-width: 450px) {
+            @include adaptive-value("height", 264, 133, 450);
+            @include adaptive-value("width", 430, 226, 450);   
+        }
+        padding: 3px
     }
     .product__product-info {
+        @include adaptive-value("padding", 11, 6, 1600);
         display: flex;
         flex-direction: column;
-        width: 100%;
+        flex-grow: 1;
+        
         .product__name-and-delete-button {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             flex-grow: 1;
             .product__name-of-product {
-                font-size: 30px;
+                @include adaptive-value("font-size", 30, 15, 1600);
                 font-weight: bold;
-                padding: 10px 0px 0px 10px;
                 overflow: hidden;
                 text-overflow: ellipsis; 
             }
             .product__delete-button {
+                @include adaptive-value("height", 30, 18, 1600);
+                @include adaptive-value("width", 100, 37, 1600);
+                @include adaptive-value("font-size", 20, 9, 1600);
+                border: 1px solid black;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-family: Quicksand;
                 font-weight: bolder;
-                height: 30px;
-                width: 100px;
-                margin: 10px 10px 0 0;
             }
         }
         .product__description {
-            font-size: 20px;
+            @include adaptive-value("font-size", 20, 10, 1600);
             padding: 10px 0px 0px 10px;
             overflow: hidden;
             text-overflow: ellipsis; 
         }
         .product__count {
-            font-size: 20px;
+            @include adaptive-value("font-size", 20, 11, 1600);
             align-self: end;
-            padding: 10px;
-            span {
-                font-weight: bolder;
-            }
+            span { font-weight: bolder; }
         } 
     }
 }

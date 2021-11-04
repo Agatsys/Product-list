@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { editColorAction, editCountAction, editDescriptionAction, editHeightAction, editLengthAction, editNameAction, editPhotoAction, editWeightAction, editWidthAction, loadProductData } from "../../../store/reducers/editProduct.reducer";
 import CustomInput from "../../components/CustomInput";
-import './editProductWindow.scss'
+import './EditProductWindow.scss'
 
 
 const EditProductWindow = (props) => {
