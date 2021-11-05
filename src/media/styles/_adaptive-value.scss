@@ -1,15 +1,9 @@
 // calc(20px + (50 - 20) * (( 100vw - 240px) / (1600 - 240)))
+
 // 50: Максимальний розмір об'єкту
 // 20: Мінімальний розмір об'єкту
 // 240: Мінімальна ширина дисплею в пікселях
 // 1600: Максимальна ширина дисплею в пікселях
-
-//$width_1600: 1600;
-//$width_700: 700;
-//$width_450: 450;
-//$width_451: 451;
-//$minWidth: 240;
-//$ViewportWidth: 100;
 
 @mixin adaptive-value ($property, $startSize, $minSize, $blockSize) {
     $addSize: $startSize - $minSize;

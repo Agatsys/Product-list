@@ -40,7 +40,7 @@
             justify-content: space-between;
             .add-new-product-window__label {
                 @include adaptive-value("font-size", 15, 9, 1600);
-                @include adaptive-value("margin-top", 13, 1, 1600);  
+                @include adaptive-value("margin-top", 7, 3, 1600);  
                 @include adaptive-value("width", 130, 80, 1600);  
                 font-weight: bolder;
             }

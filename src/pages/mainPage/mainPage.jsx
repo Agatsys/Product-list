@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import './MainPage.scss'
 import { connect } from 'react-redux'
-import { message, Select } from 'antd'
+import { message } from 'antd'
 import AddNewProductWindow from './AddNewProductWindow/AddNewProductWindow'
 import Product from './Product/Product'
 import { addProductAction } from '../../store/reducers/product.reducer'
 
-
-const { Option } = Select
 
 const MainPage = (props) => {
     const [addNewProductModal, setAddNewProductModalActive] = useState(false)
@@ -55,17 +53,34 @@ const MainPage = (props) => {
                     onClick={() => setAddNewProductModalActive(true)}>
                     New product
                 </button>
-                <Select
-                    className="main-page__sort"
+                <div className="main-page__sort">
+                    Sort
+                    <ul className="sort__list">
+                        <li className="sort__li" onClick={() => setSortBy("A to Z")}>
+                            A to Z
+                        </li>
+                        <li className="sort__li" onClick={() => setSortBy("Z to A")}>
+                            Z to A
+                        </li>
+                        <li className="sort__li" onClick={() => setSortBy("Less to More")}>
+                            Less to More
+                        </li>
+                        <li className="sort__li" onClick={() => setSortBy("More to Less")}>
+                            More to Less
+                        </li>
+                    </ul>
+                </div>
+                {/* <Select
+                    className="main-page__sortt"
                     size="large"
                     defaultValue={sortBy}
-                    value={sortBy} 
+                    value={sortBy}
                     onChange={(value) => setSortBy(value)}>
                     <Option value="A to Z">A to Z</Option>
                     <Option value="Z to A">Z to A</Option>
                     <Option value="Less to More">Less to More</Option>
                     <Option value="More to Less">More to Less</Option>
-                </Select>
+                </Select> */}
             </div>
             <div className="main-page__products-wrapper">
                 {props.productsData.sort(sortRules).map(p => (

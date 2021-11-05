@@ -20,11 +20,8 @@
     pointer-events: none;
     opacity: 0;
     backdrop-filter: blur(7px);
-    .large-photo__content {
-        padding: 5px;
-    }
     .large-photo__content img {
-        @include adaptive-value("padding", 5, 2, 1600);
+        border: 3px solid bisque;
         @include adaptive-value("max-height", 700, 260, 1600);
         @include adaptive-value("max-width", 1200, 210, 1600);
         background-color: rgb(240, 233, 233);
