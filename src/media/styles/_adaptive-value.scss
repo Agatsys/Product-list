@@ -7,7 +7,9 @@
 
 @mixin adaptive-value ($property, $startSize, $minSize, $blockSize) {
     $addSize: $startSize - $minSize;
+
     #{$property}: $startSize + px;
+    
     #{$property}: calc(#{$minSize + px} + #{$addSize} * ((#{100 + vw} - #{240 + px}) / #{$blockSize - 240}));
 }
 

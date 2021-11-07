@@ -77,9 +77,9 @@ const DetailsPage = (props) => {
             </div>
             <Comments name={props.productData.name} />
             <div className='addComment__DetailPageWrapper'>
-                <div className='writeYourComment'>Write your comment:</div>
                 <textarea
                     className='enterComment__DetailPageWrapper'
+                    placeholder="Write your comment..."
                     onChange={(event) => props.updateComment(event.currentTarget.value)}
                     value={props.newText}
                 />

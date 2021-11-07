@@ -5,105 +5,129 @@
     display: flex;
     background-color: rgb(221, 220, 217);
     height: 200px;
-    @media(max-width: 450px) {
+    transition: background-color 0.4s;
+    @media(max-width: 500px) {
         flex-wrap: wrap;
         flex-direction: column;
         @include adaptive-value("height", 350, 200, 450);
     }
-    //@include adaptive-value("height", 200, 160, 1600);
     &:hover {
         background-color: rgb(214, 225, 239);
         cursor: pointer;
     }
-    .product__photo {
+    &__photo {
         background-color: rgb(86, 104, 133);
         height: 200px;
         width: 340px;
-        //@include adaptive-value("height", 200, 160, 1600);
-        //@include adaptive-value("width", 340, 230, 1600);
-        @media(max-width: 450px) {
-            @include adaptive-value("height", 264, 133, 450);
-            @include adaptive-value("width", 430, 226, 450);   
+        @media(max-width: 500px) {
+            @include adaptive-value("height", 264, 133, 500);
+            @include adaptive-value("width", 479, 226, 500);   
         }
     }
-    .product__photo img {
+    &__photo img {
         object-fit: cover;
         background-color: rgb(86, 104, 133);
         height: 200px;
         width: 340px;
-        //@include adaptive-value("height", 200, 160, 1600);
-        //@include adaptive-value("width", 340, 230, 1600);
-        @media(max-width: 450px) {
-            @include adaptive-value("height", 264, 133, 450);
-            @include adaptive-value("width", 430, 226, 450);   
+        padding: 3px;
+        @media(max-width: 500px) {
+            @include adaptive-value("height", 264, 133, 500);
+            @include adaptive-value("width", 479, 226, 500);   
         }
-        padding: 3px
     }
-    .product__product-info {
-        @include adaptive-value("padding", 11, 6, 1600);
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        .product__name-and-delete-button {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            flex-grow: 1;
-            .product__name-of-product {
-                font-size: 30px;
-                @media(max-width: 450px) {
-                    font-size: 20px;
-                }
-                @media(max-width: 350px) {
-                    font-size: 15px;
-                }
-                font-weight: bold;
-                overflow: hidden;
-                text-overflow: ellipsis; 
-            }
-            .product__delete-button {
-                height: 30px;
-                width: 100px;
-                font-size: 20px;
-                @media(max-width: 350px) {
-                    height: 18px;
-                    width: 37px;
-                    font-size: 9px;
-                }
-                border: 1px solid black;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bolder;
-            }
+    &__product-info {
+        display: grid;
+        grid-template: 1fr 4fr 1fr / 6fr 2fr;
+        grid-template-areas: 
+        "nm db"
+        "ds ds"
+        "cn cn";
+        padding: 11px;
+        @media(max-width: 350px) {
+            padding: 6px;
         }
-        .product__description {
-            font-size: 20px;
-            @media(max-width: 350px) {
-                font-size: 10px;
-            }
-            //@include adaptive-value("font-size", 20, 10, 1600);
-            padding: 10px 0px 0px 10px;
+        .product__name-of-product {
+            grid-area: nm;
+            font-size: 30px;
+            font-weight: bold;
             overflow: hidden;
             text-overflow: ellipsis; 
-        }
-        .product__count {
-            font-size: 20px;
+            @media(max-width: 768px) {
+                font-size: 25px;
+            }
             @media(max-width: 450px) {
-                font-size: 17px;
+                font-size: 20px;
             }
             @media(max-width: 350px) {
-                font-size: 11px;
+                font-size: 15px;
             }
-            align-self: end;
-            span { font-weight: bolder; }
-        } 
+        }
+        .product__delete-button {
+            grid-area: db;
+            height: 30px;
+            width: 100px;
+            font-size: 20px;
+            border: 1px solid black;
+            //display: flex;
+            //align-items: center;
+            //justify-content: center;
+            font-weight: bolder;
+            @media(max-width: 768px) {
+                display: none;
+            }
+            @media(max-width: 350px) {
+                height: 18px;
+                width: 37px;
+                font-size: 9px;
+            }
+        }
+        .product__delete-button-x {
+            grid-area: db;
+            display: none;
+            @media(max-width: 768px) {
+                display: block;
+                height: 30px;
+                width: 30px;
+                border: 1px solid black;
+            }
+            @media(max-width: 350px) {
+                    height: 20px;
+                    width: 20px;
+                }
+            }
+            
+            .product__description {
+                grid-area: ds;
+                //flex: none;
+                //align-self: start;
+                //justify-self: start;
+                font-size: 20px;
+                overflow: hidden;
+                text-overflow: ellipsis; 
+                padding-top: 20px;
+                //flex: 0 1 100%;
+                @media(max-width: 350px) {
+                    font-size: 10px;
+                }
+            }
+            .product__count {
+                grid-area: cn;
+                //align-self: flex-end;
+                font-size: 20px;
+                span { font-weight: bolder; }
+                @media(max-width: 450px) {
+                    font-size: 17px;
+                }
+                @media(max-width: 350px) {
+                    font-size: 11px;
+                }
+            } 
+        }
     }
-}
-.product__name-of-deleted-product {
-    font-size: 25px;
-    font-weight: bolder;
-    font-family: Quicksand;
-    overflow: hidden;
-    text-overflow: ellipsis; 
-}
+    .product__name-of-deleted-product {
+        font-size: 25px;
+        font-weight: bolder;
+        font-family: Quicksand;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+    }

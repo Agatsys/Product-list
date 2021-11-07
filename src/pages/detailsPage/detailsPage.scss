@@ -6,31 +6,60 @@
         display: flex;
         justify-content: space-between;
         .details-page__back-button {
-            @include adaptive-value("width", 200, 66, 1600);
-            @include adaptive-value("height", 35, 20, 1600);
-            @include adaptive-value("font-size", 20, 10, 1600);
+            width: 200px;
+            height: 35px;
+            font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid black;
+            background-color: rgb(86, 104, 133);
+            color: rgb(246, 245, 243);
             font-weight: bolder;
+            transition: background-color 0.4s;
+            @media(max-width: 1400px) {
+                width: 170px;
+            }
+            @media(max-width: 450px) {
+                width: 150px; 
+                height: 25px;
+                font-size: 15px;
+            }
+            @media(max-width: 350px) {
+                width: 80px;
+                height: 20px;
+                font-size: 10px;
+            }
             &:hover {
-                box-shadow: 0px 0px 15px rgb(36, 35, 35);
-                transition: 0.5s
+                background-color: rgb(51, 67, 92);
             }
         }
         .details-page__edit-button {
-            @include adaptive-value("width", 200, 66, 1600);
-            @include adaptive-value("height", 35, 20, 1600);
-            @include adaptive-value("font-size", 20, 10, 1600);
+            width: 200px;
+            height: 35px;
+            font-size: 20px;
             display: flex;
             border: 1px solid black;
             align-items: center;
             justify-content: center;
             font-weight: bolder;
+            background-color: rgb(86, 104, 133);
+            color: rgb(246, 245, 243);
+            transition: background-color 0.4s;
+            @media(max-width: 1400px) {
+                width: 170px;
+            }
+            @media(max-width: 450px) {
+                width: 150px; 
+                height: 25px;
+                font-size: 15px;
+            }
+            @media(max-width: 350px) {
+                width: 80px;
+                height: 20px;
+                font-size: 10px;
+            }
             &:hover {
-                box-shadow: 0px 0px 15px rgb(36, 35, 35);
-                transition: 0.5s
+                background-color: rgb(51, 67, 92);
             }
         }
     }
@@ -43,46 +72,55 @@
     .details-page__photo-and-characteristics {
         display: flex;
         gap: 3px;
-        @media(max-width: 700px) {
+        @media(max-width: 768px) {
             flex-wrap: wrap;
         }
         .details-page__photo {
             @include adaptive-value("height", 395, 133, 1600);
             @include adaptive-value("width", 674, 226, 1600);
-            @media(max-width: 700px) {
-                @include adaptive-value("height", 395, 133, 700);
-                @include adaptive-value("width", 674, 226, 700);
-            }
             background-color: rgb(86, 104, 133);
+            @media(max-width: 768px) {
+                @include adaptive-value("height", 395, 133, 768);
+                @include adaptive-value("width", 740, 226, 768);
+            }
         }
         .details-page__photo img {
             @include adaptive-value("height", 395, 133, 1600);
             @include adaptive-value("width", 674, 226, 1600);
-            @media(max-width: 700px) {
-                @include adaptive-value("height", 395, 133, 700);
-                @include adaptive-value("width", 674, 226, 700);
-            }
-            @include adaptive-value("padding", 3, 1, 1600);
             cursor: pointer;
             background-color: rgb(86, 104, 133);
             object-fit: cover;
+            @include adaptive-value("padding", 3, 1, 1600);
+            @media(max-width: 768px) {
+                @include adaptive-value("height", 395, 133, 768);
+                @include adaptive-value("width", 740, 226, 768);
+            }
         }
         .details-page__characteristics {
-            @include adaptive-value("gap", 5, 2, 1600);
+            gap: 5px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
             span { font-weight: bold; }
+            cursor: default;
+            @media(max-width: 450px) {
+                gap: 2px;
+            }
             .details-page__char-block {
-                @include adaptive-value("gap", 5, 2, 1600);
+                gap: 5px;
                 display: flex;
+                @media(max-width: 450px) {
+                    gap: 2px;
+                }
             }
             .details-page__description-char {
+                display: flex;
                 border: 1px solid rgb(155, 156, 155);
                 background-color: rgb(236, 232, 232);
-                display: flex;
                 justify-content: flex-start;
-                align-items: center;
+                align-items: flex-start;
+                padding: 6px;
+                flex-grow: 1;
             }
             .details-page__char {
                 display: flex;
@@ -103,33 +141,32 @@
     }
 }
 
-// .addComment__DetailPageWrapper {
-//     grid-area: adcomm;
-//     margin-top: 40px;
-//     .writeYourComment {
-//         font-size: 25px;
-//         font-weight: bold;
-//         margin-bottom: 10px;
-//     }
-//     .enterComment__DetailPageWrapper {
-//         border: 1px solid black;
-//         width: 400px;
-//         height: 250px;
-//     }
-// }
-// .addCommentButton__DetailPageWrapper {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     width: 400px;
-//     height: 35px;
-//     font-size: 20px;  
-//     font-weight: bolder;
-//     margin-top: 10px;
-//     &:hover {
-//         box-shadow: 0px 0px 15px rgb(36, 35, 35);
-//         transition: 0.5s
-//     }
-// }
+.addComment__DetailPageWrapper {
+    margin-top: 40px;
+    .writeYourComment {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .enterComment__DetailPageWrapper {
+        border: 1px solid black;
+        width: 400px;
+        height: 250px;
+    }
+}
+.addCommentButton__DetailPageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 35px;
+    font-size: 20px;  
+    font-weight: bolder;
+    margin-top: 10px;
+    &:hover {
+        box-shadow: 0px 0px 15px rgb(36, 35, 35);
+        transition: 0.5s
+    }
+}
 
 

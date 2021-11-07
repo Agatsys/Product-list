@@ -1,4 +1,5 @@
 import { Modal } from 'antd'
+import { CloseOutlined } from '@ant-design/icons';
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -21,7 +22,7 @@ const Product = (props) => {
                     <img src={props.photo} alt='...' />
                 </div>
                 <div className="product__product-info">
-                    <div className="product__name-and-delete-button">
+                    
                         <div className="product__name-of-product">
                             {props.name}
                         </div>
@@ -33,7 +34,15 @@ const Product = (props) => {
                             }}>
                             Delete
                         </button>
-                    </div>
+                        <button
+                            className="product__delete-button-x"
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                setModalActive(true)
+                            }}>
+                            <CloseOutlined />
+                        </button>
+                    
                     <div className="product__description">
                         {props.description}
                     </div>

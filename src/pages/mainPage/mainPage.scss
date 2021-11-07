@@ -6,11 +6,24 @@
     .main-page__header {
         display: flex;
         justify-content: space-between;
-        @include adaptive-value("margin-bottom", 20, 7, 1600);
+        margin-bottom: 20px;
+        @media(max-width: 1400px) {
+            margin-bottom: 13px;
+        }
+        @media(max-width: 450px) {
+            margin-bottom: 7px;
+        }
         .main-page__add-new-product-button {
-            width: 340px;
+            width: 200px;
             height: 35px;
             font-size: 20px;
+            background-color: rgb(86, 104, 133);
+            color: rgb(246, 245, 243);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bolder;
+            transition: background-color 0.4s;
             @media(max-width: 1400px) {
                 width: 170px;
             }
@@ -23,13 +36,6 @@
                 height: 20px;
                 font-size: 10px;
             }
-            background-color: rgb(86, 104, 133);
-            color: rgb(246, 245, 243);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bolder;
-            transition: background-color 0.4s;
             &:hover {
                 background-color: rgb(51, 67, 92);
             }
@@ -38,49 +44,83 @@
             width: 200px;
             height: 35px;
             font-size: 20px;
-            @media(max-width: 1400px) {
-                width: 170px;
-            }
-            @media(max-width: 350px) {
-                width: 80px;
-                height: 20px;
-                font-size: 10px;
-            }
             background-color: rgb(86, 104, 133);
             color: rgb(246, 245, 243);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bolder;
+            position: relative;
+            @media(max-width: 1400px) {
+                width: 170px;
+            }
+            @media(max-width: 768px) {
+                width: 35px;
+            }
+            @media(max-width: 350px) {
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
+            }
             &:hover .sort__list {
-                display: block;
+                pointer-events: all;
+                opacity: 1;
+            }
+            .sort__title {
+                @media(max-width: 768px) {
+                    display: none;
+                }
             }
             .sort__list {
-                @include adaptive-value("width", 190, 75, 1600);
-                display: none;
+                font-size: 13px;
+                transition: opacity 0.4s;
+                pointer-events: none;
+                opacity: 0;
                 position: absolute;
-                @include adaptive-value("margin-top", 195, 110, 1600);
-                .sort__li {
+                right: 0px;
+                top: 35px;
+                @media(max-width: 1400px) {
+                    right: 0px;
+                }
+                @media(max-width: 768px) {
+                    right: 0px;
+                    top: 35px;
+                }
+                @media(max-width: 350px) {
+                    top: 20px;
+                }
+                .list__li {
                     background-color: rgb(246, 245, 243);
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                     padding-left: 5px;
-                    @media(max-width: 350px) {
-                        padding-left: 2px;
-                    }
                     color: black;
                     border: 1px solid black;
                     cursor: default;
-                    @include adaptive-value("width", 190, 75, 1600);
-                    @include adaptive-value("height", 35, 20, 1600);
-
+                    width: 200px;
+                    height: 35px;
+                    transition: background-color 0.4s;
+                    @media(max-width: 1400px) {
+                        width: 170px;
+                    }
+                    @media(max-width: 350px) {
+                        width: 130px;
+                        height: 25px;
+                        padding-left: 4px;
+                    }
+                    &:hover {
+                        background-color: rgb(214, 225, 239);
+                    }
                 }
             }
         }
     }
     .main-page__products-wrapper {
+        display: flex;
+        flex-direction: column;
         gap: 20px;
+        background-color: rgb(246, 245, 243);   
         @media(max-width: 1400px) {
             gap: 15px
         }
@@ -90,9 +130,6 @@
         @media(max-width: 350px) {
             gap: 4px;
         }
-        display: flex;
-        flex-direction: column;
-        background-color: rgb(246, 245, 243);   
     }
 }
 
