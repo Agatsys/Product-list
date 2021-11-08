@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SwapOutlined } from '@ant-design/icons';
+import { SwapOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import './MainPage.scss'
 import { connect } from 'react-redux'
 import { message } from 'antd'
@@ -52,12 +52,12 @@ const MainPage = (props) => {
             <div className="main-page__header">
                 <button className="main-page__add-new-product-button"
                     onClick={() => setAddNewProductModalActive(true)}>
-                    New product
+                    <div className="add-new-product-button__title">New product</div>
+                    <PlusCircleOutlined className="add-new-product-button__icon" />
                 </button>
                 <div className="main-page__sort">
                     <div className="sort__title">Sort</div>
-                    <SwapOutlined 
-                        className="sort__icon"/>
+                    <SwapOutlined className="sort__icon"/>
                     <ul className="sort__list">
                         <li className="list__li" onClick={() => setSortBy("A to Z")}>A to Z</li>
                         <li className="list__li" onClick={() => setSortBy("Z to A")}>Z to A</li>

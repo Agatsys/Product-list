@@ -21,34 +21,23 @@ const Product = (props) => {
                 <div className="product__photo">
                     <img src={props.photo} alt='...' />
                 </div>
-                <div className="product__product-info">
-                    
-                        <div className="product__name-of-product">
-                            {props.name}
-                        </div>
-                        <button
-                            className="product__delete-button"
-                            onClick={(e) => {
-                                e.stopPropagation()
-                                setModalActive(true)
-                            }}>
-                            Delete
-                        </button>
-                        <button
-                            className="product__delete-button-x"
-                            onClick={(e) => {
-                                e.stopPropagation()
-                                setModalActive(true)
-                            }}>
-                            <CloseOutlined />
-                        </button>
-                    
-                    <div className="product__description">
-                        {props.description}
-                    </div>
-                    <div className="product__count">
-                        <span>Count:</span> {props.count}
-                    </div>
+                <div className="product__name-of-product">
+                    {props.name}
+                </div>
+                <button
+                    className="product__delete-button"
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        setModalActive(true)
+                    }}>
+                    <div className="delete-button__title-del">Delete</div>
+                    <CloseOutlined className="delete-button__title-x" />
+                </button>
+                <div className="product__description">
+                    {props.description}
+                </div>
+                <div className="product__count">
+                    <span>Count:</span> {props.count}
                 </div>
             </div>
         </div >
