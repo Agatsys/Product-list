@@ -119,6 +119,7 @@
                 background-color: rgb(236, 232, 232);
                 justify-content: flex-start;
                 align-items: flex-start;
+                @include adaptive-value("font-size", 26, 10, 1600);
                 padding: 6px;
                 flex-grow: 1;
             }

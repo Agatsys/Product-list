@@ -3,7 +3,7 @@
 
 .product {
     display: grid;
-    grid-template: 45px 4fr 1fr / 3fr 6fr 120px;
+    grid-template: 45px 4fr 1fr / 1fr 6fr 120px;
     grid-template-areas: 
     "ph nm db"
     "ph ds db"
@@ -20,7 +20,7 @@
         "ph ds cn";
     }
     @media(max-width: 600px) {
-        grid-template: 5fr 1fr 2fr / 1fr 1fr 40px;
+        grid-template: 5fr 1fr 3fr / 1fr 1fr 40px;
         grid-template-areas: 
         "ph ph ph"
         "nm nm db"
@@ -36,6 +36,9 @@
         background-color: rgb(86, 104, 133);
         height: 200px;
         width: 340px;
+        @media(max-width: 768px) {
+            @include adaptive-value("width", 340, 280, 768);   
+        }
         @media(max-width: 600px) {
             @include adaptive-value("height", 339, 133, 600);
             @include adaptive-value("width", 576, 226, 600);   
@@ -47,6 +50,9 @@
         height: 200px;
         width: 340px;
         padding: 3px;
+        @media(max-width: 768px) {
+            @include adaptive-value("width", 340, 280, 768);   
+        }
         @media(max-width: 600px) {
             @include adaptive-value("height", 339, 133, 600);
             @include adaptive-value("width", 576, 226, 600);   
@@ -55,9 +61,11 @@
     &__name-of-product {
         grid-area: nm;
         font-size: 30px;
-        margin: 10px 0 0 10px;
+        margin: 10px 0 20px 10px;
         font-weight: bold;
         overflow: hidden;
+        height: 100%;
+        width: 100%;
         text-overflow: ellipsis; 
         justify-self: start;
         align-self: start;
@@ -127,6 +135,17 @@
         overflow: hidden;
         text-overflow: ellipsis; 
         margin: 10px 0 0 10px;
+        @media(max-width: 768px) {
+            font-size: 17px;
+        }
+        @media(max-width: 600px) {
+            font-size: 16px;
+            margin: 4px 0 0 8px;
+        }
+        @media(max-width: 450px) {
+            font-size: 14px;
+            margin: 4px 0 0 8px;
+        }
         @media(max-width: 350px) {
             font-size: 10px;
         }

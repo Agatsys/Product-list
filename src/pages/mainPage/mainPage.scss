@@ -73,6 +73,7 @@
             justify-content: center;
             font-weight: bolder;
             position: relative;
+            transition: background-color 0.4s;
             @media(max-width: 1400px) {
                 width: 170px;
             }
@@ -92,9 +93,16 @@
                 height: 20px;
                 font-size: 10px;
             }
+            &:hover {
+                background-color: rgb(51, 67, 92);
+            }
             &:hover .sort__list {
                 pointer-events: all;
                 opacity: 1;
+            }
+            &:hover .sort__icon {
+                transition: transform 0.4s;
+                transform: rotate(180deg);
             }
             .sort__title {
                 margin-right: 10px;
@@ -103,6 +111,8 @@
                 }
             }
             .sort__icon {
+                transition: transform 0.4s;
+                transform: rotate(90deg);
                 @media(max-width: 768px) {
                     font-size: 25px;
                 }
@@ -129,6 +139,9 @@
                     right: 0px;
                     top: 35px;
                 }
+                @media(max-width: 450px) {
+                    top: 30px;
+                }
                 @media(max-width: 350px) {
                     top: 20px;
                 }
@@ -143,6 +156,7 @@
                     cursor: default;
                     width: 200px;
                     height: 35px;
+                    font-size: 15px;
                     transition: background-color 0.4s;
                     @media(max-width: 1400px) {
                         width: 170px;
