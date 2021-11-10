@@ -43,7 +43,7 @@ const DetailsPage = (props) => {
             </div>
             <div className="details-page__photo-and-characteristics">
                 <div onClick={() => setlargePhotoModalActive(true)} className="details-page__photo">
-                    <img src={props.productData.photo} alt="..." />         {/* {props.productData.photo} */}
+                    <img src={props.productData.photo} alt="..." />
                 </div>
                 <div className="details-page__characteristics">
                     <div className="details-page__description-char ">

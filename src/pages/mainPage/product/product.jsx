@@ -56,4 +56,5 @@ const Product = (props) => {
 const mapDispatchToProps = {
     deleteProduct: deleteProductAction,
 }
+
 export default connect(null, mapDispatchToProps)(Product)

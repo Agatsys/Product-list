@@ -6,7 +6,12 @@ import { withRouter } from "react-router-dom";
 
 
 const Comments = (props) => {
-    const commentElement = props.commentsNew.map((item, index) => <Comment key={`comment-${index}`} index={index} uid={props.uid} text={item.text}/> )
+    const commentElement = props.commentsNew.map((item, index) => 
+        <Comment 
+            key={`comment-${index}`} 
+            index={index} 
+            uid={props.uid} 
+            text={item.text}/> )
     return (
         <div className='commentsWrapper__DetailPageWrapper'>
             Comments to {props.name}:
