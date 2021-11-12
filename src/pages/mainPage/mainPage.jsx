@@ -57,7 +57,7 @@ const MainPage = (props) => {
                 </button>
                 <div className="main-page__sort">
                     <div className="sort__title">Sort</div>
-                    <SwapOutlined className="sort__icon"/>
+                    <SwapOutlined className="sort__icon" />
                     <ul className="sort__list">
                         <li className="list__li" onClick={() => setSortBy("A to Z")}>A to Z</li>
                         <li className="list__li" onClick={() => setSortBy("Z to A")}>Z to A</li>
@@ -92,12 +92,8 @@ let mapStateToProps = (state) => ({
     didTryToProcess: state.newProduct.didTryToProcess,
     errors: state.newProduct.errors
 })
-let mapDispatchToProps = (dispatch) => {
-    return {
-        AddProduct: () => {
-            dispatch(addProductAction());
-        }
-    }
+let mapDispatchToProps = {
+    AddProduct: addProductAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

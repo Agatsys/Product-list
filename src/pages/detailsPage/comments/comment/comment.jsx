@@ -1,4 +1,3 @@
-import { Button } from "antd";
 import React from "react";
 import { connect } from "react-redux";
 import { deleteCommentAction } from "../../../../store/reducers/addComment.reducer";
@@ -11,13 +10,11 @@ const Comment = (props) => {
             <div className='commentText__Comments'>
                 {props.text}
             </div>
-            <Button 
-                danger={true}
-                type="primary" 
+            <button 
                 className='DelButton__Comment' 
                 onClick={() => props.deleteComment(props.uid, props.index)}>
                 X
-            </Button>
+            </button>
         </div>
     )
 }
