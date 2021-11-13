@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import './DetailsPage.scss'
 import { connect } from 'react-redux'
-import Comments from './comments/comments'
 import EditProductWindow from './EditProductWindow/EditProductWindow'
 import { Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
 import { useParams, useHistory } from 'react-router-dom'
 import LargePhotoModal from './LargePhoto/LargePhotoModal'
-import { addCommentAction, updateCommentAction } from '../../store/reducers/addComment.reducer'
+import { addCommentAction, deleteCommentAction, updateCommentAction } from '../../store/reducers/addComment.reducer'
+import CustomComment from '../components/CustomComment'
 
 
 const DetailsPage = (props) => {
@@ -25,6 +25,18 @@ const DetailsPage = (props) => {
     let AddNewComment = () => {
         props.AddComment(params.id)
     }
+    const commentElement = props.commentsNew.map((item, index) => 
+        <CustomComment
+            commentBlockClassName="comment__Comments"
+            textBlockClassName="commentText__Comments"
+            text={item.text} 
+            deleteButtonClassName="DelButton__Comment"
+            deleteComment={props.deleteComment}  
+            uid={props.uid}  
+            index={index} 
+            key={`comment-${index}`} 
+        />
+    )
 
     return (
         <div className="details-page">
@@ -75,7 +87,10 @@ const DetailsPage = (props) => {
                     </div>
                 </div>
             </div>
-            <Comments name={props.productData.name} />
+            <div className='commentsWrapper__DetailPageWrapper'>
+                Comments to {props.productData.name}:
+                {commentElement}
+            </div>
             <div className='addComment__DetailPageWrapper'>
                 <textarea
                     className='enterComment__DetailPageWrapper'
@@ -110,9 +125,11 @@ const DetailsPage = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
+    const uidOfProduct = ownProps.match.params.id
     const allProducts = state.newProduct.productsData
     const data = (allProducts.find(item => item.id === ownProps.match.params.id) || {})
     return {
+        commentsNew: state.comments.commentsNew[uidOfProduct] || [],
         productData: data,
         uid: ownProps.match.params.id,
         isValidEdit: state.editProduct.isValidEdit,
@@ -122,7 +139,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     editProduct: editProductAction,
     updateComment: updateCommentAction,
-    AddComment: addCommentAction
+    AddComment: addCommentAction,
+    deleteComment: deleteCommentAction
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DetailsPage);
