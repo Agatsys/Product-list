@@ -25,16 +25,16 @@ const DetailsPage = (props) => {
     let AddNewComment = () => {
         props.AddComment(params.id)
     }
-    const commentElement = props.commentsNew.map((item, index) => 
+    const commentElement = props.commentsNew.map((item, index) =>
         <CustomComment
             commentBlockClassName="comment__Comments"
             textBlockClassName="commentText__Comments"
-            text={item.text} 
+            text={item.text}
             deleteButtonClassName="DelButton__Comment"
-            deleteComment={props.deleteComment}  
-            uid={props.uid}  
-            index={index} 
-            key={`comment-${index}`} 
+            deleteComment={props.deleteComment}
+            uid={props.uid}
+            index={index}
+            key={`comment-${index}`}
         />
     )
 
@@ -50,41 +50,31 @@ const DetailsPage = (props) => {
                     Edit product
                 </button>
             </div>
-            <div className="details-page__name">
-                {props.productData.name}
-            </div>
+            <div className="details-page__name">{props.productData.name}</div>
             <div className="details-page__photo-and-characteristics">
                 <div onClick={() => setlargePhotoModalActive(true)} className="details-page__photo">
                     <img src={props.productData.photo} alt="..." />
                 </div>
-                <div className="details-page__characteristics">
-                    <div className="details-page__description-char ">
-                        {props.productData.description}
-                    </div>
-                    <div className="details-page__char-block">
-                        <div className="details-page__char">
-                            <span>Color:</span> {props.productData.color}
-                        </div>
-                        <div className="details-page__char">
-                            <span>Length:</span> {props.productData.length}mm
-                        </div>
-                    </div>
-                    <div className="details-page__char-block">
-                        <div className="details-page__char">
-                            <span>Weight:</span> {props.productData.weight}g
-                        </div>
-                        <div className="details-page__char">
-                            <span>Width:</span> {props.productData.width}mm
-                        </div>
-                    </div>
-                    <div className="details-page__char-block">
-                        <div className="details-page__char">
-                            <span>Count:</span> {props.productData.count}
-                        </div>
-                        <div className="details-page__char">
-                            <span>Height:</span> {props.productData.height}mm
-                        </div>
-                    </div>
+                <div className="details-page__char-description">
+                    {props.productData.description}
+                </div>
+                <div className="details-page__char-color">
+                    <span>Color:</span> {props.productData.color}
+                </div>
+                <div className="details-page__char-length">
+                    <span>Length:</span> {props.productData.length}mm
+                </div>
+                <div className="details-page__char-weight">
+                    <span>Weight:</span> {props.productData.weight}g
+                </div>
+                <div className="details-page__char-width">
+                    <span>Width:</span> {props.productData.width}mm
+                </div>
+                <div className="details-page__char-count">
+                    <span>Count:</span> {props.productData.count}
+                </div>
+                <div className="details-page__char-height">
+                    <span>Height:</span> {props.productData.height}mm
                 </div>
             </div>
             <div className='commentsWrapper__DetailPageWrapper'>

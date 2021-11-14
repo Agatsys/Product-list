@@ -97,7 +97,7 @@ const AddNewProductWindow = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-    newColor: state.newProduct.newColor,
+    newColor: state.newProduct.newColor, 
     newCount: state.newProduct.newCount,
     newDescription: state.newProduct.newDescription,
     newHeight: state.newProduct.newHeight,

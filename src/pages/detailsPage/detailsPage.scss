@@ -69,13 +69,23 @@
         @include adaptive-value("font-size", 40, 20, 1600);
         font-weight: bold;
     }
+
+    //_________________
+
     .details-page__photo-and-characteristics {
-        display: flex;
-        gap: 3px;
+        display: grid;
+        grid-template: 4fr 1fr 1fr 1fr / 1fr 1fr 1fr;
+        grid-template-areas: 
+        "ph des des"
+        "ph clr lng"
+        "ph wgt wih"
+        "ph cnt hgt";
+        background-color: rgb(221, 220, 217);
         @media(max-width: 768px) {
-            flex-wrap: wrap;
+            //flex-wrap: wrap;
         }
         .details-page__photo {
+            grid-area: ph;
             @include adaptive-value("height", 395, 133, 1600);
             @include adaptive-value("width", 674, 226, 1600);
             background-color: rgb(86, 104, 133);
@@ -96,49 +106,65 @@
                 @include adaptive-value("width", 740, 226, 768);
             }
         }
-        .details-page__characteristics {
-            gap: 5px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            span { font-weight: bold; }
-            cursor: default;
-            @media(max-width: 450px) {
-                gap: 2px;
-            }
-            .details-page__char-block {
-                gap: 5px;
-                display: flex;
-                @media(max-width: 450px) {
-                    gap: 2px;
-                }
-            }
-            .details-page__description-char {
-                display: flex;
-                border: 1px solid rgb(155, 156, 155);
-                background-color: rgb(236, 232, 232);
-                justify-content: flex-start;
-                align-items: flex-start;
-                @include adaptive-value("font-size", 26, 10, 1600);
-                padding: 6px;
-                flex-grow: 1;
-            }
-            .details-page__char {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                @include adaptive-value("height", 50, 25, 1600);
-                @include adaptive-value("font-size", 26, 10, 1600);
-                @include adaptive-value("padding", 10, 3, 1600);
-                flex-basis: 100%;
-                border: 1px solid rgb(155, 156, 155);
-                background-color: rgb(236, 232, 232);
-                transition: background-color 0.5s;
-                &:hover {
-                    background-color: rgb(214, 225, 239);
-                }
-            }
+        .details-page__char-description {
+            grid-area: des;
         }
+        .details-page__char-color {
+            grid-area: clr;
+        }
+        .details-page__char-length {
+            grid-area: lng;
+        }
+        .details-page__char-weight {
+            grid-area: wgt;
+        }
+        .details-page__char-width {
+            grid-area: wih;
+        }
+        .details-page__char-count {
+            grid-area: cnt;
+        }
+        .details-page__char-height {
+            grid-area: hgt;
+        }
+
+
+        // .details-page__characteristics {
+        //     gap: 5px;
+        //     display: flex;
+        //     flex-direction: column;
+        //     flex-grow: 1;
+        //     span { font-weight: bold; }
+        //     cursor: default;
+        //     @media(max-width: 450px) {
+        //         gap: 2px;
+        //     }
+        //     .details-page__description-char {
+        //         display: flex;
+        //         border: 1px solid rgb(155, 156, 155);
+        //         background-color: rgb(236, 232, 232);
+        //         justify-content: flex-start;
+        //         align-items: flex-start;
+        //         @include adaptive-value("font-size", 26, 10, 1600);
+        //         padding: 6px;
+        //         flex-grow: 1;
+        //     }
+        //     .details-page__char {
+        
+        //         justify-content: flex-start;
+        //         align-items: center;
+        //         @include adaptive-value("height", 50, 25, 1600);
+        //         @include adaptive-value("font-size", 26, 10, 1600);
+        //         @include adaptive-value("padding", 10, 3, 1600);
+        
+        //         border: 1px solid rgb(155, 156, 155);
+        //         background-color: rgb(236, 232, 232);
+        //         transition: background-color 0.5s;
+        //         &:hover {
+        //             background-color: rgb(214, 225, 239);
+        //         }
+        //     }
+        // }
     }
 }
 .comment__Comments {

@@ -86,13 +86,13 @@ const MainPage = (props) => {
     )
 }
 
-let mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     productsData: state.newProduct.productsData,
     isValid: state.newProduct.isValid,
     didTryToProcess: state.newProduct.didTryToProcess,
     errors: state.newProduct.errors
 })
-let mapDispatchToProps = {
+const mapDispatchToProps = {
     AddProduct: addProductAction
 }
 
