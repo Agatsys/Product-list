@@ -74,14 +74,15 @@ const MainPage = (props) => {
                         description={p.description}
                         photo={p.photo}
                         id={p.id}
-                        key={p.id}
-                    />
+                        key={p.id}>
+                    </Product>
                 ))}
             </div>
             <AddNewProductWindow
                 modalActive={addNewProductModal}
                 setModalActive={setAddNewProductModalActive}
-                AddNewProduct={AddNewProduct} />
+                AddNewProduct={AddNewProduct}>
+            </AddNewProductWindow>
         </div>
     )
 }

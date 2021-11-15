@@ -27,15 +27,15 @@ const DetailsPage = (props) => {
     }
     const commentElement = props.commentsNew.map((item, index) =>
         <CustomComment
-            commentBlockClassName="comment__Comments"
-            textBlockClassName="commentText__Comments"
+            commentBlockClassName="details-page__comment"
+            textBlockClassName="comment__text-of-comment"
             text={item.text}
-            deleteButtonClassName="DelButton__Comment"
+            deleteButtonClassName="comment__del-button"
             deleteComment={props.deleteComment}
             uid={props.uid}
             index={index}
-            key={`comment-${index}`}
-        />
+            key={`comment-${index}`}>
+        </CustomComment>
     )
 
     return (
@@ -55,44 +55,46 @@ const DetailsPage = (props) => {
                 <div onClick={() => setlargePhotoModalActive(true)} className="details-page__photo">
                     <img src={props.productData.photo} alt="..." />
                 </div>
-                <div className="details-page__char-description">
+                <div className="details-page__char-description char">
                     {props.productData.description}
                 </div>
-                <div className="details-page__char-color">
+                <div className="details-page__char-color char">
                     <span>Color:</span> {props.productData.color}
                 </div>
-                <div className="details-page__char-length">
+                <div className="details-page__char-length char">
                     <span>Length:</span> {props.productData.length}mm
                 </div>
-                <div className="details-page__char-weight">
+                <div className="details-page__char-weight char">
                     <span>Weight:</span> {props.productData.weight}g
                 </div>
-                <div className="details-page__char-width">
+                <div className="details-page__char-width char">
                     <span>Width:</span> {props.productData.width}mm
                 </div>
-                <div className="details-page__char-count">
+                <div className="details-page__char-count char">
                     <span>Count:</span> {props.productData.count}
                 </div>
-                <div className="details-page__char-height">
+                <div className="details-page__char-height char">
                     <span>Height:</span> {props.productData.height}mm
                 </div>
             </div>
-            <div className='commentsWrapper__DetailPageWrapper'>
-                Comments to {props.productData.name}:
-                {commentElement}
-            </div>
-            <div className='addComment__DetailPageWrapper'>
-                <textarea
-                    className='enterComment__DetailPageWrapper'
-                    placeholder="Write your comment..."
-                    onChange={(event) => props.updateComment(event.currentTarget.value)}
-                    value={props.newText}
-                />
-                <button
-                    className='addCommentButton__DetailPageWrapper'
-                    onClick={AddNewComment}>
-                    Add comment
-                </button>
+            <div className="details-page__comments-wrapper">
+                <div className="comments-wrapper__comments-block">
+                    Comments to {props.productData.name}:
+                    {commentElement}
+                </div>
+                <div className="comments-wrapper__add-comment-block">
+                    <textarea
+                        className="add-comment-block__textarea"
+                        placeholder="Write your comment..."
+                        onChange={(event) => props.updateComment(event.currentTarget.value)}
+                        value={props.newText}>
+                    </textarea>
+                    <button
+                        className="add-comment-block__add-comment-button"
+                        onClick={AddNewComment}>
+                        Add comment
+                    </button>
+                </div>
             </div>
             <Modal
                 title="Edit product"
@@ -109,7 +111,8 @@ const DetailsPage = (props) => {
             <LargePhotoModal
                 modalActive={largePhotoModal}
                 setModalActive={setlargePhotoModalActive}
-                photo={props.productData.photo} />
+                photo={props.productData.photo}>
+            </LargePhotoModal>
         </div>
     )
 }
