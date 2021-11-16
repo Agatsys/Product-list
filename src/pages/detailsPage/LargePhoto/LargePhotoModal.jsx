@@ -8,8 +8,8 @@ const LargePhotoModal = ({
     photo 
 }) => {
     return (
-        <div className={modalActive ? "large-photo__mask large-photo__active" : "large-photo__mask"} onClick={() => setModalActive(false)}>
-            <div className="large-photo__content" onClick={e => e.stopPropagation()}>
+        <div className={modalActive ? "large_photo_modal__mask large_photo_modal__active" : "large_photo_modal__mask"} onClick={() => setModalActive(false)}>
+            <div className="large_photo_modal__content" onClick={e => e.stopPropagation()}>
                 <img src={photo} alt="..." />
             </div>
         </div>
@@ -17,5 +17,3 @@ const LargePhotoModal = ({
 }
 
 export default LargePhotoModal;
-
-//

@@ -1,11 +1,11 @@
 @import '../../../media/styles/adaptive-value';
 
 
-.add-new-product-window__mask.add-new-product-window__active {
+.add_new_product_modal_mask.add_new_product_modal_active {
     opacity: 1;
     pointer-events: all;
 }
-.add-new-product-window__mask {
+.add_new_product_modal_mask {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,8 @@
     pointer-events: none;
     opacity: 0;
     backdrop-filter: blur(17px);
-    .add-new-product-window {
+
+    .add_new_product_modal {
         position: relative;
         z-index: 5;
         top: 0px;
@@ -32,28 +33,28 @@
         flex-direction: column;
         @include adaptive-value("gap", 10, 4, 1600);
         background-color: rgb(255, 255, 255);
-        .add-new-product-window__title {
+        & label {
             @include adaptive-value("font-size", 20, 10, 1600);
             margin: 10px 0 16px 10px;
             font-weight: bold;
         }
-        .add-new-product-window__input {
+        &__input {
             @include adaptive-value("margin-left", 10, 5, 1600);
             @include adaptive-value("margin-right", 10, 5, 1600);
             display: flex;
             justify-content: space-between;
-            .add-new-product-window__label {
+            & label {
                 @include adaptive-value("font-size", 15, 9, 1600);
                 @include adaptive-value("margin-top", 7, 3, 1600);  
                 @include adaptive-value("width", 130, 80, 1600);  
                 font-weight: bolder;
             }
-            .add-new-product-window__small-input {
+            &__small_input {
                 @include adaptive-value("height", 30, 15, 1600);
                 border: 1px solid black;
                 width: 100%;
             }
-            .add-new-product-window___large-input {
+            &__large_input {
                 @include adaptive-value("height", 150, 44, 1600);
                 border: 1px solid black;
                 width: 100%;

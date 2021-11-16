@@ -3,7 +3,7 @@ import { SwapOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import './MainPage.scss'
 import { connect } from 'react-redux'
 import { message } from 'antd'
-import AddNewProductWindow from './AddNewProductWindow/AddNewProductWindow'
+import AddNewProductModal from './AddNewProductModal/AddNewProductModal'
 import Product from './Product/Product'
 import { addProductAction } from '../../store/reducers/product.reducer'
 
@@ -48,25 +48,25 @@ const MainPage = (props) => {
     }
 
     return (
-        <div className="main-page">
-            <div className="main-page__header">
-                <button className="main-page__add-new-product-button"
+        <div className="main_page">
+            <div className="main_page__header">
+                <button className="main_page__add_new_product_btn"
                     onClick={() => setAddNewProductModalActive(true)}>
-                    <div className="add-new-product-button__title">New product</div>
-                    <PlusCircleOutlined className="add-new-product-button__icon" />
+                    <label>New product</label>
+                    <PlusCircleOutlined className="main_page__add_new_product_btn__icon" />
                 </button>
-                <div className="main-page__sort">
-                    <div className="sort__title">Sort</div>
-                    <SwapOutlined className="sort__icon" />
-                    <ul className="sort__list">
-                        <li className="list__li" onClick={() => setSortBy("A to Z")}>A to Z</li>
-                        <li className="list__li" onClick={() => setSortBy("Z to A")}>Z to A</li>
-                        <li className="list__li" onClick={() => setSortBy("Less to More")}>Less to More</li>
-                        <li className="list__li" onClick={() => setSortBy("More to Less")}>More to Less</li>
+                <div className="main_page__sort">
+                    <label>Sort</label>
+                    <SwapOutlined className="main_page__sort__icon" />
+                    <ul>
+                        <li onClick={() => setSortBy("A to Z")}>A to Z</li>
+                        <li onClick={() => setSortBy("Z to A")}>Z to A</li>
+                        <li onClick={() => setSortBy("Less to More")}>Less to More</li>
+                        <li onClick={() => setSortBy("More to Less")}>More to Less</li>
                     </ul>
                 </div>
             </div>
-            <div className="main-page__products-wrapper">
+            <div className="main_page__products_wrapper">
                 {props.productsData.sort(sortRules).map(p => (
                     <Product
                         name={p.name}
@@ -78,11 +78,11 @@ const MainPage = (props) => {
                     </Product>
                 ))}
             </div>
-            <AddNewProductWindow
+            <AddNewProductModal
                 modalActive={addNewProductModal}
                 setModalActive={setAddNewProductModalActive}
                 AddNewProduct={AddNewProduct}>
-            </AddNewProductWindow>
+            </AddNewProductModal>
         </div>
     )
 }

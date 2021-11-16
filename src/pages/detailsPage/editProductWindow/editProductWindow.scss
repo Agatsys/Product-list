@@ -1,22 +1,23 @@
-.edit-product-window {
+.edit_product_modal {
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
     font-family: Quicksand;
-    .edit-product-window__input {
+    
+    .edit_product_modal_input {
         display: flex;
         justify-content: space-between;
-        .edit-product-window__label {
+        & label {
             font-weight: bolder;
             padding-top: 8px;
             width: 120px;
         }
-        .edit-product-window__small-input {
+        &__small_input {
             border: 1px solid black;
             margin: 5px 0px 5px 0px;
             flex-grow: 1;
         }
-        .edit-product-window___large-input {
+        &__large_input {
             display: block;
             border: 1px solid black;
             margin: 5px 0px 5px 0px;

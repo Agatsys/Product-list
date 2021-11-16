@@ -5,7 +5,7 @@ import CustomInput from "../../components/CustomInput";
 import './EditProductWindow.scss'
 
 
-const EditProductWindow = (props) => {
+const EditProductModal = (props) => {
     useEffect(() => {
         props.loadProductData(props.uid)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -13,69 +13,60 @@ const EditProductWindow = (props) => {
     
     return (
         <div>
-            <div className='edit-product-window'>
+            <div className='edit_product_modal'>
                 <CustomInput 
                     label="Name"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editName}
                     value={props.name} />
                 <CustomInput 
                     label="Description"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window___large-input"
-                    labelClassName="edit-product-window__label"
-                    textarea={true} 
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__large_input"
                     onChange={props.editDescription}
-                    value={props.description} />
+                    value={props.description} 
+                    textarea={true} />
                 <CustomInput
                     label="Color"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editColor}
                     value={props.color} />
                 <CustomInput
                     label="Weight (g)"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editWeight}
                     value={props.weight} />
                 <CustomInput
                     label="Length (mm)"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editLength}
                     value={props.length} />
                 <CustomInput
                     label="Height (mm)"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editHeight}
                     value={props.height} />
                 <CustomInput
                     label="Width (mm)"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editWidth}
                     value={props.width} />
                 <CustomInput
                     label="Count"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editCount}
                     value={props.count} />
                 <CustomInput 
                     label="Photo (url)"
-                    inputBlockClassName="edit-product-window__input"
-                    inputClassName="edit-product-window__small-input"
-                    labelClassName="edit-product-window__label"
+                    inputBlockClassName="edit_product_modal_input"
+                    inputClassName="edit_product_modal_input__small_input"
                     onChange={props.editPhoto}
                     value={props.photo} />
             </div> 
@@ -117,4 +108,4 @@ const mapDispatchToProps = {
     editWidth: editWidthAction,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditProductWindow) 
+export default connect(mapStateToProps, mapDispatchToProps)(EditProductModal) 

@@ -1,11 +1,11 @@
 @import '../../../media/styles/adaptive-value';
 
 
-.large-photo__mask.large-photo__active {
+.large_photo_modal__mask.large_photo_modal__active {
     opacity: 1;
     pointer-events: all;
 }
-.large-photo__mask {
+.large_photo_modal__mask {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +20,7 @@
     pointer-events: none;
     opacity: 0;
     backdrop-filter: blur(7px);
-    .large-photo__content img {
+    .large_photo_modal__content img {
         border: 3px solid bisque;
         @include adaptive-value("max-height", 700, 260, 1600);
         @include adaptive-value("max-width", 1200, 210, 1600);

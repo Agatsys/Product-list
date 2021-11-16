@@ -6,13 +6,12 @@ const CustomInput = ({
     value,
     inputBlockClassName,
     inputClassName,
-    labelClassName,
     onChange,
     textarea
 }) => {
     return (
         <div className={inputBlockClassName}>
-            <div className={labelClassName}>{label}</div>
+            <label>{label}</label>
             {!textarea &&
                 <input
                     className={inputClassName}
