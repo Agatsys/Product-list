@@ -120,7 +120,7 @@ const DetailsPage = (props) => {
 const mapStateToProps = (state, ownProps) => {
     const uidOfProduct = ownProps.match.params.id
     const allProducts = state.newProduct.productsData
-    const data = (allProducts.find(item => item.id === ownProps.match.params.id) || {})
+    const data = (allProducts.find(item => item.id === uidOfProduct) || {})
     return {
         commentsNew: state.comments.commentsNew[uidOfProduct] || [],
         productData: data,

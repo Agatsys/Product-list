@@ -53,6 +53,7 @@ const Product = (props) => {
     </>
 }
 
+
 const mapDispatchToProps = {
     deleteProduct: deleteProductAction,
 }
