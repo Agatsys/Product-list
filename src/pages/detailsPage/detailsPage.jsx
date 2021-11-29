@@ -6,7 +6,7 @@ import { Modal } from 'antd'
 import { editProductAction } from '../../store/reducers/editProduct.reducer'
 import { useParams, useHistory } from 'react-router-dom'
 import LargePhotoModal from './LargePhoto/LargePhotoModal'
-import { addCommentAction, deleteCommentAction, updateCommentAction } from '../../store/reducers/addComment.reducer'
+import { addCommentAction, deleteCommentAction, updateCommentAction } from '../../store/reducers/comments.reducer'
 import CustomComment from '../components/CustomComment'
 
 

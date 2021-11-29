@@ -5,27 +5,26 @@ import { connect } from 'react-redux'
 import { message } from 'antd'
 import AddNewProductModal from './AddNewProductModal/AddNewProductModal'
 import Product from './Product/Product'
-import { addProductAction } from '../../store/reducers/product.reducer'
+import { addProductAction, setSortBy } from '../../store/reducers/product.reducer'
 
 
 const MainPage = (props) => {
     const [addNewProductModal, setAddNewProductModalActive] = useState(false)
-    const [sortBy, setSortBy] = useState('A to Z')
 
     const sortRules = (a, b) => {
-        if (sortBy === 'A to Z') {
+        if (props.sortBy === 'A to Z') {
             if (a.name > b.name) return 1
             if (a.name < b.name) return -1
             return 0
-        } else if (sortBy === 'Z to A') {
+        } else if (props.sortBy === 'Z to A') {
             if (a.name < b.name) return 1
             if (a.name > b.name) return -1
             return 0
-        } else if (sortBy === 'Less to More') {
+        } else if (props.sortBy === 'Less to More') {
             if (parseInt(a.count) > parseInt(b.count)) return 1
             if (parseInt(a.count) < parseInt(b.count)) return -1
             return 0
-        } else if (sortBy === 'More to Less') {
+        } else if (props.sortBy === 'More to Less') {
             if (parseInt(a.count) < parseInt(b.count)) return 1
             if (parseInt(a.count) > parseInt(b.count)) return -1
             return 0
@@ -59,10 +58,10 @@ const MainPage = (props) => {
                     <label>Sort</label>
                     <SwapOutlined className="main_page__sort__icon" />
                     <ul>
-                        <li onClick={() => setSortBy("A to Z")}>A to Z</li>
-                        <li onClick={() => setSortBy("Z to A")}>Z to A</li>
-                        <li onClick={() => setSortBy("Less to More")}>Less to More</li>
-                        <li onClick={() => setSortBy("More to Less")}>More to Less</li>
+                        <li onClick={() => props.setSortBy("A to Z")}>A to Z</li>
+                        <li onClick={() => props.setSortBy("Z to A")}>Z to A</li>
+                        <li onClick={() => props.setSortBy("Less to More")}>Less to More</li>
+                        <li onClick={() => props.setSortBy("More to Less")}>More to Less</li>
                     </ul>
                 </div>
             </div>
@@ -91,10 +90,12 @@ const mapStateToProps = (state) => ({
     productsData: state.newProduct.productsData,
     isValid: state.newProduct.isValid,
     didTryToProcess: state.newProduct.didTryToProcess,
-    errors: state.newProduct.errors
+    errors: state.newProduct.errors,
+    sortBy: state.newProduct.sortBy
 })
 const mapDispatchToProps = {
-    AddProduct: addProductAction
+    AddProduct: addProductAction,
+    setSortBy: setSortBy
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

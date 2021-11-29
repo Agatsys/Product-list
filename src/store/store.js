@@ -1,7 +1,7 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import newProductReducer from "./reducers/product.reducer";
 import editProductReducer from './reducers/editProduct.reducer'
-import commentsReducer from "./reducers/addComment.reducer";
+import commentsReducer from "./reducers/comments.reducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist'

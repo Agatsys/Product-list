@@ -17,6 +17,8 @@ const CHANGE_WIDTH = 'CHANGE-WIDTH'
 const CHANGE_COUNT = 'CHANGE-COUNT'
 const CHANGE_PHOTO = 'CHANGE-PHOTO'
 const CLEAR_ALL_TEXT_FIELDS = 'CLEAR_ALL_TEXT_FIELDS'
+const CHANGE_SORT_RULES = 'CHANGE_SORT_RULES'
+
 
 const validateAction = () => (dispatch, getState) => {
     const state = getState().newProduct
@@ -83,6 +85,10 @@ export const updatePhotoAction = (text) => (dispatch) => {
 }
 export const clearAllTextFieldsAction = () => ({ type: CLEAR_ALL_TEXT_FIELDS })
 
+export const setSortBy = (text) => (dispatch)=> {
+    dispatch({ type: CHANGE_SORT_RULES, payload: text})
+}
+
 export let initialState = {
     productsData: [],
 
@@ -98,7 +104,8 @@ export let initialState = {
 
     didTryToProcess: false,
     isValid: true,
-    errors: []
+    errors: [],
+    sortBy: "A to Z"
 }
 
 const newProductReducer = (state = initialState, action) => {
@@ -161,6 +168,12 @@ const newProductReducer = (state = initialState, action) => {
             return {
                 ...state,
                 didTryToProcess: true
+            }
+        }
+        case CHANGE_SORT_RULES: {
+            return {
+                ...state,
+                sortBy: action.payload
             }
         }
         case VALIDATE_PRODUCT_CREATION: {
